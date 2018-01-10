@@ -37,8 +37,8 @@ public enum ExperimentEvents
 
 public enum ExperimentType
 {
-    ImplicitOwnership,          // Trial to test GSR to a threat to the virtual hand
-    ImplicitAgency,             // Trial to test sensorymotor adaptation
+    ImplicitOwnershipTest,          // Trial to test GSR to a threat to the virtual hand
+    ImplicitAgencyTest,             // Trial to test sensorymotor adaptation
 }
 
 
@@ -177,6 +177,8 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
                 break;
 
             case ExperimentStates.Start:
+                WriteLog("Experiment has started");
+
                 string[] dir = Directory.GetDirectories("Results");
 
                 trialCounter = 0;
@@ -184,7 +186,7 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
                 for (int i = 0; i < dir.Length; i++)
                 {
                     Debug.Log("subject code is " + subjectCode.subjectCode);
-                    outputDirectory = "Results/ElementsAgency/" + subjectCode.subjectCode;
+                    outputDirectory = "Results/" + expInfo.experimentName.ToString() + "/" + subjectCode.subjectCode;
                     if (!Directory.Exists(outputDirectory))
                     {
                         Directory.CreateDirectory(outputDirectory);
@@ -202,16 +204,11 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
                 WriteLog("Participant: " + subjectCode.subjectCode);
 
                 if (!handSwitcher.useMale)
-                {
                     WriteLog("Hand model is female");
-                }
                 else if (handSwitcher.useMale)
-                {
                     WriteLog("Hand model is male");
-                }
 
                 string[] dirProtocol = Directory.GetFiles("Protocol/" + expInfo.experimentName.ToString() + "/");
-
                 randomProtocol = UnityEngine.Random.Range(0, dirProtocol.Length);
                 protocolFile = dirProtocol[randomProtocol];
 
@@ -415,12 +412,12 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
 
         switch (experimentType)
         {
-            case ExperimentType.ImplicitAgency:
-                trialController.experimentType = ExperimentType.ImplicitAgency;
+            case ExperimentType.ImplicitAgencyTest:
+                trialController.experimentType = ExperimentType.ImplicitAgencyTest;
                 break;
 
-            case ExperimentType.ImplicitOwnership:
-                trialController.experimentType = ExperimentType.ImplicitOwnership;
+            case ExperimentType.ImplicitOwnershipTest:
+                trialController.experimentType = ExperimentType.ImplicitOwnershipTest;
                 break;
         }
             }

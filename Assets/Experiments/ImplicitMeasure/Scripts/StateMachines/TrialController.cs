@@ -168,12 +168,12 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
             case TrialStates.Task:
                 switch (experimentType)
                 {
-                    case ExperimentType.ImplicitAgency:
+                    case ExperimentType.ImplicitAgencyTest:
                         agencyTrialController.StartMachine();
                         WriteLog("Implicit Agency Trial State Machine Started");
                         break;
 
-                    case ExperimentType.ImplicitOwnership:
+                    case ExperimentType.ImplicitOwnershipTest:
                         ownershipTrialController.StartMachine();
                         WriteLog("Implicit Ownership Trial State Machine Started");
                         break;

@@ -28,7 +28,6 @@ public class getGender : MonoBehaviour {
     public void getCode(string subjectName)
     {
         subjectCode = subjectName;
-        Debug.Log("Subject Code " + subjectCode);
     }
 
     public void isMale(bool male) {
@@ -54,20 +53,19 @@ public class getGender : MonoBehaviour {
     }
 
     public void getExperimentNumber(int expNum) {
-        Debug.Log("int passed: " + expNum);
         if (expNum == 1)
         {
-            experimentController.experimentType = ExperimentType.ImplicitOwnership;
-            Debug.Log("Testing implicit measure for sense of ownership");
+            experimentController.experimentType = ExperimentType.ImplicitOwnershipTest;
+            experimentName = "Implicit Ownership Test";
         }
         else if (expNum == 2) {
-            experimentController.experimentType = ExperimentType.ImplicitAgency;
-            Debug.Log("Testing implicit measure for sense of agency");
+            experimentController.experimentType = ExperimentType.ImplicitAgencyTest;
+            experimentName = "Implicit Agency Test";
         }
+        Debug.Log(experimentName + " selected");
     }
 
     public void startExperiment() {
         experimentController.ChangeState(ExperimentStates.Start);
-        Debug.Log("Experiment has started");
     }
 }

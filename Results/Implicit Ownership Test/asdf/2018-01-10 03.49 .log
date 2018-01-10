@@ -1,0 +1,16 @@
+2018-01-10T15:49:23.9299160Z	Logger	Started logging
+2018-01-10T15:49:23.9429479Z	ExperimentController	Participant: asdf
+2018-01-10T15:49:23.9554673Z	ExperimentController	Hand model is female
+2018-01-10T15:49:23.9805038Z	ExperimentController	Protocol file Protocol/Implicit Ownership Test/Protocol01.txt
+2018-01-10T15:49:23.9945251Z	ExperimentController	Loaded 6 trials
+2018-01-10T15:49:24.0080364Z	ExperimentController	Event ProtocolLoaded
+2018-01-10T15:49:24.0210681Z	ExperimentController	Entering state Trial
+2018-01-10T15:49:24.0355903Z	ExperimentController	Starting trial
+2018-01-10T15:49:24.0521158Z	ExperimentController	Gap: Inactive
+2018-01-10T15:49:24.0760882Z	ExperimentController	HandOffset: 0
+2018-01-10T15:49:24.0916122Z	ExperimentController	Noise type 0
+2018-01-10T15:49:24.1071612Z	ExperimentController	NoiseLevel: 0
+2018-01-10T15:49:24.1226599Z	ExperimentController	Lambda: 0
+2018-01-10T15:49:24.1396861Z	ExperimentController	Collision probability: 1
+2018-01-10T15:49:24.1567242Z	ExperimentController	Knife PresentFalse
+2018-01-10T15:49:24.1767727Z	ExperimentController	Right hand still False
