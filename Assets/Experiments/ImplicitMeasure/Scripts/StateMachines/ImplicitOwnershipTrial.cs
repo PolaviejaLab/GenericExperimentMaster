@@ -7,7 +7,7 @@ using System.Collections;
  */
 public enum OwnershipTrialEvents
 {
-    WavingFinished,
+    TaskFinished,
     ThreatDone,
 };
 
@@ -19,9 +19,8 @@ public enum OwnershipTrialStates
 {
     Idle,                       // Get used to the environment
     ExperimentWave,             // Reaching-like task
-    Delay,                      // In between measures and task
     Threat,                     // Threat
-    TrialFinished,              // End of the trial
+    End,                         // End of the trial
 };
 
 
@@ -29,7 +28,7 @@ public enum OwnershipTrialStates
 public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, OwnershipTrialEvents> {
 
     // Reference to the experiment controller
-    public ExperimentController experimentController;
+    public TrialController trialController;
     public WaveController waveController;
     public Threat threatController;
 
@@ -42,10 +41,6 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
     public GameObject table;
 
     // Parameters of the current trial
-    public int hand;
-    public float offset;
-    public float noiseLevel;
-    public float lNoise;
     public Vector3 knifeOffset;
 
     // wave recording variables
@@ -63,17 +58,8 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
     protected override void OnStart()
     {
         // Set trial parameters
-        offsetSwitcher.initialOffset = offset;
-        handSwitcher.selected = hand;
-        handSwitcher.noiseLevelLeft = noiseLevel;
-        handSwitcher.noiseLevelRight = noiseLevel;
-        handSwitcher.lambdaLeft = lNoise;
-        handSwitcher.lambdaRight = lNoise;
         threatController.threatOffset = knifeOffset;
-        threatController.handOffset = new Vector3(0, 0, offset);
-
-        testLights.SetActive(false);
-
+        threatController.handOffset = new Vector3(0, 0, trialController.offset);
     }
 
 
@@ -90,8 +76,8 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
                 break;
 
             case OwnershipTrialStates.ExperimentWave:
-                if (ev == OwnershipTrialEvents.WavingFinished)
-                    ChangeState(OwnershipTrialStates.TrialFinished);
+                if (ev == OwnershipTrialEvents.TaskFinished)
+                    ChangeState(OwnershipTrialStates.End);
                 break;
         }
     }
@@ -112,7 +98,7 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
             case OwnershipTrialStates.ExperimentWave:
                 break;
 
-            case OwnershipTrialStates.TrialFinished:
+            case OwnershipTrialStates.End:
                 break;
         }
     }
@@ -131,8 +117,8 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
                 waveController.StartMachine();
                 break;
 
-            case OwnershipTrialStates.TrialFinished:
-                experimentController.HandleEvent(ExperimentEvents.TrialFinished);
+            case OwnershipTrialStates.End:
+                trialController.HandleEvent(TrialEvents.TaskFinished);
                 this.StopMachine();
                 break;
         }
@@ -156,7 +142,7 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
                 waveController.StopMachine();
                 break;
 
-            case OwnershipTrialStates.TrialFinished:
+            case OwnershipTrialStates.End:
                 break;
         }
     }

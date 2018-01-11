@@ -1,0 +1,22 @@
+2018-01-10T16:28:32.9128605Z	Logger	Started logging
+2018-01-10T16:28:32.9263808Z	ExperimentController	Participant: not yet working
+2018-01-10T16:28:32.9389002Z	ExperimentController	Hand model is male
+2018-01-10T16:28:32.9639493Z	ExperimentController	Protocol file Protocol/Implicit Ownership Test/Protocol02.txt
+2018-01-10T16:28:32.9769562Z	ExperimentController	Loaded 6 trials
+2018-01-10T16:28:32.9899788Z	ExperimentController	Event ProtocolLoaded
+2018-01-10T16:28:33.0040012Z	ExperimentController	Entering state Trial
+2018-01-10T16:28:33.0185254Z	ExperimentController	Starting trial
+2018-01-10T16:28:33.0351497Z	ExperimentController	Gap: Inactive
+2018-01-10T16:28:33.0506617Z	ExperimentController	HandOffset: 0
+2018-01-10T16:28:33.0656971Z	ExperimentController	Noise type 0
+2018-01-10T16:28:33.0812182Z	ExperimentController	NoiseLevel: 0
+2018-01-10T16:28:33.0967451Z	ExperimentController	Lambda: 0
+2018-01-10T16:28:33.1117648Z	ExperimentController	Collision probability: 1
+2018-01-10T16:28:33.1267913Z	ExperimentController	Knife PresentFalse
+2018-01-10T16:28:33.1638358Z	TrialController	Started
+2018-01-10T16:28:34.8747382Z	TrialController	Entering state Task
+2018-01-10T16:28:34.8792450Z	ImplicitOwnershipTrial	Started
+2018-01-10T16:28:34.8827508Z	TrialController	Implicit Ownership Trial State Machine Started
+2018-01-10T16:28:36.3880111Z	ImplicitOwnershipTrial	Entering state ExperimentWave
+2018-01-10T16:28:36.3930177Z	WaveController	Threat wave is: 0
+2018-01-10T16:28:36.3965346Z	WaveController	Started

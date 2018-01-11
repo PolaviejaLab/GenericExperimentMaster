@@ -7,7 +7,7 @@ using System.Collections;
  */
 public enum AgencyTrialEvents
 {
-    WavingFinished,
+    TaskFinished,
     MeasureDone,
 };
 
@@ -17,35 +17,28 @@ public enum AgencyTrialEvents
  */
 public enum AgencyTrialStates
 {
-    Idle,                      // Get used to the environment
+    Idle,                       // Get used to the environment
     PreMeasure,                 // Implicit Measure (before task)
     ExperimentWave,             // Reaching-like task
-    Delay,                      // In between measures and task
+    Interval,                      // In between measures and task
     PostMeasure,                // Implicit measure (after task)
-    TrialFinished,              // End of the trial
+    End,                        // End of the trial
 };
 
 public class ImplicitAgencyTrial : ICStateMachine<AgencyTrialStates, AgencyTrialEvents>
 {
     // Reference to the experiment controller
-    public ExperimentController experimentController;
+    public TrialController trialController;
     public WaveController waveController;
     public ImplicitMeasure measureController;
 
     // Scripts to manipulate the hand and offset according to condition
     public HandSwitcher handSwitcher;
-    public OffsetSwitcher offsetSwitcher;
 
     public GameObject testLights;
     public GameObject room;
     public GameObject table;
     public GameObject measure;
-
-    // Parameters of the current trial
-    public int hand;
-    public float offset;
-    public float noiseLevel;
-    public float lNoise;
 
     // wave recording variables
     public int totWaves;
@@ -60,15 +53,6 @@ public class ImplicitAgencyTrial : ICStateMachine<AgencyTrialStates, AgencyTrial
 
     protected override void OnStart()
     {
-        // Set trial parameters
-        offsetSwitcher.initialOffset = offset;
-        handSwitcher.selected = hand;
-        handSwitcher.noiseLevelLeft = noiseLevel;
-        handSwitcher.noiseLevelRight = noiseLevel;
-        handSwitcher.lambdaLeft = lNoise;
-        handSwitcher.lambdaRight = lNoise;
-
-        testLights.SetActive(false);
 }
 
 
@@ -86,20 +70,20 @@ public class ImplicitAgencyTrial : ICStateMachine<AgencyTrialStates, AgencyTrial
 
             case AgencyTrialStates.PreMeasure:
                 if (ev == AgencyTrialEvents.MeasureDone)
-                    ChangeState(AgencyTrialStates.Delay);
+                    ChangeState(AgencyTrialStates.Interval);
                 break;
 
             case AgencyTrialStates.ExperimentWave:
-                if (ev == AgencyTrialEvents.WavingFinished)
+                if (ev == AgencyTrialEvents.TaskFinished)
                     ChangeState(AgencyTrialStates.PostMeasure);
                 break;
 
             case AgencyTrialStates.PostMeasure:
                 if (ev == AgencyTrialEvents.MeasureDone)
-                    ChangeState(AgencyTrialStates.TrialFinished);
+                    ChangeState(AgencyTrialStates.End);
                 break;
 
-            case AgencyTrialStates.TrialFinished:
+            case AgencyTrialStates.End:
                 break;
         }
     }
@@ -122,7 +106,7 @@ public class ImplicitAgencyTrial : ICStateMachine<AgencyTrialStates, AgencyTrial
                     measureController.StartMachine();
                 break;
 
-            case AgencyTrialStates.Delay:
+            case AgencyTrialStates.Interval:
                 if (GetTimeInState() > 2.0f)
                     testLights.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Q))
@@ -137,7 +121,7 @@ public class ImplicitAgencyTrial : ICStateMachine<AgencyTrialStates, AgencyTrial
                     measureController.StartMachine();
                 break;
 
-            case AgencyTrialStates.TrialFinished:
+            case AgencyTrialStates.End:
                 break;
         }
     }
@@ -164,8 +148,9 @@ public class ImplicitAgencyTrial : ICStateMachine<AgencyTrialStates, AgencyTrial
                 measure.SetActive(true);
                 break;
 
-            case AgencyTrialStates.TrialFinished:
-                experimentController.HandleEvent(ExperimentEvents.TrialFinished);
+            case AgencyTrialStates.End:
+                // experimentController.HandleEvent(ExperimentEvents.TrialFinished);
+                trialController.HandleEvent(TrialEvents.TaskFinished);
                 this.StopMachine();
                 break;
         }
@@ -196,7 +181,7 @@ public class ImplicitAgencyTrial : ICStateMachine<AgencyTrialStates, AgencyTrial
             case AgencyTrialStates.PostMeasure:
                 break;
 
-            case AgencyTrialStates.TrialFinished:
+            case AgencyTrialStates.End:
                 break;
         }
     }

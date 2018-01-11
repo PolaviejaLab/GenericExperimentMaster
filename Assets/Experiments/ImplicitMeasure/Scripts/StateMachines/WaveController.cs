@@ -12,7 +12,7 @@ public enum WaveEvents
     Wave_1 = 1,
     Wave_Initial,
     Delay,
-    ThreatDone,
+    // ThreatDone,
 };
 
 /**
@@ -20,12 +20,15 @@ public enum WaveEvents
 */
 public enum WaveStates
 {
+    Idle,
     Initial,
     Target,
     Waved,
     Feedback,
-    Threat,
-    EndWaving,
+    // Threat,
+    Interval,
+    Pause,                  // When the class needs to stop (without restarting) (i.e. with the threat)
+    End,
 };
 
 public enum LightResults
@@ -181,7 +184,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                     ChangeState(WaveStates.Initial);
                 break;
 
-            case WaveStates.EndWaving:
+            case WaveStates.End:
          //       if (ev == WaveEvents.Wave_Initial)
            //         trialController.HandleEvent(TrialEvents.WavingFinished);
                 break;
@@ -237,7 +240,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                     }
                     else {
                         if (GetTimeInState() > 0.5f)
-                            ChangeState(WaveStates.EndWaving);
+                            ChangeState(WaveStates.End);
                     }
                 }
                 break;
@@ -275,7 +278,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 }
                 break;
 
-            case WaveStates.EndWaving:
+            case WaveStates.End:
                 TurnOnInitial();
                 break;
         }
@@ -299,11 +302,11 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 WriteLog("Time to wave: " + timeInState);
                 break;
                 
-            case WaveStates.Threat:
-                threatController.StopMachine();
-                break;
+ //           case WaveStates.Threat:
+   //             threatController.StopMachine();
+     //           break;
 
-            case WaveStates.EndWaving:
+            case WaveStates.End:
                 TurnOffInitial();
                 break;
         }

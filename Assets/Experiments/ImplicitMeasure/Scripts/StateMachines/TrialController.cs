@@ -2,7 +2,7 @@
 using System.Collections;
 
 public enum TrialStates {
-    AccomodationTime,
+    Instructions,
     Task,
     Interval,
     DimLights,
@@ -70,22 +70,19 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
         handSwitcher.noiseLevelRight = noiseLevel;
         handSwitcher.lambdaLeft = lNoise;
         handSwitcher.lambdaRight = lNoise;
-
-
-        testLights.SetActive(false);
     }
 
 
     public void HandleEvent(TrialEvents ev)
     {
-        Debug.Log("Event " + ev.ToString());
+        WriteLog("Event " + ev.ToString());
 
         if (!IsStarted())
             return;
 
         switch (GetState())
         {
-            case TrialStates.AccomodationTime:
+            case TrialStates.Instructions:
                 break;
 
             case TrialStates.Task:
@@ -126,7 +123,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
 
         switch (GetState())
         {
-            case TrialStates.AccomodationTime:
+            case TrialStates.Instructions:
                 if (GetTimeInState() > 2.0f)
                     ChangeState(TrialStates.Task);
                 break;
@@ -161,8 +158,9 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
 
         switch (GetState())
         {
-            case TrialStates.AccomodationTime:
+            case TrialStates.Instructions:
                 handSwitcher.showRightHand = true;
+                testLights.SetActive(true);
                 break;
 
             case TrialStates.Task:
@@ -188,6 +186,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
 
             case TrialStates.Questionnaire:
                 handSwitcher.showRightHand = false;
+                testLights.SetActive(false);
                 break;
 
             case TrialStates.End:
@@ -202,7 +201,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     {
         switch (GetState())
         {
-            case TrialStates.AccomodationTime:
+            case TrialStates.Instructions:
                 handSwitcher.showLeftHand = false;
                 break;
 

@@ -10,8 +10,8 @@ public enum MeasureEvents
 
 public enum MeasureStates
 {
-    Instructions,
     Idle,
+    Instructions,
     WaitingToStart,
     Measuring, 
     Delay,

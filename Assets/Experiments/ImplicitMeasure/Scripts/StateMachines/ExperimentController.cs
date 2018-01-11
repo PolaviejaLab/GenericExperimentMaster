@@ -69,7 +69,7 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
     public getGender subjectCode;
     public getGender expInfo;
 
-    public TableLights tableLights;
+    public TableLights testLights;
 
     private ICTrialList trialList;
     public int randomProtocol;
@@ -407,8 +407,28 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
                 trialController.changeGender = true;            
             else if (trial["ChangeGender"].ToLower() == "false") 
                 trialController.changeGender = false;
-
         }
+
+
+        // This needs to change as it will be again using the specific trial things. 
+        // So maybe the trial type should be regulated by the trial machine and not the experiment state machine
+        //if (trial.ContainsKey("IgnoreUpdate"))
+        //{
+        //    if (trial["IgnoreUpdate"].ToLower() == "false")
+        //    {
+        //        trialController.initialState = TrialStates.AccomodationTime;
+        //        trialController.StartMachine();
+        //    }
+        //    else if (trial["IgnoreUpdate"].ToLower() == "true")
+        //    {
+        //        // inactiveTrialController.initialState = InactiveTrialStates.AccomodationTime;
+        //        // inactiveTrialController.StartMachine(); 
+        //    }
+        //    else {
+        //        throw new Exception("Invalid value for IgnoreUpdate");
+        //    }
+        //    WriteLog("Right hand still " + handSwitcher.ignoreUpdatesRight);
+        //}
 
         switch (experimentType)
         {
@@ -420,7 +440,7 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
                 trialController.experimentType = ExperimentType.ImplicitOwnershipTest;
                 break;
         }
-            }
+    }
 
 
     /**
@@ -440,27 +460,9 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
 
         handController.StartRecording(GetLEAPFilename(trialCounter));
 
-        // Turn table lights on
-        tableLights.isOn = true;
         handSwitcher.ignoreUpdatesRight = false;
 
-        if (trial.ContainsKey("IgnoreUpdate"))
-        {
-            if (trial["IgnoreUpdate"].ToLower() == "false")
-            {
-                trialController.initialState = TrialStates.AccomodationTime;
-                trialController.StartMachine();
-            }
-            else if (trial["IgnoreUpdate"].ToLower() == "true")
-            {
-                // inactiveTrialController.initialState = InactiveTrialStates.AccomodationTime;
-                // inactiveTrialController.StartMachine(); 
-            }
-            else {
-                throw new Exception("Invalid value for IgnoreUpdate");
-            }
-            WriteLog("Right hand still " + handSwitcher.ignoreUpdatesRight);
-        }
+        trialController.StartMachine();
     }
 
 
