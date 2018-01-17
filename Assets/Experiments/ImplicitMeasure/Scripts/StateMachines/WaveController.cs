@@ -39,8 +39,6 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
 {
     // Reference to other classes
     public TrialController trialController;
-    public Threat threatController;
-    public HandSwitcher handSwitcher;
 
     // Initial and subsequent lights
     public MaterialChanger initialLight;
@@ -64,7 +62,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
     public float randomProbability;
 
     // Questionnaire
-    public GameObject Questionnaire;
+    // public GameObject Questionnaire; // > this does nothing and now :P
     public float timeInState;
 
     // Define Time Outs
