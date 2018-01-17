@@ -43,15 +43,24 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     public float offset;
     public float noiseLevel;
     public float lNoise;
-    public Vector3 knifeOffset;
     public bool changeGender;
     public bool genderChanged;
+    public bool ignoreUpdate;
 
     // wave recording variables
+    public int wavesRequired;
     public int totWaves;
     public int correctWaves;
     public int incorrectWaves;
     public int lateWaves;
+
+    public float collisionProbability;
+
+    // Parameters of the current trial threat
+    public bool knifePresent;
+    public bool randomizeThreatWave;
+    public int threatWave;
+    public Vector3 knifeOffset;
 
     // var to determine trial type
     public ExperimentType experimentType;
@@ -70,6 +79,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
         handSwitcher.noiseLevelRight = noiseLevel;
         handSwitcher.lambdaLeft = lNoise;
         handSwitcher.lambdaRight = lNoise;
+
     }
 
 
@@ -190,7 +200,6 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                 break;
 
             case TrialStates.End:
-                experimentController.HandleEvent(ExperimentEvents.TrialFinished);
                 this.StopMachine();
                 break;
         }

@@ -171,10 +171,10 @@ public class ImplicitAgencyTrial : ICStateMachine<AgencyTrialStates, AgencyTrial
 
             case AgencyTrialStates.ExperimentWave:
                 testLights.SetActive(false);
-                totWaves = waveController.waveCounter;
-                correctWaves = waveController.correctWaves;
-                incorrectWaves = waveController.incorrectWaves;
-                lateWaves = waveController.lateWaves;
+                // totWaves = waveController.currentWave;
+                // correctWaves = waveController.correctWaves;
+                //incorrectWaves = waveController.incorrectWaves;
+               // lateWaves = waveController.lateWaves;
                 waveController.StopMachine();
                 break;
 

@@ -69,7 +69,7 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
     public getGender subjectCode;
     public getGender expInfo;
 
-    public TableLights testLights;
+    public TableLights tableLights;
 
     private ICTrialList trialList;
     public int randomProtocol;
@@ -269,12 +269,10 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
     private void PrepareTrial(Dictionary<string, string> trial, TrialController trialController)
     {
         // Determine which hand to use for given gapsize
-        if (trial["GapStatus"] == "Inactive")
-        {
+        if (trial["GapStatus"] == "Inactive") {
             trialController.hand = 0;
         }
-        else if (trial["GapStatus"] == "Active")
-        {
+        else if (trial["GapStatus"] == "Active") {
             trialController.hand = 1;
         }
         else {
@@ -283,15 +281,13 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
         }
         WriteLog("Gap: " + trial["GapStatus"]);
 
-        // Get offset
+        // Get Hand offset
         float offset;
-        try
-        {
+        try {
             float.TryParse(trial["HandOffset"], out offset);
             trialController.offset = offset / 100.0f;
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             throw new Exception("Could not parse HandOffset in ProtocolFile");
         }
 
@@ -300,7 +296,7 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
         // Determine the number of waves per each trial
         int wavesRequired;
         int.TryParse(trial["WavesRequired"], out wavesRequired);
-        waveController.wavesRequired = wavesRequired;
+        trialController.wavesRequired = wavesRequired;
 
         // Determine noise type
         if (trial.ContainsKey("NoiseType"))
@@ -338,27 +334,29 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
         {
             float collisionProbability;
             float.TryParse(trial["CollisionProbability"], out collisionProbability);
-            waveController.collisionProbability = collisionProbability;
+            trialController.collisionProbability = collisionProbability;
             WriteLog("Collision probability: " + collisionProbability);
         }
         else {
-            waveController.collisionProbability = 1.0f;
+            trialController.collisionProbability = 1.0f;
         }
+
+
 
         // Knife
         if (trial.ContainsKey("KnifePresent"))
         {
             if (trial["KnifePresent"].ToLower() == "true")
-                waveController.knifePresent = true;
+                trialController.knifePresent = true;
             else if (trial["KnifePresent"].ToLower() == "false")
-                waveController.knifePresent = false;
+                trialController.knifePresent = false;
             else
                 throw new Exception("Invalid value in trial list for field KnifePresent");
 
-            WriteLog("Knife Present" + waveController.knifePresent);
+            WriteLog("Knife Present" + trialController.knifePresent);
         }
         else {
-            waveController.knifePresent = false;
+            trialController.knifePresent = false;
         }
 
 
@@ -377,28 +375,16 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
             WriteLog("Knife Offset: " + knifeVector);
         }
 
-        // Knife
-        if (trial.ContainsKey("KnifeOnReal")) {
-            if (trial["KnifeOnReal"].ToLower() == "true")
-                threatController.knifeOnReal = true;
-            else if (trial["KnifeOnReal"].ToLower() == "false")
-                threatController.knifeOnReal = false;
-            else
-                throw new Exception("Invalid value in trial list for field KnifeOnReal");
-
-            WriteLog("Knife on Real" + threatController.knifeOnReal);
-        }
-
         // Temporal position of knife
         if (trial.ContainsKey("KnifeRandom")) {
             if (trial["KnifeRandom"].ToLower() == "false")
-                waveController.randomizeThreatWave = false;
+                trialController.randomizeThreatWave = false;
             else if (trial["KnifeRandom"].ToLower() == "true")
-                waveController.randomizeThreatWave = true;
+                trialController.randomizeThreatWave = true;
             else
                 throw new Exception("Invalid value in trial list for field KnifeRandom");
 
-            WriteLog("Random Wave for Threat: " + waveController.randomizeThreatWave);
+            WriteLog("Random Wave for Threat: " + trialController.randomizeThreatWave);
         }
 
         // Gender Change
@@ -410,25 +396,18 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
         }
 
 
-        // This needs to change as it will be again using the specific trial things. 
-        // So maybe the trial type should be regulated by the trial machine and not the experiment state machine
-        //if (trial.ContainsKey("IgnoreUpdate"))
-        //{
-        //    if (trial["IgnoreUpdate"].ToLower() == "false")
-        //    {
-        //        trialController.initialState = TrialStates.AccomodationTime;
-        //        trialController.StartMachine();
-        //    }
-        //    else if (trial["IgnoreUpdate"].ToLower() == "true")
-        //    {
-        //        // inactiveTrialController.initialState = InactiveTrialStates.AccomodationTime;
-        //        // inactiveTrialController.StartMachine(); 
-        //    }
-        //    else {
-        //        throw new Exception("Invalid value for IgnoreUpdate");
-        //    }
-        //    WriteLog("Right hand still " + handSwitcher.ignoreUpdatesRight);
-        //}
+        if (trial.ContainsKey("IgnoreUpdate"))
+        {
+            if (trial["IgnoreUpdate"].ToLower() == "false") {
+                trialController.ignoreUpdate = false;
+            }
+            else if (trial["IgnoreUpdate"].ToLower() == "true") {
+                trialController.ignoreUpdate = true;
+            }
+            else
+                throw new Exception("Invalid value for IgnoreUpdates");
+        }
+
 
         switch (experimentType)
         {
@@ -502,9 +481,9 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
         else
             writer.Write("Gap unknown, ");
 
-        if (waveController.knifePresent == true)
+        if (trialController.knifePresent == true)
             writer.Write("Threat active, ");
-        else if (waveController.knifePresent == false)
+        else if (trialController.knifePresent == false)
             writer.Write("Threat inactive, ");
         else
             writer.Write("Threat unknown, ");
@@ -548,7 +527,7 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
         writer.Write(", ");
         writer.Write(trialController.lateWaves);
         writer.Write(", ");
-        writer.Write(waveController.waveThreat);
+        writer.Write(trialController.threatWave);
         writer.Write(", ");
         writer.WriteLine();
 

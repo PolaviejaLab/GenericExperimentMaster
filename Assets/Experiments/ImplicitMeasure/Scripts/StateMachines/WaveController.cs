@@ -5,14 +5,13 @@ using System;
 /**
 * Events handled by the Wave State Machine
 */
-
 public enum WaveEvents
 {
     Wave_0 = 0,
     Wave_1 = 1,
     Wave_Initial,
-    Delay,
-    // ThreatDone,
+    DelayDone,
+    Waved, 
 };
 
 /**
@@ -23,11 +22,8 @@ public enum WaveStates
     Idle,
     Initial,
     Target,
-    Waved,
-    Feedback,
-    // Threat,
     Interval,
-    Pause,                  // When the class needs to stop (without restarting) (i.e. with the threat)
+    Feedback,
     End,
 };
 
@@ -51,16 +47,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
     public MaterialChanger[] lights;
     public MaterialChanger feedbackScreen;
 
-    // Parameters for the waving
-    public int wavesRequired;
-
-    // Keep track of the number of waves
-    public int waveCounter;
-
-    // Keep track of the outcome of the waves
-    public int lateWaves;
-    public int correctWaves;
-    public int incorrectWaves;
+    public int currentWave;
 
     // Number of current light
     private int currentLight;
@@ -68,26 +55,20 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
     // State of the lights
     public bool initialLightOn;
     public bool targetLightOn;
-
+    public LightResults lightResults;
+    
     // Colliders on/off
     public GameObject collisionLights;
     public GameObject collisionInitial;
     public float collisionProbability;
     public float randomProbability;
 
-    // threat
-    public bool knifePresent;
-    public GameObject threat;
-    public bool randomizeThreatWave;
-    public int waveThreat;
-
     // Questionnaire
     public GameObject Questionnaire;
     public float timeInState;
 
+    // Define Time Outs
     public float timeOut = 3.0f;
-
-    public LightResults lightResults;
 
 
     public void Start()
@@ -99,23 +80,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
 
     protected override void OnStart()
     {
-        threatController.Stopped += (obj, ev) => HandleEvent(WaveEvents.ThreatDone);
-
-        // clear counters
-        waveCounter = 0;
-        lateWaves = 0;
-        correctWaves = 0;
-        incorrectWaves = 0;
-
-        if (randomizeThreatWave)
-        {
-            waveThreat = UnityEngine.Random.Range(4, wavesRequired - 5);
-            WriteLog("Threat wave is: " + waveThreat);
-        }
-        else if (!randomizeThreatWave) {
-            waveThreat = wavesRequired;
-            WriteLog("Threat wave is: " + waveThreat);
-        }
+        collisionProbability = trialController.collisionProbability;
     }
 
 
@@ -129,21 +94,22 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
         switch (GetState())
         {
             case WaveStates.Initial:
-                if (ev == WaveEvents.Delay && initialLightOn)
+                if (ev == WaveEvents.DelayDone && initialLightOn)
                 {
                     initialLight.activeMaterial = 1;
                     collisionInitial.SetActive(true);
                 }
                 else if (ev == WaveEvents.Wave_Initial)
                 {
-                    WriteLog("Initial Waved");
+                    WriteLog("Initial Target Waved");
+                    collisionInitial.SetActive(false);
 
                     ChangeState(WaveStates.Target);
                 }
                 break;
 
             case WaveStates.Target:
-                if (ev == WaveEvents.Delay && targetLightOn)
+                if (ev == WaveEvents.DelayDone && targetLightOn)
                 {
                     // Turn on random target light
                     currentLight = UnityEngine.Random.Range(0, lights.Length);
@@ -156,37 +122,30 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 }
                 else if ((int)ev == currentLight && randomProbability <= collisionProbability)
                 {
-                    WriteLog("Probability for Wave " + waveCounter + ": " + randomProbability);
+                    WriteLog("Probability for Wave " + currentWave + ": " + randomProbability);
                     WriteLog("Waved correctly");
 
-                    correctWaves++;
+                    trialController.correctWaves++;
                     lightResults = LightResults.Correct;
                     ChangeState(WaveStates.Feedback);
                 }
                 else if ((int)ev == currentLight && randomProbability > collisionProbability) {
-                    WriteLog("Probability for Wave " + waveCounter + ": " + randomProbability);
+                    WriteLog("Probability for Wave " + currentWave + ": " + randomProbability);
 
                     WriteLog("Not waved");
                 }
                 else if ((int)ev != currentLight && ev != WaveEvents.Wave_Initial) {
                     WriteLog("Waved incorrectly");
-                    incorrectWaves++;
+                    trialController.incorrectWaves++;
                     lightResults = LightResults.Incorrect;
                     ChangeState(WaveStates.Feedback);
                 }
                 break;
 
-            case WaveStates.Waved:
-                break;
-
-            case WaveStates.Threat:
-                if (ev == WaveEvents.ThreatDone)
-                    ChangeState(WaveStates.Initial);
+            case WaveStates.Interval:
                 break;
 
             case WaveStates.End:
-         //       if (ev == WaveEvents.Wave_Initial)
-           //         trialController.HandleEvent(TrialEvents.WavingFinished);
                 break;
         }
     }
@@ -201,20 +160,20 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
             case WaveStates.Initial:
                 if (GetTimeInState() > 0.5f && !initialLightOn) {
                     initialLightOn = true;
-                    HandleEvent(WaveEvents.Delay);
+                    HandleEvent(WaveEvents.DelayDone);
                 }
                 break;
 
             case WaveStates.Target:
                 // Wait between the lights turning on and off
-                if (GetTimeInState() > 1.0f && !targetLightOn) {
+                if (GetTimeInState() > 0.5f && !targetLightOn) {
                     targetLightOn = true;
-                    HandleEvent(WaveEvents.Delay);
+                    HandleEvent(WaveEvents.DelayDone);
                 }
                 if (GetTimeInState() > timeOut && targetLightOn)
                 {
                     WriteLog("Waved Late");
-                    lateWaves++;
+                    trialController.lateWaves++;
 
                     lightResults = LightResults.TimeOut;
                     ChangeState(WaveStates.Feedback);
@@ -225,24 +184,20 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 if (GetTimeInState() > 0.5f)
                     GiveFeedback();
                 if (GetTimeInState() > 3.0f)
-                    ChangeState(WaveStates.Waved);
+                    ChangeState(WaveStates.End);
                 break;
 
-            case WaveStates.Waved:
-                if (GetTimeInState() > 0.5f) {
-                    if (waveCounter < wavesRequired) {
-                        if (waveCounter == waveThreat) {
-                            ChangeState(WaveStates.Threat);
-                        }
-                        else {
-                            ChangeState(WaveStates.Initial);
-                        }
-                    }
-                    else {
-                        if (GetTimeInState() > 0.5f)
-                            ChangeState(WaveStates.End);
-                    }
-                }
+            case WaveStates.Interval:
+                if (GetTimeInState() > 0.5f)
+                    ChangeState(WaveStates.End);
+                //if (GetTimeInState() > 0.5f) 
+                //    if (currentWave < trialController.wavesRequired)
+                //        ChangeState(WaveStates.Initial);
+                //     else if (GetTimeInState() > 0.5f)
+                //        ChangeState(WaveStates.End);
+              break;
+
+            case WaveStates.End:
                 break;
         }
     }
@@ -256,30 +211,19 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 break;
 
             case WaveStates.Target:
-                waveCounter++;
+                currentWave++;
                 break;
 
-            case WaveStates.Waved:
+            case WaveStates.Interval:
                 feedbackScreen.activeMaterial = 0;
                 break;
 
             case WaveStates.Feedback:
-
                 break;
 
-            case WaveStates.Threat:
-                if (knifePresent == true)
-                {
-                    threatController.StartMachine();
-                    threatController.HandleEvent(ThreatEvent.ReleaseThreat);
-                }
-                else {
-                    ChangeState(WaveStates.Initial);
-                }
-                break;
 
             case WaveStates.End:
-                TurnOnInitial();
+                this.StopMachine();
                 break;
         }
     }
@@ -295,19 +239,14 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
 
             case WaveStates.Target:
                 TurnOffTarget();
+                timeInState = GetTimeInState();
+                WriteLog("Time in wave: " + currentWave + " was " + timeInState);
                 break;
 
-            case WaveStates.Waved:
-                timeInState = GetTimeInState();
-                WriteLog("Time to wave: " + timeInState);
+            case WaveStates.Interval:
                 break;
-                
- //           case WaveStates.Threat:
-   //             threatController.StopMachine();
-     //           break;
 
             case WaveStates.End:
-                TurnOffInitial();
                 break;
         }
     }
