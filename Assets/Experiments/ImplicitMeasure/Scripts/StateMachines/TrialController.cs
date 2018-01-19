@@ -50,6 +50,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     // wave recording variables
     public int wavesRequired;
     public int totWaves;
+    public int currentWave;
     public int correctWaves;
     public int incorrectWaves;
     public int lateWaves;
@@ -59,7 +60,6 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     // Parameters of the current trial threat
     public bool knifePresent;
     public bool randomizeThreatWave;
-    public int threatWave;
     public Vector3 knifeOffset;
 
     // var to determine trial type

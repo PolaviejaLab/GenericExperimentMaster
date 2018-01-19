@@ -22,8 +22,8 @@ public enum WaveStates
     Idle,
     Initial,
     Target,
-    Interval,
     Feedback,
+    Interval,
     End,
 };
 
@@ -37,7 +37,7 @@ public enum LightResults
 
 public class WaveController : ICStateMachine<WaveStates, WaveEvents>
 {
-    // Reference to other classes
+    // Reference to parent classes
     public TrialController trialController;
 
     // Initial and subsequent lights
@@ -45,7 +45,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
     public MaterialChanger[] lights;
     public MaterialChanger feedbackScreen;
 
-    public int currentWave;
+    // public int currentWave;
 
     // Number of current light
     private int currentLight;
@@ -120,21 +120,22 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 }
                 else if ((int)ev == currentLight && randomProbability <= collisionProbability)
                 {
-                    WriteLog("Probability for Wave " + currentWave + ": " + randomProbability);
+                    WriteLog("Probability for Wave " + trialController.currentWave + ": " + randomProbability);
                     WriteLog("Waved correctly");
-
                     trialController.correctWaves++;
+
                     lightResults = LightResults.Correct;
                     ChangeState(WaveStates.Feedback);
                 }
                 else if ((int)ev == currentLight && randomProbability > collisionProbability) {
-                    WriteLog("Probability for Wave " + currentWave + ": " + randomProbability);
+                    WriteLog("Probability for Wave " + trialController.currentWave + ": " + randomProbability);
 
                     WriteLog("Not waved");
                 }
                 else if ((int)ev != currentLight && ev != WaveEvents.Wave_Initial) {
                     WriteLog("Waved incorrectly");
                     trialController.incorrectWaves++;
+
                     lightResults = LightResults.Incorrect;
                     ChangeState(WaveStates.Feedback);
                 }
@@ -188,11 +189,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
             case WaveStates.Interval:
                 if (GetTimeInState() > 0.5f)
                     ChangeState(WaveStates.End);
-                //if (GetTimeInState() > 0.5f) 
-                //    if (currentWave < trialController.wavesRequired)
-                //        ChangeState(WaveStates.Initial);
-                //     else if (GetTimeInState() > 0.5f)
-                //        ChangeState(WaveStates.End);
+
               break;
 
             case WaveStates.End:
@@ -209,7 +206,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 break;
 
             case WaveStates.Target:
-                currentWave++;
+                trialController.currentWave++;
                 break;
 
             case WaveStates.Interval:
@@ -238,7 +235,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
             case WaveStates.Target:
                 TurnOffTarget();
                 timeInState = GetTimeInState();
-                WriteLog("Time in wave: " + currentWave + " was " + timeInState);
+                WriteLog("Time in wave: " + trialController.currentWave + " was " + timeInState);
                 break;
 
             case WaveStates.Interval:

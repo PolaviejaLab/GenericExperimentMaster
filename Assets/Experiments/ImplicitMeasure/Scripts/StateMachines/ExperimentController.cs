@@ -527,8 +527,8 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
         writer.Write(", ");
         writer.Write(trialController.lateWaves);
         writer.Write(", ");
-        writer.Write(trialController.threatWave);
-        writer.Write(", ");
+        // writer.Write(trialController.threatWave); // This will also need to be recorded. 
+        // writer.Write(", ");
         writer.WriteLine();
 
         writer.Close();
