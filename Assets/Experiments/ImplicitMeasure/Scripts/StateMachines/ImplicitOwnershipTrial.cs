@@ -95,15 +95,14 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
             case OwnershipTrialStates.ExperimentWave:
                 if (ev == OwnershipTrialEvents.WaveFinished)
                     ChangeState(OwnershipTrialStates.Interval);
-
-                break;
-
-            case OwnershipTrialStates.Threat:
                 break;
 
             case OwnershipTrialStates.Interval:
                 if (ev == OwnershipTrialEvents.TaskFinished)
                     ChangeState(OwnershipTrialStates.End);
+                break;
+
+            case OwnershipTrialStates.Threat:
                 break;
 
             case OwnershipTrialStates.End:
@@ -124,20 +123,22 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
                     ChangeState(OwnershipTrialStates.ExperimentWave);
                 break;
 
-            case OwnershipTrialStates.ExperimentWave:
-                waveController.Stopped += (obj, ev) => HandleEvent(OwnershipTrialEvents.WaveFinished);
+            case OwnershipTrialStates.ExperimentWave:               
                 break;
 
             case OwnershipTrialStates.Interval:
                 if (trialController.currentWave < trialController.wavesRequired)
                     ChangeState(OwnershipTrialStates.ExperimentWave);
                 else if (trialController.currentWave == trialController.wavesRequired)
+                {
                     HandleEvent(OwnershipTrialEvents.TaskFinished);
+                }
                 else if (trialController.currentWave == threatWave)
                     ChangeState(OwnershipTrialStates.Threat);
                 break;
 
             case OwnershipTrialStates.Threat:
+                threatController.Stopped += (obj, ev) => HandleEvent(OwnershipTrialEvents.ThreatDone);
                 break;
 
             case OwnershipTrialStates.End:

@@ -106,8 +106,6 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
             
             Debug.Log(targetTransform.transform.position);
             break;
-
-        
         }
 
         if (!IsStarted())
@@ -162,7 +160,6 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
                 if(ev == ThreatEvent.TargetReached)
                     ChangeState(ThreatState.Following);
                 break;
-
         }
     }
 
@@ -211,6 +208,5 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
             threat.transform.position,
             handPositionReWorld + handOffset,
             threatSpeed * Time.deltaTime);
-
     }
 }

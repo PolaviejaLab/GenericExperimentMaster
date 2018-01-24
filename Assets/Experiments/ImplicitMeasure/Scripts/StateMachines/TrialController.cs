@@ -62,6 +62,8 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     public bool randomizeThreatWave;
     public Vector3 knifeOffset;
 
+    public bool waveDone = false;
+
     // var to determine trial type
     public ExperimentType experimentType;
 
@@ -79,7 +81,6 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
         handSwitcher.noiseLevelRight = noiseLevel;
         handSwitcher.lambdaLeft = lNoise;
         handSwitcher.lambdaRight = lNoise;
-
     }
 
 
