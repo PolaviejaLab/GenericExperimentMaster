@@ -13,9 +13,9 @@ using Leap.Unity;
  * States the threat can be in
  */
 public enum ThreatState {
-	Initial,    // Idle state
-	Falling,    // Falling on / towards target
-	Following   // Stick to target
+	Initial,        // Idle state
+	Falling,        // Falling on / towards target
+	Following       // Stick to target
 };
 
 
@@ -23,8 +23,8 @@ public enum ThreatState {
  * Events handled by the threat state machine.
  */
 public enum ThreatEvent {
-    ReleaseThreat,  // Drop the threat
-	TargetReached   // Target reached
+    ReleaseThreat,      // Drop the threat
+	TargetReached       // Target reached
 };
 
 

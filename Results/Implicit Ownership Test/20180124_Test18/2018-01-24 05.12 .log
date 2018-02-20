@@ -1,0 +1,57 @@
+2018-01-24T17:12:20.7999755Z	Logger	Started logging
+2018-01-24T17:12:20.8159805Z	ExperimentController	Participant: 20180124_Test18
+2018-01-24T17:12:20.8300117Z	ExperimentController	Hand model is female
+2018-01-24T17:12:20.8585637Z	ExperimentController	Protocol file Protocol/Implicit Ownership Test/Protocol01.txt
+2018-01-24T17:12:20.8745707Z	ExperimentController	Loaded 6 trials
+2018-01-24T17:12:20.8895938Z	ExperimentController	Event ProtocolLoaded
+2018-01-24T17:12:20.9041282Z	ExperimentController	Entering state Trial
+2018-01-24T17:12:20.9206541Z	ExperimentController	Starting trial
+2018-01-24T17:12:20.9381695Z	ExperimentController	Gap: Inactive
+2018-01-24T17:12:20.9551951Z	ExperimentController	HandOffset: 0
+2018-01-24T17:12:20.9717198Z	ExperimentController	Noise type 0
+2018-01-24T17:12:20.9887468Z	ExperimentController	NoiseLevel: 0
+2018-01-24T17:12:21.0052721Z	ExperimentController	Lambda: 0
+2018-01-24T17:12:21.0222980Z	ExperimentController	Collision probability: 0.014
+2018-01-24T17:12:21.0388236Z	ExperimentController	Knife PresentTrue
+2018-01-24T17:12:21.0563504Z	TrialController	Started
+2018-01-24T17:12:22.7566875Z	TrialController	Entering state Task
+2018-01-24T17:12:22.7631829Z	ImplicitOwnershipTrial	Threat wave is: 0
+2018-01-24T17:12:22.7677028Z	ImplicitOwnershipTrial	Started
+2018-01-24T17:12:22.7722064Z	TrialController	Implicit Ownership Trial State Machine Started
+2018-01-24T17:12:23.7582284Z	ImplicitOwnershipTrial	Entering state ExperimentWave
+2018-01-24T17:12:23.7627344Z	WaveController	Started
+2018-01-24T17:12:24.0083923Z	WaveController	Entering state Initial
+2018-01-24T17:12:25.5821429Z	WaveController	Initial Target Waved
+2018-01-24T17:12:25.5861502Z	WaveController	Entering state Target
+2018-01-24T17:12:25.5906565Z	WaveController	Light: 1
+2018-01-24T17:12:26.7615453Z	WaveController	Probability for Wave 1: 0.3107255
+2018-01-24T17:12:26.7845716Z	WaveController	Probability for Wave 1: 0.9059547
+2018-01-24T17:12:26.8010726Z	WaveController	Probability for Wave 1: 0.2871262
+2018-01-24T17:12:26.8245910Z	WaveController	Probability for Wave 1: 0.7714942
+2018-01-24T17:12:26.8403447Z	WaveController	Probability for Wave 1: 0.9277383
+2018-01-24T17:12:26.8665627Z	WaveController	Probability for Wave 1: 0.2456089
+2018-01-24T17:12:26.8835891Z	WaveController	Probability for Wave 1: 0.4490429
+2018-01-24T17:12:27.1823139Z	WaveController	Probability for Wave 1: 0.2563769
+2018-01-24T17:12:27.2053496Z	WaveController	Probability for Wave 1: 0.1985767
+2018-01-24T17:12:27.2203838Z	WaveController	Probability for Wave 1: 0.3552637
+2018-01-24T17:12:27.2453654Z	WaveController	Probability for Wave 1: 0.6922193
+2018-01-24T17:12:27.2628916Z	WaveController	Probability for Wave 1: 0.6745533
+2018-01-24T17:12:27.2804503Z	WaveController	Probability for Wave 1: 0.3927044
+2018-01-24T17:12:27.3054276Z	WaveController	Probability for Wave 1: 0.9135939
+2018-01-24T17:12:27.3209456Z	WaveController	Probability for Wave 1: 0.8352429
+2018-01-24T17:12:27.3414634Z	WaveController	Probability for Wave 1: 0.611401
+2018-01-24T17:12:27.3665674Z	WaveController	Probability for Wave 1: 0.2109473
+2018-01-24T17:12:27.3830186Z	WaveController	Probability for Wave 1: 0.4430144
+2018-01-24T17:12:27.4031314Z	WaveController	Probability for Wave 1: 0.3286523
+2018-01-24T17:12:27.4323648Z	WaveController	Probability for Wave 1: 0.3676639
+2018-01-24T17:12:27.4413786Z	WaveController	Probability for Wave 1: 0.01576757
+2018-01-24T17:12:27.4640671Z	WaveController	Probability for Wave 1: 0.7864168
+2018-01-24T17:12:27.4890925Z	WaveController	Probability for Wave 1: 0.2127428
+2018-01-24T17:12:27.5016031Z	WaveController	Probability for Wave 1: 0.8054104
+2018-01-24T17:12:27.5252387Z	WaveController	Probability for Wave 1: 0.4048305
+2018-01-24T17:12:27.5412637Z	WaveController	Probability for Wave 1: 0.2516348
+2018-01-24T17:12:27.5661325Z	WaveController	Probability for Wave 1: 0.9687502
+2018-01-24T17:12:27.5836596Z	WaveController	Probability for Wave 1: 0.9231827
+2018-01-24T17:12:28.2616627Z	WaveController	Waved incorrectly
+2018-01-24T17:12:28.2661697Z	WaveController	Time in wave: 1 was 2.68
+2018-01-24T17:12:28.2701756Z	WaveController	Entering state Feedback

@@ -1,0 +1,30 @@
+2018-01-24T16:46:54.4694664Z	Logger	Started logging
+2018-01-24T16:46:54.4829871Z	ExperimentController	Participant: 20180124_Test10
+2018-01-24T16:46:54.4955079Z	ExperimentController	Hand model is female
+2018-01-24T16:46:54.5205575Z	ExperimentController	Protocol file Protocol/Implicit Ownership Test/Protocol01.txt
+2018-01-24T16:46:54.5340750Z	ExperimentController	Loaded 6 trials
+2018-01-24T16:46:54.5475868Z	ExperimentController	Event ProtocolLoaded
+2018-01-24T16:46:54.5606068Z	ExperimentController	Entering state Trial
+2018-01-24T16:46:54.5756299Z	ExperimentController	Starting trial
+2018-01-24T16:46:54.5921373Z	ExperimentController	Gap: Inactive
+2018-01-24T16:46:54.6081619Z	ExperimentController	HandOffset: 0
+2018-01-24T16:46:54.6236859Z	ExperimentController	Noise type 0
+2018-01-24T16:46:54.6392099Z	ExperimentController	NoiseLevel: 0
+2018-01-24T16:46:54.6547379Z	ExperimentController	Lambda: 0
+2018-01-24T16:46:54.6712592Z	ExperimentController	Collision probability: 1
+2018-01-24T16:46:54.6867832Z	ExperimentController	Knife PresentFalse
+2018-01-24T16:46:54.7033082Z	TrialController	Started
+2018-01-24T16:46:56.4342472Z	TrialController	Entering state Task
+2018-01-24T16:46:56.4382533Z	ImplicitOwnershipTrial	Started
+2018-01-24T16:46:56.4422595Z	TrialController	Implicit Ownership Trial State Machine Started
+2018-01-24T16:46:57.4352205Z	ImplicitOwnershipTrial	Entering state ExperimentWave
+2018-01-24T16:46:57.4397316Z	WaveController	Started
+2018-01-24T16:46:57.6919221Z	WaveController	Entering state Initial
+2018-01-24T16:46:59.4663687Z	WaveController	Initial Target Waved
+2018-01-24T16:46:59.4703749Z	WaveController	Entering state Target
+2018-01-24T16:46:59.4743816Z	WaveController	Light: 0
+2018-01-24T16:46:59.4808915Z	WaveController	Probability for Wave 1: 0.9458786
+2018-01-24T16:46:59.4838955Z	WaveController	Waved correctly
+2018-01-24T16:46:59.4884026Z	WaveController	Time in wave: 1 was 0
+2018-01-24T16:46:59.4919081Z	WaveController	Entering state Feedback
+2018-01-24T16:47:02.4600806Z	WaveController	Entering state End

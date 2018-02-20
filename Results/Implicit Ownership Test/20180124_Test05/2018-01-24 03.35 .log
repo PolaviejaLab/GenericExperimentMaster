@@ -1,0 +1,26 @@
+2018-01-24T15:35:45.6557759Z	Logger	Started logging
+2018-01-24T15:35:45.6702987Z	ExperimentController	Participant: 20180124_Test05
+2018-01-24T15:35:45.6828175Z	ExperimentController	Hand model is female
+2018-01-24T15:35:45.7088738Z	ExperimentController	Protocol file Protocol/Implicit Ownership Test/Protocol01.txt
+2018-01-24T15:35:45.7228794Z	ExperimentController	Loaded 6 trials
+2018-01-24T15:35:45.7364171Z	ExperimentController	Event ProtocolLoaded
+2018-01-24T15:35:45.7519249Z	ExperimentController	Entering state Trial
+2018-01-24T15:35:45.7674478Z	ExperimentController	Starting trial
+2018-01-24T15:35:45.7844842Z	ExperimentController	Gap: Inactive
+2018-01-24T15:35:45.8000071Z	ExperimentController	HandOffset: 0
+2018-01-24T15:35:45.8155217Z	ExperimentController	Noise type 0
+2018-01-24T15:35:45.8315463Z	ExperimentController	NoiseLevel: 0
+2018-01-24T15:35:45.8470783Z	ExperimentController	Lambda: 0
+2018-01-24T15:35:45.8625941Z	ExperimentController	Collision probability: 1
+2018-01-24T15:35:45.8781181Z	ExperimentController	Knife PresentFalse
+2018-01-24T15:35:45.8946434Z	TrialController	Started
+2018-01-24T15:35:47.6161970Z	TrialController	Entering state Task
+2018-01-24T15:35:47.6202029Z	ImplicitOwnershipTrial	Started
+2018-01-24T15:35:47.6242244Z	TrialController	Implicit Ownership Trial State Machine Started
+2018-01-24T15:35:48.6197629Z	ImplicitOwnershipTrial	Entering state ExperimentWave
+2018-01-24T15:35:48.6242697Z	WaveController	Started
+2018-01-24T15:35:48.6322823Z	WaveController	Probability for Wave 1: 0.1468297
+2018-01-24T15:35:48.6352869Z	WaveController	Waved correctly
+2018-01-24T15:35:48.6397957Z	WaveController	Time in wave: 1 was 0.00876236
+2018-01-24T15:35:48.6432992Z	WaveController	Entering state Feedback
+2018-01-24T15:35:51.6261643Z	WaveController	Entering state End

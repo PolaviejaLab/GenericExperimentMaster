@@ -11,6 +11,7 @@ public enum TrialStates {
 }
 
 public enum TrialEvents {
+    Waved,
     TaskFinished,
     LightsDimmed,
     QuestionsFinished,
@@ -20,8 +21,10 @@ public enum TrialEvents {
 public class TrialController : ICStateMachine<TrialStates, TrialEvents>
 
 {
-    // Reference to the experiment controller
+    // Reference to parent classes
     public ExperimentController experimentController;
+
+    // Reference to child classes
     public ImplicitOwnershipTrial ownershipTrialController;
     public ImplicitAgencyTrial agencyTrialController;
 
@@ -97,6 +100,9 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                 break;
 
             case TrialStates.Task:
+                if (ev == TrialEvents.Waved && experimentType == ExperimentType.ImplicitOwnershipTest) {
+                    ownershipTrialController.ChangeState(OwnershipTrialStates.Interval);
+                }
                 if (ev == TrialEvents.TaskFinished) {
                     ChangeState(TrialStates.Interval);
                 }

@@ -1,0 +1,30 @@
+2018-01-24T16:58:19.3576824Z	Logger	Started logging
+2018-01-24T16:58:19.3726967Z	ExperimentController	Participant: 20180124_Test14
+2018-01-24T16:58:19.3867183Z	ExperimentController	Hand model is female
+2018-01-24T16:58:19.4147790Z	ExperimentController	Protocol file Protocol/Implicit Ownership Test/Protocol01.txt
+2018-01-24T16:58:19.4302985Z	ExperimentController	Loaded 6 trials
+2018-01-24T16:58:19.4453233Z	ExperimentController	Event ProtocolLoaded
+2018-01-24T16:58:19.4603319Z	ExperimentController	Entering state Trial
+2018-01-24T16:58:19.4768694Z	ExperimentController	Starting trial
+2018-01-24T16:58:19.4945692Z	ExperimentController	Gap: Inactive
+2018-01-24T16:58:19.5146239Z	ExperimentController	HandOffset: 0
+2018-01-24T16:58:19.5316592Z	ExperimentController	Noise type 0
+2018-01-24T16:58:19.5486766Z	ExperimentController	NoiseLevel: 0
+2018-01-24T16:58:19.5647012Z	ExperimentController	Lambda: 0
+2018-01-24T16:58:19.5812268Z	ExperimentController	Collision probability: 1
+2018-01-24T16:58:19.5972617Z	ExperimentController	Knife PresentFalse
+2018-01-24T16:58:19.6142879Z	TrialController	Started
+2018-01-24T16:58:21.3178238Z	TrialController	Entering state Task
+2018-01-24T16:58:21.3223305Z	ImplicitOwnershipTrial	Started
+2018-01-24T16:58:21.3263492Z	TrialController	Implicit Ownership Trial State Machine Started
+2018-01-24T16:58:22.3180634Z	ImplicitOwnershipTrial	Entering state ExperimentWave
+2018-01-24T16:58:22.3225707Z	WaveController	Started
+2018-01-24T16:58:22.5732643Z	WaveController	Entering state Initial
+2018-01-24T16:58:23.9009742Z	WaveController	Initial Target Waved
+2018-01-24T16:58:23.9049909Z	WaveController	Entering state Target
+2018-01-24T16:58:23.9094877Z	WaveController	Light: 1
+2018-01-24T16:58:25.5601333Z	WaveController	Probability for Wave 1: 0.7983042
+2018-01-24T16:58:25.5636388Z	WaveController	Waved correctly
+2018-01-24T16:58:25.5681456Z	WaveController	Time in wave: 1 was 1.66
+2018-01-24T16:58:25.5721517Z	WaveController	Entering state Feedback
+2018-01-24T16:58:28.5625638Z	WaveController	Entering state End

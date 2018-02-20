@@ -1,0 +1,119 @@
+2018-01-24T17:29:29.5968148Z	Logger	Started logging
+2018-01-24T17:29:29.6118388Z	ExperimentController	Participant: 20180124_Test19
+2018-01-24T17:29:29.6303663Z	ExperimentController	Hand model is female
+2018-01-24T17:29:29.6559054Z	ExperimentController	Protocol file Protocol/Implicit Ownership Test/Protocol01.txt
+2018-01-24T17:29:29.6699270Z	ExperimentController	Loaded 6 trials
+2018-01-24T17:29:29.6829470Z	ExperimentController	Event ProtocolLoaded
+2018-01-24T17:29:29.6964802Z	ExperimentController	Entering state Trial
+2018-01-24T17:29:29.7114910Z	ExperimentController	Starting trial
+2018-01-24T17:29:29.7280169Z	ExperimentController	Gap: Inactive
+2018-01-24T17:29:29.7435406Z	ExperimentController	HandOffset: 0
+2018-01-24T17:29:29.7615831Z	ExperimentController	Noise type 0
+2018-01-24T17:29:29.7780939Z	ExperimentController	NoiseLevel: 0
+2018-01-24T17:29:29.7946336Z	ExperimentController	Lambda: 0
+2018-01-24T17:29:29.8106441Z	ExperimentController	Collision probability: 0.014
+2018-01-24T17:29:29.8261678Z	ExperimentController	Knife PresentTrue
+2018-01-24T17:29:29.8421927Z	TrialController	Started
+2018-01-24T17:29:31.5578920Z	TrialController	Entering state Task
+2018-01-24T17:29:31.5634009Z	ImplicitOwnershipTrial	Threat wave is: 0
+2018-01-24T17:29:31.5673979Z	ImplicitOwnershipTrial	Started
+2018-01-24T17:29:31.5709168Z	TrialController	Implicit Ownership Trial State Machine Started
+2018-01-24T17:29:32.5601885Z	ImplicitOwnershipTrial	Entering state ExperimentWave
+2018-01-24T17:29:32.5646953Z	WaveController	Started
+2018-01-24T17:29:32.8122547Z	WaveController	Entering state Initial
+2018-01-24T17:29:34.6799031Z	WaveController	Initial Target Waved
+2018-01-24T17:29:34.6839073Z	WaveController	Entering state Target
+2018-01-24T17:29:34.6884041Z	WaveController	Light: 0
+2018-01-24T17:29:35.9080789Z	WaveController	Probability for Wave 1: 0.6447191
+2018-01-24T17:29:35.9331783Z	WaveController	Probability for Wave 1: 0.9786426
+2018-01-24T17:29:35.9482748Z	WaveController	Probability for Wave 1: 0.1060095
+2018-01-24T17:29:35.9678144Z	WaveController	Probability for Wave 1: 0.04948318
+2018-01-24T17:29:35.9923526Z	WaveController	Probability for Wave 1: 0.03901649
+2018-01-24T17:29:36.0073162Z	WaveController	Probability for Wave 1: 0.5520656
+2018-01-24T17:29:36.0269124Z	WaveController	Probability for Wave 1: 0.2574601
+2018-01-24T17:29:36.0514522Z	WaveController	Probability for Wave 1: 0.7282614
+2018-01-24T17:29:36.0719694Z	WaveController	Probability for Wave 1: 0.3732784
+2018-01-24T17:29:36.0864794Z	WaveController	Probability for Wave 1: 0.3811764
+2018-01-24T17:29:36.1188403Z	WaveController	Probability for Wave 1: 0.860769
+2018-01-24T17:29:36.1278405Z	WaveController	Probability for Wave 1: 0.8572115
+2018-01-24T17:29:36.1499475Z	WaveController	Probability for Wave 1: 0.1231366
+2018-01-24T17:29:36.1659602Z	WaveController	Probability for Wave 1: 0.8506593
+2018-01-24T17:29:36.1917048Z	WaveController	Probability for Wave 1: 0.5407014
+2018-01-24T17:29:36.2083351Z	WaveController	Probability for Wave 1: 0.4213153
+2018-01-24T17:29:36.2399862Z	WaveController	Probability for Wave 1: 0.2080615
+2018-01-24T17:29:36.2479989Z	WaveController	Probability for Wave 1: 0.590462
+2018-01-24T17:29:36.2675304Z	WaveController	Probability for Wave 1: 0.8277757
+2018-01-24T17:29:36.2905664Z	WaveController	Probability for Wave 1: 0.3170531
+2018-01-24T17:29:36.3068933Z	WaveController	Probability for Wave 1: 0.81811
+2018-01-24T17:29:36.3269372Z	WaveController	Probability for Wave 1: 0.8966999
+2018-01-24T17:29:36.3454949Z	WaveController	Probability for Wave 1: 0.1642293
+2018-01-24T17:29:36.3684731Z	WaveController	Probability for Wave 1: 0.344464
+2018-01-24T17:29:36.3872778Z	WaveController	Probability for Wave 1: 0.1830953
+2018-01-24T17:29:36.4083096Z	WaveController	Probability for Wave 1: 0.1295946
+2018-01-24T17:29:36.4255726Z	WaveController	Probability for Wave 1: 0.9296992
+2018-01-24T17:29:36.4456025Z	WaveController	Probability for Wave 1: 0.5714763
+2018-01-24T17:29:36.4678632Z	WaveController	Probability for Wave 1: 0.4756032
+2018-01-24T17:29:36.4923000Z	WaveController	Probability for Wave 1: 0.9197437
+2018-01-24T17:29:36.5073360Z	WaveController	Probability for Wave 1: 0.07236385
+2018-01-24T17:29:36.5321556Z	WaveController	Probability for Wave 1: 0.258096
+2018-01-24T17:29:36.5563738Z	WaveController	Probability for Wave 1: 0.9443314
+2018-01-24T17:29:36.5658883Z	WaveController	Probability for Wave 1: 0.2037128
+2018-01-24T17:29:36.5884670Z	WaveController	Probability for Wave 1: 0.278152
+2018-01-24T17:29:36.6181810Z	WaveController	Probability for Wave 1: 0.9035603
+2018-01-24T17:29:36.6261936Z	WaveController	Probability for Wave 1: 0.7592425
+2018-01-24T17:29:36.6485460Z	WaveController	Probability for Wave 1: 0.2944289
+2018-01-24T17:29:36.6768561Z	WaveController	Probability for Wave 1: 0.9118383
+2018-01-24T17:29:36.6853693Z	WaveController	Probability for Wave 1: 0.271347
+2018-01-24T17:29:36.7053879Z	WaveController	Probability for Wave 1: 0.3618109
+2018-01-24T17:29:36.7272046Z	WaveController	Probability for Wave 1: 0.1132073
+2018-01-24T17:29:36.7471557Z	WaveController	Probability for Wave 1: 0.1281509
+2018-01-24T17:29:36.7681875Z	WaveController	Probability for Wave 1: 0.131795
+2018-01-24T17:29:36.7872298Z	WaveController	Probability for Wave 1: 0.5450853
+2018-01-24T17:29:36.8062534Z	WaveController	Probability for Wave 1: 0.6906239
+2018-01-24T17:29:36.8287899Z	WaveController	Probability for Wave 1: 0.3723382
+2018-01-24T17:29:36.8478248Z	WaveController	Probability for Wave 1: 0.8424066
+2018-01-24T17:29:36.8647750Z	WaveController	Probability for Wave 1: 0.06755245
+2018-01-24T17:29:36.8858077Z	WaveController	Probability for Wave 1: 0.9747586
+2018-01-24T17:29:36.9048366Z	WaveController	Probability for Wave 1: 0.8140827
+2018-01-24T17:29:36.9294445Z	WaveController	Probability for Wave 1: 0.776062
+2018-01-24T17:29:36.9488964Z	WaveController	Probability for Wave 1: 0.3682411
+2018-01-24T17:29:36.9704302Z	WaveController	Probability for Wave 1: 0.2633852
+2018-01-24T17:29:36.9869364Z	WaveController	Probability for Wave 1: 0.687808
+2018-01-24T17:29:37.0069672Z	WaveController	Probability for Wave 1: 0.495702
+2018-01-24T17:29:37.0269733Z	WaveController	Probability for Wave 1: 0.2839276
+2018-01-24T17:29:37.0519218Z	WaveController	Probability for Wave 1: 0.3800444
+2018-01-24T17:29:37.0674675Z	WaveController	Probability for Wave 1: 0.9616356
+2018-01-24T17:29:37.0896741Z	WaveController	Probability for Wave 1: 0.1140906
+2018-01-24T17:29:37.1144018Z	WaveController	Probability for Wave 1: 0.4816801
+2018-01-24T17:29:37.1299313Z	WaveController	Probability for Wave 1: 0.3422384
+2018-01-24T17:29:37.1447250Z	WaveController	Probability for Wave 1: 0.9131666
+2018-01-24T17:29:37.1813291Z	WaveController	Probability for Wave 1: 0.5241464
+2018-01-24T17:29:37.1893417Z	WaveController	Probability for Wave 1: 0.2317098
+2018-01-24T17:29:37.2125266Z	WaveController	Probability for Wave 1: 0.2860563
+2018-01-24T17:29:37.2255469Z	WaveController	Probability for Wave 1: 0.618957
+2018-01-24T17:29:37.2514532Z	WaveController	Probability for Wave 1: 0.8521339
+2018-01-24T17:29:37.2669746Z	WaveController	Probability for Wave 1: 0.5480739
+2018-01-24T17:29:37.2860002Z	WaveController	Probability for Wave 1: 0.6447322
+2018-01-24T17:29:37.3108633Z	WaveController	Probability for Wave 1: 0.7382549
+2018-01-24T17:29:37.3269136Z	WaveController	Probability for Wave 1: 0.7757689
+2018-01-24T17:29:37.3456141Z	WaveController	Probability for Wave 1: 0.8774064
+2018-01-24T17:29:37.3707246Z	WaveController	Probability for Wave 1: 0.05499399
+2018-01-24T17:29:37.3857483Z	WaveController	Probability for Wave 1: 0.709841
+2018-01-24T17:29:37.4113856Z	WaveController	Probability for Wave 1: 0.09524596
+2018-01-24T17:29:37.4279234Z	WaveController	Probability for Wave 1: 0.3416324
+2018-01-24T17:29:37.4514933Z	WaveController	Probability for Wave 1: 0.9233446
+2018-01-24T17:29:37.4670182Z	WaveController	Probability for Wave 1: 0.6430926
+2018-01-24T17:29:37.4915555Z	WaveController	Probability for Wave 1: 0.3261941
+2018-01-24T17:29:37.5064252Z	WaveController	Probability for Wave 1: 0.40991
+2018-01-24T17:29:37.5244868Z	WaveController	Probability for Wave 1: 0.5548726
+2018-01-24T17:29:37.5567060Z	WaveController	Probability for Wave 1: 0.3345981
+2018-01-24T17:29:37.5652070Z	WaveController	Probability for Wave 1: 0.2217336
+2018-01-24T17:29:37.5852406Z	WaveController	Probability for Wave 1: 0.01876938
+2018-01-24T17:29:37.6177436Z	WaveController	Probability for Wave 1: 0.993106
+2018-01-24T17:29:37.6262568Z	WaveController	Probability for Wave 1: 0.3142691
+2018-01-24T17:29:37.6478777Z	WaveController	Probability for Wave 1: 0.5656757
+2018-01-24T17:29:37.6803428Z	WaveController	Probability for Wave 1: 0.7925138
+2018-01-24T17:29:37.6833486Z	WaveController	Waved Late
+2018-01-24T17:29:37.6868530Z	WaveController	Time in wave: 1 was 3.015951
+2018-01-24T17:29:37.6898576Z	WaveController	Entering state Feedback
+2018-01-24T17:29:40.6832515Z	WaveController	Entering state End

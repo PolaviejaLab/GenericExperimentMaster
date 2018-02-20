@@ -58,6 +58,7 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
     * child machines.
     */
 
+    // Reference to child classes
     public TrialController trialController;
     public WaveController waveController;
     public ImplicitMeasure measureController;
@@ -376,7 +377,8 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
         }
 
         // Temporal position of knife
-        if (trial.ContainsKey("KnifeRandom")) {
+        if (trial.ContainsKey("KnifeRandom"))
+        {
             if (trial["KnifeRandom"].ToLower() == "false")
                 trialController.randomizeThreatWave = false;
             else if (trial["KnifeRandom"].ToLower() == "true")
@@ -386,6 +388,10 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
 
             WriteLog("Random Wave for Threat: " + trialController.randomizeThreatWave);
         }
+        else {
+            trialController.randomizeThreatWave = false;
+        }
+
 
         // Gender Change
         if (trial.ContainsKey("ChangeGender")) {

@@ -192,6 +192,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 break;
 
             case WaveStates.End:
+                trialController.HandleEvent(TrialEvents.Waved);
                 this.StopMachine();
                 break;
         }

@@ -18,7 +18,7 @@ public enum OwnershipTrialEvents
  */
 public enum OwnershipTrialStates
 {
-    Idle,                       // Get used to the environment
+    Idle,                      
     ExperimentWave,             // Waving
     Interval,
     Threat,                     // Threat
@@ -49,7 +49,8 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
     public bool randomizeThreatWave;
     public int threatWave;
     public Vector3 knifeOffset;
-
+    private bool threatDone;
+    
     // wave recording variables
     // public int currentWave;
     public int wavesRequired;
@@ -77,8 +78,8 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
 
         if (trialController.knifePresent)
             FindThreatWaveNumber();
+        threatDone = false;
     }
-
 
     public void HandleEvent(OwnershipTrialEvents ev)
     {
@@ -93,8 +94,6 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
                 break;
 
             case OwnershipTrialStates.ExperimentWave:
-                if (ev == OwnershipTrialEvents.WaveFinished)
-                    ChangeState(OwnershipTrialStates.Interval);
                 break;
 
             case OwnershipTrialStates.Interval:
@@ -129,16 +128,17 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
             case OwnershipTrialStates.Interval:
                 if (trialController.currentWave < trialController.wavesRequired)
                     ChangeState(OwnershipTrialStates.ExperimentWave);
-                else if (trialController.currentWave == trialController.wavesRequired)
-                {
+                else if (trialController.currentWave == trialController.wavesRequired && randomizeThreatWave)
                     HandleEvent(OwnershipTrialEvents.TaskFinished);
-                }
-                else if (trialController.currentWave == threatWave)
+                else if (trialController.currentWave == threatWave && !threatDone)
                     ChangeState(OwnershipTrialStates.Threat);
+                else if (trialController.currentWave == threatWave && threatDone && randomizeThreatWave)
+                    ChangeState(OwnershipTrialStates.ExperimentWave);
+                else if (trialController.currentWave == threatWave && threatDone && !randomizeThreatWave)
+                    ChangeState(OwnershipTrialStates.ExperimentWave);
                 break;
 
             case OwnershipTrialStates.Threat:
-                threatController.Stopped += (obj, ev) => HandleEvent(OwnershipTrialEvents.ThreatDone);
                 break;
 
             case OwnershipTrialStates.End:
@@ -162,7 +162,7 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
 
             case OwnershipTrialStates.Threat:
                 threatController.StartMachine();
-
+                threatDone = true;
                 break;
 
             case OwnershipTrialStates.Interval:
