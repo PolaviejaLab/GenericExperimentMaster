@@ -1,0 +1,30 @@
+2018-03-22T16:02:26.0418118Z	Logger	Started logging
+2018-03-22T16:02:26.0553324Z	ExperimentController	Participant: test_2
+2018-03-22T16:02:26.0678515Z	ExperimentController	Hand model is female
+2018-03-22T16:02:26.0933909Z	ExperimentController	Protocol file Protocol/Elements Agency Experiment/Protocol01.txt
+2018-03-22T16:02:26.1074124Z	ExperimentController	Loaded 6 trials
+2018-03-22T16:02:26.1204327Z	ExperimentController	Event ProtocolLoaded
+2018-03-22T16:02:26.1359567Z	ExperimentController	Entering state Trial
+2018-03-22T16:02:26.1514903Z	ExperimentController	Starting trial
+2018-03-22T16:02:26.1673126Z	ExperimentController	Gap: Inactive
+2018-03-22T16:02:26.1838193Z	ExperimentController	HandOffset: 0
+2018-03-22T16:02:26.1988592Z	ExperimentController	Noise type 0
+2018-03-22T16:02:26.2148818Z	ExperimentController	NoiseLevel: 0
+2018-03-22T16:02:26.2304092Z	ExperimentController	Lambda: 0
+2018-03-22T16:02:26.2459291Z	ExperimentController	Collision probability: 1
+2018-03-22T16:02:26.2614477Z	ExperimentController	Knife PresentFalse
+2018-03-22T16:02:26.2769720Z	TrialController	Started
+2018-03-22T16:02:28.0024670Z	TrialController	Entering state SpecificTrial
+2018-03-22T16:02:28.0069737Z	ImplicitOwnershipTrial	Started
+2018-03-22T16:02:28.0109799Z	TrialController	Implicit Ownership Trial State Machine Started
+2018-03-22T16:02:29.0029531Z	ImplicitOwnershipTrial	Entering state ExperimentWave
+2018-03-22T16:02:29.0109625Z	WaveController	Started
+2018-03-22T16:02:29.2558532Z	WaveController	Entering state Initial
+2018-03-22T16:02:37.3819288Z	WaveController	Initial Target Waved
+2018-03-22T16:02:37.3854340Z	WaveController	Entering state Target
+2018-03-22T16:02:37.3894402Z	WaveController	Light: 1
+2018-03-22T16:02:38.2747634Z	WaveController	Waved incorrectly
+2018-03-22T16:02:38.2807698Z	WaveController	Time in wave: 1 was 0.8911362
+2018-03-22T16:02:38.2857627Z	WaveController	Entering state Feedback
+2018-03-22T16:02:41.2850577Z	WaveController	Entering state End
+2018-03-22T16:02:41.2895713Z	TrialController	Event Waved

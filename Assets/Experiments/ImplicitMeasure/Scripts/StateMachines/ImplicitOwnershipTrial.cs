@@ -169,7 +169,7 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
                 break; 
 
             case OwnershipTrialStates.End:
-                trialController.HandleEvent(TrialEvents.TaskFinished);
+                trialController.HandleEvent(TrialEvents.SpecificTrialFinished);
                 this.StopMachine();
                 break;
         }

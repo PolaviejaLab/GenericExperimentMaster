@@ -1,0 +1,30 @@
+2018-03-22T16:21:53.3044353Z	Logger	Started logging
+2018-03-22T16:21:53.3174550Z	ExperimentController	Participant: adfasdfa
+2018-03-22T16:21:53.3294794Z	ExperimentController	Hand model is female
+2018-03-22T16:21:53.3540113Z	ExperimentController	Protocol file Protocol/Elements Agency Experiment/Protocol01.txt
+2018-03-22T16:21:53.3675444Z	ExperimentController	Loaded 6 trials
+2018-03-22T16:21:53.3805618Z	ExperimentController	Event ProtocolLoaded
+2018-03-22T16:21:53.3955849Z	ExperimentController	Entering state Trial
+2018-03-22T16:21:53.4096110Z	ExperimentController	Starting trial
+2018-03-22T16:21:53.4251313Z	ExperimentController	Gap: Inactive
+2018-03-22T16:21:53.4401538Z	ExperimentController	HandOffset: 0
+2018-03-22T16:21:53.4546765Z	ExperimentController	Noise type 0
+2018-03-22T16:21:53.4701993Z	ExperimentController	NoiseLevel: 0
+2018-03-22T16:21:53.4893341Z	ExperimentController	Lambda: 0
+2018-03-22T16:21:53.5043714Z	ExperimentController	Collision probability: 1
+2018-03-22T16:21:53.5193916Z	ExperimentController	Knife PresentFalse
+2018-03-22T16:21:53.5344193Z	TrialController	Started
+2018-03-22T16:21:55.2700287Z	TrialController	Entering state SpecificTrial
+2018-03-22T16:21:55.2745397Z	ImplicitOwnershipTrial	Started
+2018-03-22T16:21:55.2780404Z	TrialController	Implicit Ownership Trial State Machine Started
+2018-03-22T16:21:56.2848252Z	ImplicitOwnershipTrial	Entering state ExperimentWave
+2018-03-22T16:21:56.2888291Z	WaveController	Started
+2018-03-22T16:21:56.5363611Z	WaveController	Entering state Initial
+2018-03-22T16:21:58.0192247Z	WaveController	Initial Target Waved
+2018-03-22T16:21:58.0222293Z	WaveController	Entering state Target
+2018-03-22T16:21:58.0257349Z	WaveController	Light: 1
+2018-03-22T16:22:00.5724774Z	WaveController	Waved incorrectly
+2018-03-22T16:22:00.5759827Z	WaveController	Time in wave: 1 was 2.552804
+2018-03-22T16:22:00.5794885Z	WaveController	Entering state Feedback
+2018-03-22T16:22:03.5757490Z	WaveController	Entering state End
+2018-03-22T16:22:03.5797551Z	TrialController	Event Waved

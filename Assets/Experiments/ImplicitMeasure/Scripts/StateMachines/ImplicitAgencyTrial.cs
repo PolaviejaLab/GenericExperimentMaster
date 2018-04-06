@@ -150,7 +150,7 @@ public class ImplicitAgencyTrial : ICStateMachine<AgencyTrialStates, AgencyTrial
 
             case AgencyTrialStates.End:
                 // experimentController.HandleEvent(ExperimentEvents.TrialFinished);
-                trialController.HandleEvent(TrialEvents.TaskFinished);
+                trialController.HandleEvent(TrialEvents.SpecificTrialFinished);
                 this.StopMachine();
                 break;
         }

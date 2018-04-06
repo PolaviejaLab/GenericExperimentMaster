@@ -21,6 +21,7 @@ public enum WaveStates
 {
     Idle,
     Initial,
+    Delay,
     Target,
     Feedback,
     End,
@@ -66,7 +67,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
 
     // Define Time Outs
     public float waveTimeOut = 3.0f;
-
+    public float delayWave;
 
     public void Start()
     {
@@ -96,7 +97,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                     WriteLog("Initial Target Waved");
                     TurnOffInitial();
 
-                    ChangeState(WaveStates.Target);
+                    ChangeState(WaveStates.Delay);
                 }
                 break;
 
@@ -146,10 +147,19 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 }
                 break;
 
+            case WaveStates.Delay:
+                if (GetTimeInState() > 0.5f && !targetLightOn)
+                {
+                    TurnOnTarget();
+                    ChangeState(WaveStates.Target);
+                }
+                break;
+
             case WaveStates.Target:
                 // Wait between the lights turning on and off
-                if (GetTimeInState() > 0.5f && !targetLightOn) {
-                    TurnOnTarget();
+                if (GetTimeInState() > delayWave && targetLightOn)
+                {
+                    collisionLights.SetActive(true);
                 }
                 if (GetTimeInState() > waveTimeOut && targetLightOn)
                 {
@@ -234,7 +244,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
     }
 
     public void TurnOnTarget() {
-        collisionLights.SetActive(true);
+        // collisionLights.SetActive(true);
         lights[currentLight].activeMaterial = 1;
         targetLightOn = true;
     }

@@ -3,7 +3,7 @@ using System.Collections;
 
 public enum TrialStates {
     Instructions,
-    Task,
+    SpecificTrial,
     Interval,
     DimLights,
     Questionnaire,
@@ -12,7 +12,7 @@ public enum TrialStates {
 
 public enum TrialEvents {
     Waved,
-    TaskFinished,
+    SpecificTrialFinished,
     LightsDimmed,
     QuestionsFinished,
 }
@@ -24,9 +24,10 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     // Reference to parent classes
     public ExperimentController experimentController;
 
-    // Reference to child classes
+    // Specific trials classes
     public ImplicitOwnershipTrial ownershipTrialController;
     public ImplicitAgencyTrial agencyTrialController;
+    public ElementsAgencyTrial specificTrialController;
 
     // Scripts to manipulate the hand and offset according to condition
     public HandSwitcher handSwitcher;
@@ -49,6 +50,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     public bool changeGender;
     public bool genderChanged;
     public bool ignoreUpdate;
+    public int noiseType;
 
     // wave recording variables
     public int wavesRequired;
@@ -99,13 +101,9 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
             case TrialStates.Instructions:
                 break;
 
-            case TrialStates.Task:
-                if (ev == TrialEvents.Waved && experimentType == ExperimentType.ImplicitOwnershipTest) {
-                    ownershipTrialController.ChangeState(OwnershipTrialStates.Interval);
-                }
-                if (ev == TrialEvents.TaskFinished) {
-                    ChangeState(TrialStates.Interval);
-                }
+            case TrialStates.SpecificTrial:
+                if (ev == TrialEvents.Waved)
+                    specificTrialController.ChangeState(ElementsAgencyStates.Interval);
                 break;
 
             case TrialStates.Interval:
@@ -142,10 +140,10 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
         {
             case TrialStates.Instructions:
                 if (GetTimeInState() > 2.0f)
-                    ChangeState(TrialStates.Task);
+                    ChangeState(TrialStates.SpecificTrial);
                 break;
 
-            case TrialStates.Task:
+            case TrialStates.SpecificTrial:
                 break;
 
             case TrialStates.Interval:
@@ -180,7 +178,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                 testLights.SetActive(true);
                 break;
 
-            case TrialStates.Task:
+            case TrialStates.SpecificTrial:
                 switch (experimentType)
                 {
                     case ExperimentType.ImplicitAgencyTest:
@@ -191,6 +189,11 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                     case ExperimentType.ImplicitOwnershipTest:
                         ownershipTrialController.StartMachine();
                         WriteLog("Implicit Ownership Trial State Machine Started");
+                        break;
+
+                    case ExperimentType.ElementsAgencyTrial:
+                        specificTrialController.StartMachine();
+                        WriteLog("Elements Agency Experiment State Machine started");
                         break;
                 }
                 break;
@@ -221,7 +224,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                 handSwitcher.showLeftHand = false;
                 break;
 
-            case TrialStates.Task:
+            case TrialStates.SpecificTrial:
                 break;
 
             case TrialStates.Interval:

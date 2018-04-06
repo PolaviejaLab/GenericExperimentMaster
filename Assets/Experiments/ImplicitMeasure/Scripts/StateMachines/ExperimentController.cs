@@ -39,6 +39,8 @@ public enum ExperimentType
 {
     ImplicitOwnershipTest,          // Trial to test GSR to a threat to the virtual hand
     ImplicitAgencyTest,             // Trial to test sensorymotor adaptation
+    ElementsAgencyTrial,            // Experiment elements of agency
+    ThreatExperimentDiscontinuity,  // Repeat the experiment of discontinuity with the threat.
 }
 
 
@@ -61,7 +63,6 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
     // Reference to child classes
     public TrialController trialController;
     public WaveController waveController;
-    public ImplicitMeasure measureController;
     public Threat threatController;
 
     public HandController handController;
@@ -188,6 +189,7 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
                 {
                     Debug.Log("subject code is " + subjectCode.subjectCode);
                     outputDirectory = "Results/" + expInfo.experimentName.ToString() + "/" + subjectCode.subjectCode;
+                    Debug.Log("Output Directory " + outputDirectory);
                     if (!Directory.Exists(outputDirectory))
                     {
                         Directory.CreateDirectory(outputDirectory);
@@ -304,6 +306,7 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
         {
             int.TryParse(trial["NoiseType"], out noiseType);
             WriteLog("Noise type " + noiseType);
+            trialController.noiseType = noiseType;
         }
 
         // Noise level
@@ -414,7 +417,6 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
                 throw new Exception("Invalid value for IgnoreUpdates");
         }
 
-
         switch (experimentType)
         {
             case ExperimentType.ImplicitAgencyTest:
@@ -423,6 +425,10 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
 
             case ExperimentType.ImplicitOwnershipTest:
                 trialController.experimentType = ExperimentType.ImplicitOwnershipTest;
+                break;
+
+            case ExperimentType.ElementsAgencyTrial:
+                trialController.experimentType = ExperimentType.ElementsAgencyTrial;
                 break;
         }
     }
