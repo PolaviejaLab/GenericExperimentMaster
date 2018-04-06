@@ -51,6 +51,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     public bool genderChanged;
     public bool ignoreUpdate;
     public int noiseType;
+    public float delayWave;
 
     // wave recording variables
     public int wavesRequired;
@@ -68,6 +69,8 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     public Vector3 knifeOffset;
 
     public bool waveDone = false;
+
+
 
     // var to determine trial type
     public ExperimentType experimentType;

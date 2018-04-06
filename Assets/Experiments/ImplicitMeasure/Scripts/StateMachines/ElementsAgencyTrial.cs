@@ -57,24 +57,23 @@ public class ElementsAgencyTrial : ICStateMachine<ElementsAgencyStates, Elements
         switch (trialController.noiseType) {
             case 0:
                 noiseType = Noise.Control;
-                waveController.delayWave = 0.0f;
+                trialController.delayWave = 0.0f;
                 break;
 
             case 1:
                 noiseType = Noise.ImpairedMovement;
-                waveController.delayWave = 0.0f;
+                trialController.delayWave = 0.0f;
                 break;
 
             case 2:
                 noiseType = Noise.ImpairedOutcome;
-                waveController.delayWave = 0.5f;
+                trialController.delayWave = 0.5f;
                 break;
 
             case 3:
                 noiseType = Noise.BothImpaired;
-                waveController.delayWave = 0.5f;
+                trialController.delayWave = 0.5f;
                 break;
-
         }
     }
 
@@ -155,7 +154,6 @@ public class ElementsAgencyTrial : ICStateMachine<ElementsAgencyStates, Elements
                 handSwitcher.showRightHand = true;
                 break;
 
-
             case ElementsAgencyStates.ExperimentWave:
                 break;
 
@@ -181,7 +179,7 @@ public class ElementsAgencyTrial : ICStateMachine<ElementsAgencyStates, Elements
 
             case ElementsAgencyStates.ExperimentWave:
                 waveController.StopMachine();
-                if (trialController.wavesRequired == trialController.currentWave)
+                if (trialController.wavesRequired == trialController.currentWave) // Remove the lights when the task is finished. 
                     testLights.SetActive(false);
                 break;
 

@@ -79,6 +79,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
     protected override void OnStart()
     {
         collisionProbability = trialController.collisionProbability;
+        delayWave = trialController.delayWave;
     }
 
 
