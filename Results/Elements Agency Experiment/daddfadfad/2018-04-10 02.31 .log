@@ -1,0 +1,318 @@
+2018-04-10T14:31:11.6872251Z	Logger	Started logging
+2018-04-10T14:31:11.7007454Z	ExperimentController	Participant: daddfadfad
+2018-04-10T14:31:11.7137660Z	ExperimentController	Hand model is female
+2018-04-10T14:31:11.7388040Z	ExperimentController	Protocol file Protocol/Elements Agency Experiment/Protocol01.txt
+2018-04-10T14:31:11.7523246Z	ExperimentController	Loaded 5 trials
+2018-04-10T14:31:11.7658458Z	ExperimentController	Event ProtocolLoaded
+2018-04-10T14:31:11.7788656Z	ExperimentController	Entering state Trial
+2018-04-10T14:31:11.7953911Z	ExperimentController	Starting trial
+2018-04-10T14:31:11.8119170Z	ExperimentController	Gap: Inactive
+2018-04-10T14:31:11.8269395Z	ExperimentController	HandOffset: 0
+2018-04-10T14:31:11.8419626Z	ExperimentController	Noise type 0
+2018-04-10T14:31:11.8570287Z	ExperimentController	NoiseLevel: 0
+2018-04-10T14:31:11.8720518Z	ExperimentController	Lambda: 0
+2018-04-10T14:31:11.8866135Z	ExperimentController	Collision probability: 1
+2018-04-10T14:31:11.9021375Z	ExperimentController	Knife PresentFalse
+2018-04-10T14:31:11.9176615Z	TrialController	Started
+2018-04-10T14:31:13.6466438Z	TrialController	Entering state SpecificTrial
+2018-04-10T14:31:13.6511506Z	ElementsAgencyTrial	Noise type: Control
+2018-04-10T14:31:13.6556576Z	ElementsAgencyTrial	Delay collision active: 0
+2018-04-10T14:31:13.6591632Z	ElementsAgencyTrial	Started
+2018-04-10T14:31:13.6631693Z	TrialController	Elements Agency Experiment State Machine started
+2018-04-10T14:31:15.1603931Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T14:31:15.6729488Z	WaveController	Started
+2018-04-10T14:31:15.9383487Z	WaveController	Entering state Initial
+2018-04-10T14:31:17.7633020Z	WaveController	Initial Target Waved
+2018-04-10T14:31:17.7668081Z	WaveController	Entering state Delay
+2018-04-10T14:31:18.2569610Z	WaveController	Entering state Target
+2018-04-10T14:31:18.2604663Z	WaveController	Light: 0
+2018-04-10T14:31:18.9400959Z	WaveController	Time in wave: 1 was 0.6677361
+2018-04-10T14:31:18.9436011Z	WaveController	Entering state Feedback
+2018-04-10T14:31:19.4337020Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.4505864Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.4665359Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.4831230Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.4996664Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.5160790Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.5350650Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.5494856Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.5666125Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.5824109Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.5999442Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.6164707Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.6319944Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.6485196Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.6655461Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.6815705Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.6985966Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.7151222Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.7316475Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.7485558Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.7649314Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.7820193Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.7982025Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.8146484Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.8307911Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.8477464Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.8638821Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.8810301Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.8973669Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.9138555Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.9303517Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.9469515Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.9641377Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.9807711Z	WaveController	Waved incorrectly
+2018-04-10T14:31:19.9977449Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.0142409Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.0299285Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.0465429Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.0629600Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.0798032Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.0958036Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.1128508Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.1312901Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.1458038Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.1626282Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.1799341Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.1952942Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.2123352Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.2285676Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.2453333Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.2614997Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.2784542Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.2945252Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.3125105Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.3305371Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.3450604Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.3616087Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.3786352Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.3961572Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.4109734Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.4273116Z	WaveController	Waved incorrectly
+2018-04-10T14:31:20.4303171Z	WaveController	Entering state End
+2018-04-10T14:31:20.4348231Z	TrialController	Event Waved
+2018-04-10T14:31:20.4393301Z	ElementsAgencyTrial	Entering state Interval
+2018-04-10T14:31:20.4423347Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T14:31:20.9277455Z	WaveController	Started
+2018-04-10T14:31:21.1931963Z	WaveController	Entering state Initial
+2018-04-10T14:31:21.4766199Z	WaveController	Initial Target Waved
+2018-04-10T14:31:21.4806258Z	WaveController	Entering state Delay
+2018-04-10T14:31:21.9712444Z	WaveController	Entering state Target
+2018-04-10T14:31:21.9747496Z	WaveController	Light: 0
+2018-04-10T14:31:23.1181432Z	WaveController	Time in wave: 2 was 1.133583
+2018-04-10T14:31:23.1221396Z	WaveController	Entering state Feedback
+2018-04-10T14:31:23.6119602Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.6279398Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.6445135Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.6611981Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.6777573Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.6944516Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.7115205Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.7275844Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.7454078Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.7624393Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.7769755Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.7940014Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.8100946Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.8269594Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.8432906Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.8611447Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.8776939Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.8937546Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.9097799Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.9262613Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.9425071Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.9615748Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.9763508Z	WaveController	Waved incorrectly
+2018-04-10T14:31:23.9923851Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.0092420Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.0258037Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.0422649Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.0589478Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.0750875Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.0918811Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.1083603Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.1296266Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.1416573Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.1606735Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.1747078Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.1912206Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.2082465Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.2242722Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.2412990Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.2578405Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.2753511Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.2917229Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.3076767Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.3236145Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.3402992Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.3568108Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.3736548Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.3899840Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.4065346Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.4232975Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.4405887Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.4566475Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.4742258Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.4904303Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.5060127Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.5221671Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.5389206Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.5555054Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.5720073Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.5889996Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.6055866Z	WaveController	Waved incorrectly
+2018-04-10T14:31:24.6090927Z	WaveController	Entering state End
+2018-04-10T14:31:24.6130989Z	TrialController	Event Waved
+2018-04-10T14:31:24.6171050Z	ElementsAgencyTrial	Entering state Interval
+2018-04-10T14:31:24.6201097Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T14:31:25.1063859Z	WaveController	Started
+2018-04-10T14:31:25.3706055Z	WaveController	Entering state Initial
+2018-04-10T14:31:26.5821658Z	WaveController	Initial Target Waved
+2018-04-10T14:31:26.5856714Z	WaveController	Entering state Delay
+2018-04-10T14:31:27.0772980Z	WaveController	Entering state Target
+2018-04-10T14:31:27.0807908Z	WaveController	Light: 1
+2018-04-10T14:31:27.7419825Z	WaveController	Probability for Wave 3: 0.4391499
+2018-04-10T14:31:27.7464896Z	WaveController	Time in wave: 3 was 0.6479855
+2018-04-10T14:31:27.7494942Z	WaveController	Entering state Feedback
+2018-04-10T14:31:28.2364088Z	WaveController	Waved correctly
+2018-04-10T14:31:28.2531114Z	WaveController	Waved correctly
+2018-04-10T14:31:28.2701541Z	WaveController	Waved correctly
+2018-04-10T14:31:28.2866324Z	WaveController	Waved correctly
+2018-04-10T14:31:28.3030464Z	WaveController	Waved correctly
+2018-04-10T14:31:28.3192959Z	WaveController	Waved correctly
+2018-04-10T14:31:28.3361391Z	WaveController	Waved correctly
+2018-04-10T14:31:28.3522485Z	WaveController	Waved correctly
+2018-04-10T14:31:28.3688168Z	WaveController	Waved correctly
+2018-04-10T14:31:28.3853258Z	WaveController	Waved correctly
+2018-04-10T14:31:28.4020304Z	WaveController	Waved correctly
+2018-04-10T14:31:28.4188206Z	WaveController	Waved correctly
+2018-04-10T14:31:28.4353948Z	WaveController	Waved correctly
+2018-04-10T14:31:28.4521182Z	WaveController	Waved correctly
+2018-04-10T14:31:28.4689002Z	WaveController	Waved correctly
+2018-04-10T14:31:28.4863965Z	WaveController	Waved correctly
+2018-04-10T14:31:28.5012207Z	WaveController	Waved correctly
+2018-04-10T14:31:28.5182617Z	WaveController	Waved correctly
+2018-04-10T14:31:28.5345177Z	WaveController	Waved correctly
+2018-04-10T14:31:28.5511133Z	WaveController	Waved correctly
+2018-04-10T14:31:28.5675691Z	WaveController	Waved correctly
+2018-04-10T14:31:28.5840898Z	WaveController	Waved correctly
+2018-04-10T14:31:28.6009409Z	WaveController	Waved correctly
+2018-04-10T14:31:28.6221623Z	WaveController	Waved correctly
+2018-04-10T14:31:28.6343333Z	WaveController	Waved correctly
+2018-04-10T14:31:28.6512778Z	WaveController	Waved correctly
+2018-04-10T14:31:28.6698042Z	WaveController	Waved correctly
+2018-04-10T14:31:28.6838132Z	WaveController	Waved correctly
+2018-04-10T14:31:28.7003387Z	WaveController	Waved correctly
+2018-04-10T14:31:28.7173646Z	WaveController	Waved correctly
+2018-04-10T14:31:28.7353924Z	WaveController	Waved correctly
+2018-04-10T14:31:28.7519182Z	WaveController	Waved correctly
+2018-04-10T14:31:28.7689441Z	WaveController	Waved correctly
+2018-04-10T14:31:28.7829674Z	WaveController	Waved correctly
+2018-04-10T14:31:28.8001876Z	WaveController	Waved correctly
+2018-04-10T14:31:28.8166070Z	WaveController	Waved correctly
+2018-04-10T14:31:28.8329837Z	WaveController	Waved correctly
+2018-04-10T14:31:28.8500219Z	WaveController	Waved correctly
+2018-04-10T14:31:28.8659301Z	WaveController	Waved correctly
+2018-04-10T14:31:28.8821099Z	WaveController	Waved correctly
+2018-04-10T14:31:28.8990868Z	WaveController	Waved correctly
+2018-04-10T14:31:28.9164369Z	WaveController	Waved correctly
+2018-04-10T14:31:28.9323832Z	WaveController	Waved correctly
+2018-04-10T14:31:28.9499732Z	WaveController	Waved correctly
+2018-04-10T14:31:28.9659042Z	WaveController	Waved correctly
+2018-04-10T14:31:28.9823302Z	WaveController	Waved correctly
+2018-04-10T14:31:28.9982620Z	WaveController	Waved correctly
+2018-04-10T14:31:29.0150372Z	WaveController	Waved correctly
+2018-04-10T14:31:29.0315633Z	WaveController	Waved correctly
+2018-04-10T14:31:29.0481973Z	WaveController	Waved correctly
+2018-04-10T14:31:29.0646935Z	WaveController	Waved correctly
+2018-04-10T14:31:29.0812538Z	WaveController	Waved correctly
+2018-04-10T14:31:29.0980981Z	WaveController	Waved correctly
+2018-04-10T14:31:29.1144025Z	WaveController	Waved correctly
+2018-04-10T14:31:29.1314697Z	WaveController	Waved correctly
+2018-04-10T14:31:29.1480490Z	WaveController	Waved correctly
+2018-04-10T14:31:29.1640831Z	WaveController	Waved correctly
+2018-04-10T14:31:29.1810680Z	WaveController	Waved correctly
+2018-04-10T14:31:29.1991259Z	WaveController	Waved correctly
+2018-04-10T14:31:29.2140437Z	WaveController	Waved correctly
+2018-04-10T14:31:29.2307127Z	WaveController	Waved correctly
+2018-04-10T14:31:29.2332167Z	WaveController	Entering state End
+2018-04-10T14:31:29.2372225Z	TrialController	Event Waved
+2018-04-10T14:31:29.2417293Z	ElementsAgencyTrial	Entering state Interval
+2018-04-10T14:31:29.2447339Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T14:31:29.7465823Z	WaveController	Started
+2018-04-10T14:31:30.0115798Z	WaveController	Entering state Initial
+2018-04-10T14:31:30.2965695Z	WaveController	Initial Target Waved
+2018-04-10T14:31:30.3000748Z	WaveController	Entering state Delay
+2018-04-10T14:31:30.7902041Z	WaveController	Entering state Target
+2018-04-10T14:31:30.7937094Z	WaveController	Light: 1
+2018-04-10T14:31:32.5831144Z	WaveController	Probability for Wave 4: 0.2526485
+2018-04-10T14:31:32.5871109Z	WaveController	Time in wave: 4 was 1.77438
+2018-04-10T14:31:32.5906162Z	WaveController	Entering state Feedback
+2018-04-10T14:31:33.0768170Z	WaveController	Waved correctly
+2018-04-10T14:31:33.0943894Z	WaveController	Waved correctly
+2018-04-10T14:31:33.1101960Z	WaveController	Waved correctly
+2018-04-10T14:31:33.1267221Z	WaveController	Waved correctly
+2018-04-10T14:31:33.1435929Z	WaveController	Waved correctly
+2018-04-10T14:31:33.1600974Z	WaveController	Waved correctly
+2018-04-10T14:31:33.1786349Z	WaveController	Waved correctly
+2018-04-10T14:31:33.1930754Z	WaveController	Waved correctly
+2018-04-10T14:31:33.2122000Z	WaveController	Waved correctly
+2018-04-10T14:31:33.2257203Z	WaveController	Waved correctly
+2018-04-10T14:31:33.2422459Z	WaveController	Waved correctly
+2018-04-10T14:31:33.2597730Z	WaveController	Waved correctly
+2018-04-10T14:31:33.2768074Z	WaveController	Waved correctly
+2018-04-10T14:31:33.2923229Z	WaveController	Waved correctly
+2018-04-10T14:31:33.3088484Z	WaveController	Waved correctly
+2018-04-10T14:31:33.3253734Z	WaveController	Waved correctly
+2018-04-10T14:31:33.3414408Z	WaveController	Waved correctly
+2018-04-10T14:31:33.3569759Z	WaveController	Waved correctly
+2018-04-10T14:31:33.3776610Z	WaveController	Waved correctly
+2018-04-10T14:31:33.3913396Z	WaveController	Waved correctly
+2018-04-10T14:31:33.4079261Z	WaveController	Waved correctly
+2018-04-10T14:31:33.4244166Z	WaveController	Waved correctly
+2018-04-10T14:31:33.4414433Z	WaveController	Waved correctly
+2018-04-10T14:31:33.4581852Z	WaveController	Waved correctly
+2018-04-10T14:31:33.4747554Z	WaveController	Waved correctly
+2018-04-10T14:31:33.4912764Z	WaveController	Waved correctly
+2018-04-10T14:31:33.5076378Z	WaveController	Waved correctly
+2018-04-10T14:31:33.5238471Z	WaveController	Waved correctly
+2018-04-10T14:31:33.5433352Z	WaveController	Waved correctly
+2018-04-10T14:31:33.5593590Z	WaveController	Waved correctly
+2018-04-10T14:31:33.5738957Z	WaveController	Waved correctly
+2018-04-10T14:31:33.5904554Z	WaveController	Waved correctly
+2018-04-10T14:31:33.6066291Z	WaveController	Waved correctly
+2018-04-10T14:31:33.6232845Z	WaveController	Waved correctly
+2018-04-10T14:31:33.6398749Z	WaveController	Waved correctly
+2018-04-10T14:31:33.6568909Z	WaveController	Waved correctly
+2018-04-10T14:31:33.6735485Z	WaveController	Waved correctly
+2018-04-10T14:31:33.6894963Z	WaveController	Waved correctly
+2018-04-10T14:31:33.7062410Z	WaveController	Waved correctly
+2018-04-10T14:31:33.7223430Z	WaveController	Waved correctly
+2018-04-10T14:31:33.7392161Z	WaveController	Waved correctly
+2018-04-10T14:31:33.7562186Z	WaveController	Waved correctly
+2018-04-10T14:31:33.7727220Z	WaveController	Waved correctly
+2018-04-10T14:31:33.7892726Z	WaveController	Waved correctly
+2018-04-10T14:31:33.8057481Z	WaveController	Waved correctly
+2018-04-10T14:31:33.8218327Z	WaveController	Waved correctly
+2018-04-10T14:31:33.8387360Z	WaveController	Waved correctly
+2018-04-10T14:31:33.8555974Z	WaveController	Waved correctly
+2018-04-10T14:31:33.8723150Z	WaveController	Waved correctly
+2018-04-10T14:31:33.8887173Z	WaveController	Waved correctly
+2018-04-10T14:31:33.9052423Z	WaveController	Waved correctly
+2018-04-10T14:31:33.9216313Z	WaveController	Waved correctly
+2018-04-10T14:31:33.9381873Z	WaveController	Waved correctly
+2018-04-10T14:31:33.9552422Z	WaveController	Waved correctly
+2018-04-10T14:31:33.9716252Z	WaveController	Waved correctly
+2018-04-10T14:31:33.9880653Z	WaveController	Waved correctly
+2018-04-10T14:31:34.0041122Z	WaveController	Waved correctly
+2018-04-10T14:31:34.0211475Z	WaveController	Waved correctly
+2018-04-10T14:31:34.0375270Z	WaveController	Waved correctly
+2018-04-10T14:31:34.0545099Z	WaveController	Waved correctly
+2018-04-10T14:31:34.0711564Z	WaveController	Waved correctly
+2018-04-10T14:31:34.0741693Z	WaveController	Entering state End
+2018-04-10T14:31:34.0781755Z	TrialController	Event Waved
+2018-04-10T14:31:34.0826831Z	ElementsAgencyTrial	Entering state Interval
+2018-04-10T14:31:34.0856872Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T14:31:34.5711768Z	WaveController	Started
+2018-04-10T14:31:34.8359644Z	WaveController	Entering state Initial

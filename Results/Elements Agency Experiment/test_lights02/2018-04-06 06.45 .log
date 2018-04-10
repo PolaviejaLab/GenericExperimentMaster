@@ -1,0 +1,22 @@
+2018-04-06T18:45:34.3822301Z	Logger	Started logging
+2018-04-06T18:45:34.3962514Z	ExperimentController	Participant: test_lights02
+2018-04-06T18:45:34.4092717Z	ExperimentController	Hand model is female
+2018-04-06T18:45:34.4413209Z	ExperimentController	Protocol file Protocol/Elements Agency Experiment/Protocol01.txt
+2018-04-06T18:45:34.4553430Z	ExperimentController	Loaded 6 trials
+2018-04-06T18:45:34.4698816Z	ExperimentController	Event ProtocolLoaded
+2018-04-06T18:45:34.4838864Z	ExperimentController	Entering state Trial
+2018-04-06T18:45:34.4989222Z	ExperimentController	Starting trial
+2018-04-06T18:45:34.5159527Z	ExperimentController	Gap: Inactive
+2018-04-06T18:45:34.5329797Z	ExperimentController	HandOffset: 0
+2018-04-06T18:45:34.5490008Z	ExperimentController	Noise type 0
+2018-04-06T18:45:34.5650106Z	ExperimentController	NoiseLevel: 0
+2018-04-06T18:45:34.5810455Z	ExperimentController	Lambda: 0
+2018-04-06T18:45:34.5970747Z	ExperimentController	Collision probability: 1
+2018-04-06T18:45:34.6130853Z	ExperimentController	Knife PresentFalse
+2018-04-06T18:45:34.6316139Z	TrialController	Started
+2018-04-06T18:45:36.3438006Z	TrialController	Entering state SpecificTrial
+2018-04-06T18:45:36.3483076Z	ElementsAgencyTrial	Started
+2018-04-06T18:45:36.3518217Z	TrialController	Elements Agency Experiment State Machine started
+2018-04-06T18:45:37.8515210Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-06T18:45:38.3648124Z	WaveController	Started
+2018-04-06T18:45:38.6297719Z	WaveController	Entering state Initial

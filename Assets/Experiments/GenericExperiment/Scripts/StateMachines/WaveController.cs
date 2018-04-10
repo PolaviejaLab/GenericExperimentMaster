@@ -45,8 +45,6 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
     public MaterialChanger[] lights;
     public MaterialChanger feedbackScreen;
 
-    // public int currentWave;
-
     // Number of current light
     private int currentLight;
 
@@ -60,14 +58,16 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
     public GameObject collisionInitial;
     public float collisionProbability;
     public float randomProbability;
+    public bool targetColliderOn;
 
     // Questionnaire
-    // public GameObject Questionnaire; // > this does nothing and now :P
-    public float timeInState;
+    // public GameObject Questionnaire; // > this does nothing and now :P 
+    private bool feedbackOn;
 
     // Define Time Outs
     public float waveTimeOut = 3.0f;
-    public float delayWave;
+    public float collisionDelay;
+    public float timeInState;
 
     public void Start()
     {
@@ -79,7 +79,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
     protected override void OnStart()
     {
         collisionProbability = trialController.collisionProbability;
-        delayWave = trialController.delayWave;
+        collisionDelay = trialController.delayWave;
     }
 
 
@@ -96,7 +96,6 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 if (ev == WaveEvents.Wave_Initial)
                 {
                     WriteLog("Initial Target Waved");
-                    TurnOffInitial();
 
                     ChangeState(WaveStates.Delay);
                 }
@@ -106,7 +105,6 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 if ((int)ev == currentLight && randomProbability <= collisionProbability)
                 {
                     WriteLog("Probability for Wave " + trialController.currentWave + ": " + randomProbability);
-                    WriteLog("Waved correctly");
                     trialController.correctWaves++;
 
                     lightResults = LightResults.Correct;
@@ -115,11 +113,9 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 else if ((int)ev == currentLight && randomProbability > collisionProbability) {
                     WriteLog("Probability for Wave " + trialController.currentWave + ": " + randomProbability);
                 }
-                else if ((int)ev != currentLight && ev != WaveEvents.Wave_Initial) {
-                    WriteLog("Waved incorrectly");
-                    trialController.incorrectWaves++;
-
+                else if ((int)ev != currentLight) {
                     lightResults = LightResults.Incorrect;
+                    trialController.incorrectWaves++;
                     ChangeState(WaveStates.Feedback);
                 }
                 break;
@@ -143,7 +139,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 break;
 
             case WaveStates.Initial:
-                if (GetTimeInState() > 0.5f && !initialLightOn) {
+                if (GetTimeInState() > 0.25f && !initialLightOn) {
                     TurnOnInitial();
                 }
                 break;
@@ -151,20 +147,19 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
             case WaveStates.Delay:
                 if (GetTimeInState() > 0.5f && !targetLightOn)
                 {
-                    TurnOnTarget();
                     ChangeState(WaveStates.Target);
                 }
                 break;
 
             case WaveStates.Target:
                 // Wait between the lights turning on and off
-                if (GetTimeInState() > delayWave && targetLightOn)
+                if (GetTimeInState() > collisionDelay && targetLightOn && !targetColliderOn)
                 {
                     collisionLights.SetActive(true);
+                    targetColliderOn = true;
                 }
                 if (GetTimeInState() > waveTimeOut && targetLightOn)
                 {
-                    WriteLog("Waved Late");
                     trialController.lateWaves++;
 
                     lightResults = LightResults.TimeOut;
@@ -173,9 +168,9 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 break;
 
             case WaveStates.Feedback:
-                if (GetTimeInState() > 0.5f)
+                if (GetTimeInState() > 0.5f && !feedbackOn)
                     GiveFeedback();
-                if (GetTimeInState() > 3.0f)
+                if (GetTimeInState() > 1.5f)
                     ChangeState(WaveStates.End);
                 break;
 
@@ -190,13 +185,17 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
         switch (GetState())
         {
             case WaveStates.Initial:
+                trialController.currentWave++;
+                break;
+
+            case WaveStates.Delay:
                 break;
 
             case WaveStates.Target:
                 // Turn on random target light
                 currentLight = UnityEngine.Random.Range(0, lights.Length);
                 WriteLog("Light: " + currentLight);
-                trialController.currentWave++;
+                TurnOnTarget();
                 break;
 
             case WaveStates.Feedback:
@@ -215,16 +214,18 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
         switch (GetState())
         {
             case WaveStates.Initial:
+                TurnOffInitial();
                 break;
 
             case WaveStates.Target:
-                TurnOffTarget();
                 timeInState = GetTimeInState();
+                TurnOffTarget();
                 WriteLog("Time in wave: " + trialController.currentWave + " was " + timeInState);
                 break;
 
             case WaveStates.Feedback:
                 feedbackScreen.activeMaterial = 0;
+                feedbackOn = false;
                 break;
 
             case WaveStates.End:
@@ -254,14 +255,27 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
         collisionLights.SetActive(false);
         lights[currentLight].activeMaterial = 0;
         targetLightOn = false;
+        targetColliderOn = false;
     }
 
     public void GiveFeedback() {
+        feedbackOn = true;
         if (lightResults == LightResults.Correct)
+        {
+            WriteLog("Waved correctly");
             feedbackScreen.activeMaterial = 1;
+        }
         if (lightResults == LightResults.Incorrect)
+        {
+            WriteLog("Waved incorrectly");
             feedbackScreen.activeMaterial = 2;
+        }
         if (lightResults == LightResults.TimeOut)
+        {
+            WriteLog("Waved Late");
             feedbackScreen.activeMaterial = 2;
+
+        }
+
     }
 }

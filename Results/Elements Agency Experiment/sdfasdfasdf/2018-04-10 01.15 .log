@@ -1,0 +1,37 @@
+2018-04-10T13:15:10.5617360Z	Logger	Started logging
+2018-04-10T13:15:10.5757749Z	ExperimentController	Participant: sdfasdfasdf
+2018-04-10T13:15:10.5907980Z	ExperimentController	Hand model is female
+2018-04-10T13:15:10.6198353Z	ExperimentController	Protocol file Protocol/Elements Agency Experiment/Protocol01.txt
+2018-04-10T13:15:10.6363520Z	ExperimentController	Loaded 5 trials
+2018-04-10T13:15:10.6503910Z	ExperimentController	Event ProtocolLoaded
+2018-04-10T13:15:10.6643943Z	ExperimentController	Entering state Trial
+2018-04-10T13:15:10.6794180Z	ExperimentController	Starting trial
+2018-04-10T13:15:10.6964439Z	ExperimentController	Gap: Inactive
+2018-04-10T13:15:10.7124685Z	ExperimentController	HandOffset: 0
+2018-04-10T13:15:10.7279922Z	ExperimentController	Noise type 0
+2018-04-10T13:15:10.7435160Z	ExperimentController	NoiseLevel: 0
+2018-04-10T13:15:10.7590400Z	ExperimentController	Lambda: 0
+2018-04-10T13:15:10.7750646Z	ExperimentController	Collision probability: 1
+2018-04-10T13:15:10.7905883Z	ExperimentController	Knife PresentFalse
+2018-04-10T13:15:10.8076142Z	TrialController	Started
+2018-04-10T13:15:12.5123455Z	TrialController	Entering state SpecificTrial
+2018-04-10T13:15:12.5173535Z	ElementsAgencyTrial	Noise type :Control
+2018-04-10T13:15:12.5223609Z	ElementsAgencyTrial	Delay collision active :0
+2018-04-10T13:15:12.5263682Z	ElementsAgencyTrial	Started
+2018-04-10T13:15:12.5318933Z	TrialController	Elements Agency Experiment State Machine started
+2018-04-10T13:15:14.0132646Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T13:15:14.5274622Z	WaveController	Started
+2018-04-10T13:15:14.7825214Z	WaveController	Entering state Initial
+2018-04-10T13:15:17.9754970Z	WaveController	Initial Target Waved
+2018-04-10T13:15:17.9800041Z	WaveController	Entering state Delay
+2018-04-10T13:15:18.4649672Z	WaveController	Entering state Target
+2018-04-10T13:15:18.4684901Z	WaveController	Light: 1
+2018-04-10T13:15:20.7191463Z	WaveController	Waved incorrectly
+2018-04-10T13:15:20.7231527Z	WaveController	Time in wave: 1 was 2.236258
+2018-04-10T13:15:20.7266586Z	WaveController	Entering state Feedback
+2018-04-10T13:15:22.2159708Z	WaveController	Entering state End
+2018-04-10T13:15:22.2199769Z	TrialController	Event Waved
+2018-04-10T13:15:22.2249846Z	ElementsAgencyTrial	Entering state Interval
+2018-04-10T13:15:22.2279898Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T13:15:22.7179156Z	WaveController	Started
+2018-04-10T13:15:22.9744667Z	WaveController	Entering state Initial

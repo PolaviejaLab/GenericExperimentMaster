@@ -67,6 +67,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     public bool knifePresent;
     public bool randomizeThreatWave;
     public Vector3 knifeOffset;
+    public bool knifeOnReal;
 
     public bool waveDone = false;
 
@@ -205,11 +206,11 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                 break;
 
             case TrialStates.DimLights:
-                break;
-
-            case TrialStates.Questionnaire:
                 handSwitcher.showRightHand = false;
                 testLights.SetActive(false);
+                break;
+
+            case TrialStates.Questionnaire:             
                 break;
 
             case TrialStates.End:

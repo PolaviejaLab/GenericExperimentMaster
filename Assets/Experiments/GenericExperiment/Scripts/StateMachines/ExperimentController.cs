@@ -395,6 +395,17 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
             trialController.randomizeThreatWave = false;
         }
 
+        if (trial.ContainsKey("KnifeOnReal"))
+        {
+            if (trial["KnifeOnReal"].ToLower() == "true")
+                trialController.knifeOnReal = true;
+            else if (trial["KnifeOnReal"].ToLower() == "false")
+                trialController.knifeOnReal = false;
+        }
+        else {
+            trialController.knifeOnReal = false;
+        }
+
 
         // Gender Change
         if (trial.ContainsKey("ChangeGender")) {
@@ -512,9 +523,9 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
         else
             writer.Write("no noise information available, ");
 
-        if (threatController.knifeOnReal)
+        if (trialController.knifeOnReal)
             writer.Write("Knife on the real hand, ");
-        else if (!threatController.knifeOnReal)
+        else if (!trialController.knifeOnReal)
             writer.Write("Knife on the virtual hand, ");
 
         if (handSwitcher.useMale)

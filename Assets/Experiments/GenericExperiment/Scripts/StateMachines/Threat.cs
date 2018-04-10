@@ -30,6 +30,9 @@ public enum ThreatEvent {
 
 public class Threat: ICStateMachine<ThreatState, ThreatEvent> 
 {
+    // Reference to parent classes
+    public TrialController trialController;
+
     public LeapHandController handController;
 
     public GameObject threat;
@@ -41,10 +44,8 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
     public Vector3 threatOffset;
     public Vector3 handOffset;
 
-    public bool knifeOnReal;
+    public float followingTimeout = 3.0f;
 
-    public float followingTimeout;
-    
     public bool hideOnStopped = false;
     public bool isHeadMounted = false;
 
@@ -54,7 +55,7 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
 	Quaternion initialThreatRotation;
 	Quaternion savedRotation;
 
-    void Start() {
+     void Start() {
         // Store the initial transformation of the threat
         // this way we can reset it later
         initialThreatPosition = threat.transform.position;
@@ -62,8 +63,6 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
 
         if(hideOnStopped)
             threat.SetActive(false);
-
-        followingTimeout = 3.0f;
 	}
 	
     
@@ -113,21 +112,21 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
 
         switch (GetState()) {        
             case ThreatState.Falling:
-                if (!knifeOnReal) {
+                if (!trialController.knifeOnReal) {
                     FallOnTarget();
                 }
-                else if (knifeOnReal) {
+                else if (trialController.knifeOnReal) {
                     FallOnReal(handPositionReWorld);
                 }
                 break;
 
             case ThreatState.Following:
-                if (!knifeOnReal) {
+                if (!trialController.knifeOnReal) {
                     threat.transform.position = targetTransform.position + threatOffset / 30;
                     threat.transform.rotation = (targetTransform.rotation * Quaternion.Inverse(savedRotation)) * initialThreatRotation;
                 }
 
-                if (knifeOnReal) {
+                if (trialController.knifeOnReal) {
                     threat.transform.position = handPositionReWorld + handOffset;
                     threat.transform.rotation = (targetTransform.rotation * Quaternion.Inverse(savedRotation)) * initialThreatRotation;
                 }
@@ -139,11 +138,11 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
         }
 
         // If threat is close to target, emit TargetReached event
-        if (Vector3.Distance(threat.transform.position, targetTransform.position + threatOffset / 30) < 0.001 && !knifeOnReal) {
+        if (Vector3.Distance(threat.transform.position, targetTransform.position + threatOffset / 30) < 0.001 && !trialController.knifeOnReal) {
             HandleEvent(ThreatEvent.TargetReached);
         }
 
-        if (Vector3.Distance(threat.transform.position, handPositionReWorld + handOffset) < 0.001 && knifeOnReal) {
+        if (Vector3.Distance(threat.transform.position, handPositionReWorld + handOffset) < 0.001 && trialController.knifeOnReal) {
             HandleEvent(ThreatEvent.TargetReached);
         }
     }

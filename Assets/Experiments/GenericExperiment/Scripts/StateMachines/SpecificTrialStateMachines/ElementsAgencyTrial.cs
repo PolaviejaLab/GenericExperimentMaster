@@ -44,9 +44,6 @@ public class ElementsAgencyTrial : ICStateMachine<ElementsAgencyStates, Elements
     public HandSwitcher handSwitcher;
     public Noise noiseType;
 
-    public GameObject testLights;
-    public GameObject room;
-    public GameObject table;
 
     public void Start()
     {
@@ -75,6 +72,8 @@ public class ElementsAgencyTrial : ICStateMachine<ElementsAgencyStates, Elements
                 trialController.delayWave = 0.5f;
                 break;
         }
+        WriteLog("Noise type: " + noiseType);
+        WriteLog("Delay collision active: " + trialController.delayWave);
     }
 
 
@@ -120,9 +119,7 @@ public class ElementsAgencyTrial : ICStateMachine<ElementsAgencyStates, Elements
 
 
             case ElementsAgencyStates.Interval:
-                if (GetTimeInState() > 2.0f)
-                    testLights.SetActive(true);
-                if (trialController.currentWave < trialController.wavesRequired)
+                if (trialController.currentWave <= trialController.wavesRequired)
                     ChangeState(ElementsAgencyStates.ExperimentWave);
                 if (trialController.currentWave == trialController.wavesRequired)
                     ChangeState(ElementsAgencyStates.Threat);
@@ -136,7 +133,7 @@ public class ElementsAgencyTrial : ICStateMachine<ElementsAgencyStates, Elements
             case ElementsAgencyStates.Threat:
                 if (GetTimeInState() > 0.5f)
                     threatController.StartMachine();
-                threatController.Stopped += (sender, e) => { HandleEvent(ElementsAgencyEvents.ThreatDone); };
+                // threatController.Stopped += (sender, e) => { HandleEvent(ElementsAgencyEvents.ThreatDone); };
                 break;
 
             case ElementsAgencyStates.End:
@@ -179,8 +176,6 @@ public class ElementsAgencyTrial : ICStateMachine<ElementsAgencyStates, Elements
 
             case ElementsAgencyStates.ExperimentWave:
                 waveController.StopMachine();
-                if (trialController.wavesRequired == trialController.currentWave) // Remove the lights when the task is finished. 
-                    testLights.SetActive(false);
                 break;
 
             case ElementsAgencyStates.Threat:

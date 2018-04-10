@@ -1,0 +1,92 @@
+2018-04-10T13:43:13.4686472Z	Logger	Started logging
+2018-04-10T13:43:13.4876750Z	ExperimentController	Participant: asdfadf
+2018-04-10T13:43:13.5006947Z	ExperimentController	Hand model is female
+2018-04-10T13:43:13.5292385Z	ExperimentController	Protocol file Protocol/Elements Agency Experiment/Protocol01.txt
+2018-04-10T13:43:13.5437612Z	ExperimentController	Loaded 5 trials
+2018-04-10T13:43:13.5607880Z	ExperimentController	Event ProtocolLoaded
+2018-04-10T13:43:13.5763106Z	ExperimentController	Entering state Trial
+2018-04-10T13:43:13.5923364Z	ExperimentController	Starting trial
+2018-04-10T13:43:13.6078604Z	ExperimentController	Gap: Inactive
+2018-04-10T13:43:13.6233847Z	ExperimentController	HandOffset: 0
+2018-04-10T13:43:13.6389084Z	ExperimentController	Noise type 0
+2018-04-10T13:43:13.6539312Z	ExperimentController	NoiseLevel: 0
+2018-04-10T13:43:13.6699556Z	ExperimentController	Lambda: 0
+2018-04-10T13:43:13.6849787Z	ExperimentController	Collision probability: 1
+2018-04-10T13:43:13.7000021Z	ExperimentController	Knife PresentFalse
+2018-04-10T13:43:13.7160267Z	TrialController	Started
+2018-04-10T13:43:15.4210821Z	TrialController	Entering state SpecificTrial
+2018-04-10T13:43:15.4260898Z	ElementsAgencyTrial	Noise type: Control
+2018-04-10T13:43:15.4305966Z	ElementsAgencyTrial	Delay collision active: 0
+2018-04-10T13:43:15.4341021Z	ElementsAgencyTrial	Started
+2018-04-10T13:43:15.4381083Z	TrialController	Elements Agency Experiment State Machine started
+2018-04-10T13:43:16.9226539Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T13:43:17.4381467Z	WaveController	Started
+2018-04-10T13:43:17.6905246Z	WaveController	Entering state Initial
+2018-04-10T13:43:19.4080214Z	WaveController	Initial Target Waved
+2018-04-10T13:43:19.4115266Z	WaveController	Entering state Delay
+2018-04-10T13:43:19.9091201Z	WaveController	Entering state Target
+2018-04-10T13:43:19.9126223Z	WaveController	Light: 0
+2018-04-10T13:43:22.9158292Z	WaveController	Waved Late
+2018-04-10T13:43:22.9193345Z	WaveController	Time in wave: 1 was 3.005217
+2018-04-10T13:43:22.9228400Z	WaveController	Entering state Feedback
+2018-04-10T13:43:24.4169456Z	WaveController	Entering state End
+2018-04-10T13:43:24.4219542Z	TrialController	Event Waved
+2018-04-10T13:43:24.4269607Z	ElementsAgencyTrial	Entering state Interval
+2018-04-10T13:43:24.4299653Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T13:43:24.9172284Z	WaveController	Started
+2018-04-10T13:43:25.1694073Z	WaveController	Entering state Initial
+2018-04-10T13:43:25.6908362Z	WaveController	Initial Target Waved
+2018-04-10T13:43:25.6948424Z	WaveController	Entering state Delay
+2018-04-10T13:43:26.1876934Z	WaveController	Entering state Target
+2018-04-10T13:43:26.1917169Z	WaveController	Light: 1
+2018-04-10T13:43:26.8467272Z	WaveController	Probability for Wave 2: 0.400384
+2018-04-10T13:43:26.8502325Z	WaveController	Waved correctly
+2018-04-10T13:43:26.8542386Z	WaveController	Time in wave: 2 was 0.6460056
+2018-04-10T13:43:26.8577439Z	WaveController	Entering state Feedback
+2018-04-10T13:43:28.3432697Z	WaveController	Entering state End
+2018-04-10T13:43:28.3467758Z	TrialController	Event Waved
+2018-04-10T13:43:28.3517709Z	ElementsAgencyTrial	Entering state Interval
+2018-04-10T13:43:28.3547767Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T13:43:28.8432769Z	WaveController	Started
+2018-04-10T13:43:29.0923920Z	WaveController	Entering state Initial
+2018-04-10T13:43:29.5980237Z	WaveController	Initial Target Waved
+2018-04-10T13:43:29.6015290Z	WaveController	Entering state Delay
+2018-04-10T13:43:30.0949512Z	WaveController	Entering state Target
+2018-04-10T13:43:30.0979558Z	WaveController	Light: 1
+2018-04-10T13:43:31.5845489Z	WaveController	Waved incorrectly
+2018-04-10T13:43:31.5895728Z	WaveController	Time in wave: 3 was 1.478603
+2018-04-10T13:43:31.5935673Z	WaveController	Entering state Feedback
+2018-04-10T13:43:33.0791039Z	WaveController	Entering state End
+2018-04-10T13:43:33.0836186Z	TrialController	Event Waved
+2018-04-10T13:43:33.0886181Z	ElementsAgencyTrial	Entering state Interval
+2018-04-10T13:43:33.0916236Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T13:43:33.5905154Z	WaveController	Started
+2018-04-10T13:43:33.8441746Z	WaveController	Entering state Initial
+2018-04-10T13:43:34.3575263Z	WaveController	Initial Target Waved
+2018-04-10T13:43:34.3615322Z	WaveController	Entering state Delay
+2018-04-10T13:43:34.8599969Z	WaveController	Entering state Target
+2018-04-10T13:43:34.8635024Z	WaveController	Light: 1
+2018-04-10T13:43:36.3442994Z	WaveController	Waved incorrectly
+2018-04-10T13:43:36.3483058Z	WaveController	Time in wave: 4 was 1.473545
+2018-04-10T13:43:36.3518116Z	WaveController	Entering state Feedback
+2018-04-10T13:43:37.8464950Z	WaveController	Entering state End
+2018-04-10T13:43:37.8510012Z	TrialController	Event Waved
+2018-04-10T13:43:37.8559950Z	ElementsAgencyTrial	Entering state Interval
+2018-04-10T13:43:37.8589993Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T13:43:38.3463346Z	WaveController	Started
+2018-04-10T13:43:38.6028934Z	WaveController	Entering state Initial
+2018-04-10T13:43:39.1310812Z	WaveController	Initial Target Waved
+2018-04-10T13:43:39.1345984Z	WaveController	Entering state Delay
+2018-04-10T13:43:39.6245479Z	WaveController	Entering state Target
+2018-04-10T13:43:39.6280534Z	WaveController	Light: 0
+2018-04-10T13:43:42.6281556Z	WaveController	Waved Late
+2018-04-10T13:43:42.6321620Z	WaveController	Time in wave: 5 was 3.002087
+2018-04-10T13:43:42.6346657Z	WaveController	Entering state Feedback
+2018-04-10T13:43:44.1312987Z	WaveController	Entering state End
+2018-04-10T13:43:44.1352923Z	TrialController	Event Waved
+2018-04-10T13:43:44.1403003Z	ElementsAgencyTrial	Entering state Interval
+2018-04-10T13:43:44.1433046Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T13:43:44.6309092Z	WaveController	Started
+2018-04-10T13:43:44.8854754Z	WaveController	Entering state Initial
+2018-04-10T13:43:45.4182705Z	WaveController	Initial Target Waved
+2018-04-10T13:43:45.4217760Z	WaveController	Entering state Delay
