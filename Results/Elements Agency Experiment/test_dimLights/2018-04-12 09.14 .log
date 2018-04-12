@@ -1,0 +1,6 @@
+2018-04-12T09:14:44.4930202Z	Logger	Started logging
+2018-04-12T09:14:44.5075423Z	ExperimentController	Participant: test_DimLights
+2018-04-12T09:14:44.5200612Z	ExperimentController	Hand model is female
+2018-04-12T09:14:44.5461012Z	ExperimentController	Protocol file Protocol/Elements Agency Experiment/Protocol01.txt
+2018-04-12T09:14:44.5601228Z	ExperimentController	Loaded 5 trials
+2018-04-12T09:14:44.5742012Z	ExperimentController	Event ProtocolLoaded

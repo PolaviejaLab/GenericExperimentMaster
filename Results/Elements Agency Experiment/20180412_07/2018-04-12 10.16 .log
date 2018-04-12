@@ -1,0 +1,6 @@
+2018-04-12T10:16:30.0192678Z	Logger	Started logging
+2018-04-12T10:16:30.0337923Z	ExperimentController	Participant: 20180412_07
+2018-04-12T10:16:30.0463117Z	ExperimentController	Hand model is female
+2018-04-12T10:16:30.0763579Z	ExperimentController	Protocol file Protocol/Elements Agency Experiment/Protocol01.txt
+2018-04-12T10:16:30.0903794Z	ExperimentController	Loaded 5 trials
+2018-04-12T10:16:30.1044292Z	ExperimentController	Event ProtocolLoaded

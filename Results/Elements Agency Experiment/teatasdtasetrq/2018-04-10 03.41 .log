@@ -1,0 +1,56 @@
+2018-04-10T15:41:41.0126172Z	Logger	Started logging
+2018-04-10T15:41:41.0266285Z	ExperimentController	Participant: teatasdtasetrq
+2018-04-10T15:41:41.0391629Z	ExperimentController	Hand model is female
+2018-04-10T15:41:41.0652007Z	ExperimentController	Protocol file Protocol/Elements Agency Experiment/Protocol01.txt
+2018-04-10T15:41:41.0787159Z	ExperimentController	Loaded 5 trials
+2018-04-10T15:41:41.0922394Z	ExperimentController	Event ProtocolLoaded
+2018-04-10T15:41:41.1062693Z	ExperimentController	Entering state Trial
+2018-04-10T15:41:41.1212750Z	ExperimentController	Starting trial
+2018-04-10T15:41:41.1398025Z	ExperimentController	Gap: Inactive
+2018-04-10T15:41:41.1568443Z	ExperimentController	HandOffset: 0
+2018-04-10T15:41:41.1728542Z	ExperimentController	Noise type 0
+2018-04-10T15:41:41.1883953Z	ExperimentController	NoiseLevel: 0
+2018-04-10T15:41:41.2039563Z	ExperimentController	Lambda: 0
+2018-04-10T15:41:41.2194757Z	ExperimentController	Collision probability: 1
+2018-04-10T15:41:41.2355004Z	ExperimentController	Knife PresentFalse
+2018-04-10T15:41:41.2520253Z	TrialController	Started
+2018-04-10T15:41:42.9650914Z	TrialController	Entering state SpecificTrial
+2018-04-10T15:41:42.9700988Z	ElementsAgencyTrial	Noise type: Control
+2018-04-10T15:41:42.9746059Z	ElementsAgencyTrial	Delay collision active: 0
+2018-04-10T15:41:42.9786214Z	ElementsAgencyTrial	Started
+2018-04-10T15:41:42.9826182Z	TrialController	Elements Agency Experiment State Machine started
+2018-04-10T15:41:44.4797942Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T15:41:44.9939519Z	WaveController	Started
+2018-04-10T15:41:45.2590882Z	WaveController	Entering state Initial
+2018-04-10T15:41:45.7252643Z	WaveController	Initial Target Waved
+2018-04-10T15:41:45.7292701Z	WaveController	Entering state Delay
+2018-04-10T15:41:46.2186008Z	WaveController	Entering state Target
+2018-04-10T15:41:46.2221061Z	WaveController	Light: 1
+2018-04-10T15:41:46.8844084Z	WaveController	Probability for Wave 1: 0.2323407
+2018-04-10T15:41:46.8889265Z	WaveController	Time in wave: 1 was 0.6536951
+2018-04-10T15:41:46.8924324Z	WaveController	Entering state Feedback
+2018-04-10T15:41:47.3812590Z	WaveController	Waved correctly
+2018-04-10T15:41:48.3755446Z	WaveController	Entering state End
+2018-04-10T15:41:48.3800540Z	TrialController	Event Waved
+2018-04-10T15:41:48.3845608Z	ElementsAgencyTrial	Entering state Interval
+2018-04-10T15:41:48.3880660Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T15:41:48.8775669Z	WaveController	Started
+2018-04-10T15:41:49.1420281Z	WaveController	Entering state Initial
+2018-04-10T15:41:49.4240105Z	WaveController	Initial Target Waved
+2018-04-10T15:41:49.4275274Z	WaveController	Entering state Delay
+2018-04-10T15:41:49.9173860Z	WaveController	Entering state Target
+2018-04-10T15:41:49.9213928Z	WaveController	Light: 1
+2018-04-10T15:41:50.6494654Z	WaveController	Probability for Wave 2: 0.524379
+2018-04-10T15:41:50.6534716Z	WaveController	Time in wave: 2 was 0.714489
+2018-04-10T15:41:50.6569771Z	WaveController	Entering state Feedback
+2018-04-10T15:41:51.1465224Z	WaveController	Waved correctly
+2018-04-10T15:41:52.1407369Z	WaveController	Entering state End
+2018-04-10T15:41:52.1452437Z	TrialController	Event Waved
+2018-04-10T15:41:52.1497507Z	ElementsAgencyTrial	Entering state Interval
+2018-04-10T15:41:52.1527553Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T15:41:52.1562609Z	ElementsAgencyTrial	Entering state Threat
+2018-04-10T15:41:52.1607677Z	Threat	Started
+2018-04-10T15:41:52.1662763Z	Threat	Entering state Falling
+2018-04-10T15:41:52.5119752Z	Threat	Entering state Following
+2018-04-10T15:41:55.5294707Z	ElementsAgencyTrial	Entering state End
+2018-04-10T15:41:55.5359806Z	TrialController	Event SpecificTrialFinished

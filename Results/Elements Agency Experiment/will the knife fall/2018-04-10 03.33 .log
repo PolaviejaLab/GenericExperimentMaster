@@ -1,0 +1,24 @@
+2018-04-10T15:33:22.1003309Z	Logger	Started logging
+2018-04-10T15:33:22.1143519Z	ExperimentController	Participant: will the knife fall
+2018-04-10T15:33:22.1268716Z	ExperimentController	Hand model is female
+2018-04-10T15:33:22.1579190Z	ExperimentController	Protocol file Protocol/Elements Agency Experiment/Protocol01.txt
+2018-04-10T15:33:22.1724415Z	ExperimentController	Loaded 5 trials
+2018-04-10T15:33:22.1854612Z	ExperimentController	Event ProtocolLoaded
+2018-04-10T15:33:22.1989822Z	ExperimentController	Entering state Trial
+2018-04-10T15:33:22.2135046Z	ExperimentController	Starting trial
+2018-04-10T15:33:22.2295822Z	ExperimentController	Gap: Inactive
+2018-04-10T15:33:22.2451062Z	ExperimentController	HandOffset: 0
+2018-04-10T15:33:22.2606299Z	ExperimentController	Noise type 0
+2018-04-10T15:33:22.2756533Z	ExperimentController	NoiseLevel: 0
+2018-04-10T15:33:22.2906961Z	ExperimentController	Lambda: 0
+2018-04-10T15:33:22.3072216Z	ExperimentController	Collision probability: 1
+2018-04-10T15:33:22.3252493Z	ExperimentController	Knife PresentFalse
+2018-04-10T15:33:22.3412728Z	TrialController	Started
+2018-04-10T15:33:24.0544487Z	TrialController	Entering state SpecificTrial
+2018-04-10T15:33:24.0594562Z	ElementsAgencyTrial	Noise type: Control
+2018-04-10T15:33:24.0644604Z	ElementsAgencyTrial	Delay collision active: 0
+2018-04-10T15:33:24.0684657Z	ElementsAgencyTrial	Started
+2018-04-10T15:33:24.0724733Z	TrialController	Elements Agency Experiment State Machine started
+2018-04-10T15:33:25.5745044Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-04-10T15:33:26.0817146Z	WaveController	Started
+2018-04-10T15:33:26.3527634Z	WaveController	Entering state Initial

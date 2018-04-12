@@ -44,7 +44,7 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
     public Vector3 threatOffset;
     public Vector3 handOffset;
 
-    public float followingTimeout = 3.0f;
+    public float followingTimeout;
 
     public bool hideOnStopped = false;
     public bool isHeadMounted = false;
@@ -63,7 +63,10 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
 
         if(hideOnStopped)
             threat.SetActive(false);
-	}
+
+        followingTimeout  = 2.0f;
+
+    }
 	
     
     protected override void OnStart() {
@@ -99,7 +102,6 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
             case ThreatState.Falling:
                 if (!trialController.knifeOnReal) {
                     FallOnTarget();
-                    Debug.Log("it has reached this point");
                 }
                 else if (trialController.knifeOnReal) {
                     FallOnReal(handPositionReWorld);

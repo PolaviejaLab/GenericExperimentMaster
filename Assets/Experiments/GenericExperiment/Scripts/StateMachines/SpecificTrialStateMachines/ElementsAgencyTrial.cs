@@ -44,6 +44,7 @@ public class ElementsAgencyTrial : ICStateMachine<ElementsAgencyStates, Elements
     public HandSwitcher handSwitcher;
     public Noise noiseType;
 
+    private bool threatDone;
 
     public void Start()
     {
@@ -131,9 +132,11 @@ public class ElementsAgencyTrial : ICStateMachine<ElementsAgencyStates, Elements
                 break;
 
             case ElementsAgencyStates.Threat:
-                if (GetTimeInState() > 0.5f)
-                    threatController.StartMachine();
-                // threatController.Stopped += (sender, e) => { HandleEvent(ElementsAgencyEvents.ThreatDone); };
+                if (!threatDone) {
+                    threatController.Stopped += (sender, e) => { HandleEvent(ElementsAgencyEvents.ThreatDone); };
+                    threatDone = true;
+                }
+                
                 break;
 
             case ElementsAgencyStates.End:
@@ -155,7 +158,8 @@ public class ElementsAgencyTrial : ICStateMachine<ElementsAgencyStates, Elements
                 break;
 
             case ElementsAgencyStates.Threat:
-                threatController.threat.SetActive(true);
+                threatController.StartMachine();
+                threatController.ChangeState(ThreatState.Falling);
                 break;
                 
             case ElementsAgencyStates.End:

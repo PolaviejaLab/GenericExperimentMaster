@@ -69,10 +69,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     public Vector3 knifeOffset;
     public bool knifeOnReal;
 
-    public bool waveDone = false;
-
-
-
+    
     // var to determine trial type
     public ExperimentType experimentType;
 
@@ -108,6 +105,8 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
             case TrialStates.SpecificTrial:
                 if (ev == TrialEvents.Waved)
                     specificTrialController.ChangeState(ElementsAgencyStates.Interval);
+                if (ev == TrialEvents.SpecificTrialFinished)
+                    ChangeState(TrialStates.DimLights);
                 break;
 
             case TrialStates.Interval:
@@ -117,9 +116,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                 if (ev == TrialEvents.LightsDimmed && lightsDimmed)
                 {
                     foreach (MaterialChanger i in roomWalls)
-                    {
                         i.activeMaterial = 1;
-                    }
                     lightsOff = true;
                 }
                 break;
@@ -157,6 +154,9 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                 break;
 
             case TrialStates.DimLights:
+                if (GetTimeInState() > 1.0f && !lightsOff)
+                    DimLights();
+
                 if (lightsOff)
                     ChangeState(TrialStates.Questionnaire);
                 break;
@@ -174,7 +174,6 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
 
     protected override void OnEnter(TrialStates oldState)
     {
-
         switch (GetState())
         {
             case TrialStates.Instructions:
@@ -208,6 +207,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
             case TrialStates.DimLights:
                 handSwitcher.showRightHand = false;
                 testLights.SetActive(false);
+               
                 break;
 
             case TrialStates.Questionnaire:             
@@ -250,10 +250,14 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     {
         foreach (Light l in roomLights)
         {
-            l.intensity = 0;
+            while (l.intensity > 0)
+            {
+                l.intensity = l.intensity - 0.000001f;
+            }
         }
-        lightsDimmed = true;
-        HandleEvent(TrialEvents.LightsDimmed);
+            
+        // lightsDimmed = true;
+        // HandleEvent(TrialEvents.LightsDimmed);
     }
 
     private void resetRoomLight()
