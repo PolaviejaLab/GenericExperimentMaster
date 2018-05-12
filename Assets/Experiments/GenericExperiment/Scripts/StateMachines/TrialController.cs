@@ -14,6 +14,7 @@ public enum TrialEvents {
     Waved,
     SpecificTrialFinished,
     LightsDimmed,
+    RoomBlacked,
     QuestionsFinished,
 }
 
@@ -28,6 +29,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     public ImplicitOwnershipTrial ownershipTrialController;
     public ImplicitAgencyTrial agencyTrialController;
     public ElementsAgencyTrial specificTrialController;
+    public QuestionnaireController questionnaireController;
 
     // Scripts to manipulate the hand and offset according to condition
     public HandSwitcher handSwitcher;
@@ -36,6 +38,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     public GameObject testLights;
     public GameObject room;
     public GameObject table;
+    public GameObject feedback;
 
     public Light[] roomLights;
     public MaterialChanger[] roomWalls;
@@ -114,11 +117,9 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
 
             case TrialStates.DimLights:
                 if (ev == TrialEvents.LightsDimmed && lightsDimmed)
-                {
-                    foreach (MaterialChanger i in roomWalls)
-                        i.activeMaterial = 1;
-                    lightsOff = true;
-                }
+                    TurnOffRoom();
+                if (ev == TrialEvents.RoomBlacked && lightsOff)
+                    ChangeState(TrialStates.Questionnaire);
                 break;
 
             case TrialStates.Questionnaire:
@@ -156,9 +157,6 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
             case TrialStates.DimLights:
                 if (GetTimeInState() > 1.0f && !lightsOff)
                     DimLights();
-
-                if (lightsOff)
-                    ChangeState(TrialStates.Questionnaire);
                 break;
 
             case TrialStates.Questionnaire:
@@ -210,7 +208,8 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                
                 break;
 
-            case TrialStates.Questionnaire:             
+            case TrialStates.Questionnaire:
+                //questionnaireController.QuestionParticipant();
                 break;
 
             case TrialStates.End:
@@ -249,15 +248,10 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     private void DimLights()
     {
         foreach (Light l in roomLights)
-        {
             while (l.intensity > 0)
-            {
                 l.intensity = l.intensity - 0.000001f;
-            }
-        }
-            
-        // lightsDimmed = true;
-        // HandleEvent(TrialEvents.LightsDimmed);
+        lightsDimmed = true;
+        HandleEvent(TrialEvents.LightsDimmed);
     }
 
     private void resetRoomLight()
@@ -269,4 +263,16 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
         lightsDimmed = false;
         lightsOff = false;
     }
+
+    private void TurnOffRoom()
+    {
+        foreach (MaterialChanger i in roomWalls)
+            i.activeMaterial = 1;
+        table.SetActive(false);
+        feedback.SetActive(false);
+        lightsOff = true;
+        HandleEvent(TrialEvents.RoomBlacked);
+    }
 }
+
+
