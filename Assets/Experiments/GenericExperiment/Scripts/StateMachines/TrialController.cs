@@ -90,6 +90,9 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
         handSwitcher.noiseLevelRight = noiseLevel;
         handSwitcher.lambdaLeft = lNoise;
         handSwitcher.lambdaRight = lNoise;
+
+
+
     }
 
 
@@ -209,7 +212,8 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                 break;
 
             case TrialStates.Questionnaire:
-                //questionnaireController.QuestionParticipant();
+                questionnaireController.StartMachine();
+                questionnaireController.HandleEvent(QuestionnaireEvents.StartQuestionnaire);
                 break;
 
             case TrialStates.End:

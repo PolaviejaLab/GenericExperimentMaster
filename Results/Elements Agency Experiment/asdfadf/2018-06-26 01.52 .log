@@ -1,0 +1,6 @@
+2018-06-26T13:52:57.7665740Z	Logger	Started logging
+2018-06-26T13:52:57.7756202Z	ExperimentController	Participant: asdfadf
+2018-06-26T13:52:57.7806225Z	ExperimentController	Hand model is female
+2018-06-26T13:52:57.8001900Z	ExperimentController	Protocol file Protocol/Elements Agency Experiment/Protocol01.txt
+2018-06-26T13:52:57.8102059Z	ExperimentController	Loaded 5 trials
+2018-06-26T13:52:57.8162239Z	ExperimentController	Event ProtocolLoaded
