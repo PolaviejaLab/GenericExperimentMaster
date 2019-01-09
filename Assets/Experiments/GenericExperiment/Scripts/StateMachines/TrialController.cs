@@ -44,6 +44,8 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     public MaterialChanger[] roomWalls;
     private bool lightsDimmed = false;
     private bool lightsOff = false;
+    private float intensity_initial;
+    
 
     // Parameters of the current trial
     public int hand;
@@ -91,8 +93,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
         handSwitcher.lambdaLeft = lNoise;
         handSwitcher.lambdaRight = lNoise;
 
-
-
+        intensity_initial = roomLights[0].intensity;
     }
 
 
@@ -261,9 +262,11 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     private void resetRoomLight()
     {
         foreach (MaterialChanger i in roomWalls)
-        {
             i.activeMaterial = 0;
-        }
+        foreach (Light l in roomLights)
+            l.intensity = intensity_initial;
+        table.SetActive(true);
+        feedback.SetActive(true);
         lightsDimmed = false;
         lightsOff = false;
     }

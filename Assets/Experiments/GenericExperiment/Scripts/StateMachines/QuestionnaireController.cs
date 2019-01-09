@@ -16,6 +16,7 @@ public enum QuestionnaireStates {
     QuestionnaireStarted,
     ShowQuestion,
     Delay, 
+    End,
 }
 
 
@@ -23,6 +24,8 @@ public enum QuestionnaireStates {
 
 public class QuestionnaireController : ICStateMachine<QuestionnaireStates, QuestionnaireEvents>
 {
+    public TrialController trialController;
+
     public GameObject screen;
     public Text text;
 
@@ -105,6 +108,8 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
             case QuestionnaireStates.ShowQuestion:
                 if (ev == QuestionnaireEvents.QuestionAnswered)
                     ChangeState(QuestionnaireStates.Delay);
+                if (ev == QuestionnaireEvents.QuestionnaireDone)
+                    ChangeState(QuestionnaireStates.End);
                 break;
 
             case QuestionnaireStates.Delay:
@@ -128,21 +133,28 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
             case QuestionnaireStates.ShowQuestion:
                 if (q < totalLength)
                 {
-                    DisplayText(q);
+                    selectedQuestion = GetRandomNumber(arrayNum);
+
+                    DisplayText(selectedQuestion);
                     screen.SetActive(true);
+
                 }
                 else
-                { 
-                    // Do something else
+                {
+                    HandleEvent(QuestionnaireEvents.QuestionnaireDone);
                 }
                 break;
  
-                // selectedQuestion = GetRandomNumber(arrayNum);
-                // DisplayText(statements[selectedQuestion]);
-    
+                
+     
 
             case QuestionnaireStates.Delay:
                 q++;
+                break;
+
+            case QuestionnaireStates.End:
+                trialController.HandleEvent(TrialEvents.QuestionsFinished);
+                this.StopMachine();
                 break;
         }
 
@@ -159,7 +171,6 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
                 break;
 
             case QuestionnaireStates.ShowQuestion:
-
                 screen.SetActive(false);
 
 
@@ -176,8 +187,9 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
     {
         if (totalLength >= 1)
         {
-            int ind_ = UnityEngine.Random.Range(0, totalLength - 1);
+            int ind_ = UnityEngine.Random.Range(1, totalLength);
             selectedNumber = arrayInt[ind_];
+            Debug.Log("question number " + selectedNumber);
             arrayInt = RemoveNumber(arrayInt, ind_);           
         }
         else {

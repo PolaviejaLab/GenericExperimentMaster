@@ -1,0 +1,61 @@
+2018-07-18T14:42:51.4199770Z	Logger	Started logging
+2018-07-18T14:42:51.4299738Z	ExperimentController	Participant: displayQuestionnaire_test09
+2018-07-18T14:42:51.4379713Z	ExperimentController	Hand model is female
+2018-07-18T14:42:51.4569651Z	ExperimentController	Protocol file Protocol/Elements Agency Experiment/Protocol01.txt
+2018-07-18T14:42:51.4669607Z	ExperimentController	Loaded 5 trials
+2018-07-18T14:42:51.4759580Z	ExperimentController	Event ProtocolLoaded
+2018-07-18T14:42:51.4849550Z	ExperimentController	Entering state Trial
+2018-07-18T14:42:51.4949521Z	ExperimentController	Starting trial
+2018-07-18T14:42:51.5087860Z	ExperimentController	Gap: Inactive
+2018-07-18T14:42:51.5197992Z	ExperimentController	HandOffset: 0
+2018-07-18T14:42:51.5307804Z	ExperimentController	Noise type 0
+2018-07-18T14:42:51.5417927Z	ExperimentController	NoiseLevel: 0
+2018-07-18T14:42:51.5527842Z	ExperimentController	Lambda: 0
+2018-07-18T14:42:51.5637851Z	ExperimentController	Collision probability: 1
+2018-07-18T14:42:51.5747769Z	ExperimentController	Knife PresentFalse
+2018-07-18T14:42:51.5857736Z	TrialController	Started
+2018-07-18T14:42:53.3890243Z	TrialController	Entering state SpecificTrial
+2018-07-18T14:42:53.3930227Z	ElementsAgencyTrial	Noise type: Control
+2018-07-18T14:42:53.3960216Z	ElementsAgencyTrial	Delay collision active: 0
+2018-07-18T14:42:53.3990208Z	ElementsAgencyTrial	Started
+2018-07-18T14:42:53.4020200Z	TrialController	Elements Agency Experiment State Machine started
+2018-07-18T14:42:54.8898006Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-07-18T14:42:55.3900281Z	WaveController	Started
+2018-07-18T14:42:55.6402604Z	WaveController	Entering state Initial
+2018-07-18T14:42:56.4443258Z	WaveController	Initial Target Waved
+2018-07-18T14:42:56.4533225Z	WaveController	Entering state Delay
+2018-07-18T14:42:56.9553798Z	WaveController	Entering state Target
+2018-07-18T14:42:56.9583785Z	WaveController	Light: 1
+2018-07-18T14:42:57.4860996Z	WaveController	Time in wave: 1 was 0.5268841
+2018-07-18T14:42:57.4880992Z	WaveController	Entering state Feedback
+2018-07-18T14:42:57.9838218Z	WaveController	Waved incorrectly
+2018-07-18T14:42:58.9940185Z	WaveController	Entering state End
+2018-07-18T14:42:58.9980170Z	TrialController	Event Waved
+2018-07-18T14:42:59.0010161Z	ElementsAgencyTrial	Entering state Interval
+2018-07-18T14:42:59.0030155Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-07-18T14:42:59.4985864Z	WaveController	Started
+2018-07-18T14:42:59.7497087Z	WaveController	Entering state Initial
+2018-07-18T14:43:00.4043058Z	WaveController	Initial Target Waved
+2018-07-18T14:43:00.4063009Z	WaveController	Entering state Delay
+2018-07-18T14:43:00.9098055Z	WaveController	Entering state Target
+2018-07-18T14:43:00.9118052Z	WaveController	Light: 1
+2018-07-18T14:43:01.5916408Z	WaveController	Time in wave: 2 was 0.679615
+2018-07-18T14:43:01.5936402Z	WaveController	Entering state Feedback
+2018-07-18T14:43:02.0964354Z	WaveController	Waved incorrectly
+2018-07-18T14:43:03.1009481Z	WaveController	Entering state End
+2018-07-18T14:43:03.1039473Z	TrialController	Event Waved
+2018-07-18T14:43:03.1069462Z	ElementsAgencyTrial	Entering state Interval
+2018-07-18T14:43:03.1089458Z	ElementsAgencyTrial	Entering state ExperimentWave
+2018-07-18T14:43:03.1119447Z	ElementsAgencyTrial	Entering state Threat
+2018-07-18T14:43:03.1149436Z	Threat	Started
+2018-07-18T14:43:03.1179428Z	Threat	Entering state Falling
+2018-07-18T14:43:03.7396530Z	Threat	Entering state Following
+2018-07-18T14:43:05.7461878Z	ElementsAgencyTrial	Entering state End
+2018-07-18T14:43:05.7501863Z	TrialController	Event SpecificTrialFinished
+2018-07-18T14:43:05.7551848Z	TrialController	Entering state DimLights
+2018-07-18T14:43:07.7849696Z	TrialController	Event LightsDimmed
+2018-07-18T14:43:07.7889683Z	TrialController	Event RoomBlacked
+2018-07-18T14:43:07.7919672Z	TrialController	Entering state Questionnaire
+2018-07-18T14:43:07.8019646Z	QuestionnaireController	Started
+2018-07-18T14:43:07.8069623Z	QuestionnaireController	Entering state QuestionnaireStarted
+2018-07-18T14:43:08.4842572Z	QuestionnaireController	Entering state ShowQuestion
