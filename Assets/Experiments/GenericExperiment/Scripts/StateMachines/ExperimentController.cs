@@ -79,7 +79,7 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
     public int randomProtocol;
     public string protocolFile;
 
-    private string outputDirectory;
+    public string outputDirectory;
     private string participantName;
 
     public int trialCounter;
