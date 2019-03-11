@@ -26,31 +26,24 @@ public enum QuestionnaireStates {
 public class QuestionnaireController : ICStateMachine<QuestionnaireStates, QuestionnaireEvents>
 {
     public TrialController trialController;
-    
+
     public GameObject screen;
     public Text text;
 
     string[] statements = new string[] {
         "This is the text I want to show in the screen",
         "I love Lady",
+        "I need a third statement",
+        "And maybe a fourth"
     };
 
     public int totalLength;
     public int currentStatement = 0;
+    public int[] arrayNum;
 
     public StreamWriter questionnaireResults;
     public KeyCode cKey;
-
-
-
-
-    //   public int number = -1;
-    //   public string teststrings;
-    //   public int selectedNumber;
-    //   public int selectedQuestion;
-    //   public int q;
-
-    //   public int[] arrayNum;
+    public KeyCode responseLikert;
 
 
     public void Start()
@@ -59,14 +52,10 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
 
     protected override void OnStart()
     {
-        totalLength = statements.Length;
-        //       int[] arrayNum = new int[totalLength];
-        //       Debug.Log("Questionnaire Length: " + totalLength);
-        //       for (int n = 0; n <= totalLength - 1; n++)
-        //       {
-        //           arrayNum[n] = n + 1;
-        //       }
         questionnaireResults = OpenResultsFile();
+        totalLength = statements.Length;
+        Debug.Log("Total questions: " + totalLength.ToString());
+        arrayNum = CreateNumericArray();
     }
 
     void Update()
@@ -89,13 +78,13 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
 
             case QuestionnaireStates.WaitingForAnswer:
                 if (Input.anyKeyDown)
-                    foreach (KeyCode cKey in System.Enum.GetValues(typeof(KeyCode)))
+                    foreach (KeyCode cKey in Enum.GetValues(typeof(KeyCode)))
                         if (Input.GetKey(cKey))
                         {
-                            Debug.Log("miaw key name : " + cKey);
+                            Debug.Log("Question Answer: " + cKey);
+                            responseLikert = cKey;
                             HandleEvent(QuestionnaireEvents.QuestionAnswered);
                         }
-                    
                 break;
 
             case QuestionnaireStates.Delay:
@@ -103,8 +92,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
                     ChangeState(QuestionnaireStates.ShowQuestion);
                 break;
         }
-}
-
+    }
 
     public void HandleEvent(QuestionnaireEvents ev)
     {
@@ -147,30 +135,25 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
 
             case QuestionnaireStates.ShowQuestion:
                 screen.SetActive(true);
+                currentStatement = GetRandomNumber(arrayNum);
                 Debug.Log("Question number: " + currentStatement);
                 DisplayText();
-                HandleEvent(QuestionnaireEvents.QuestionDisplayed);
                 break;
 
-
-            //               if (q < totalLength)
-            //               {
-            //                   selectedQuestion = GetRandomNumber(arrayNum);
-            //                   DisplayText(selectedQuestion);
-            //                   screen.SetActive(true);
-
-
             case QuestionnaireStates.WaitingForAnswer:
+
                 break;
 
             case QuestionnaireStates.Delay:
-                if (currentStatement < totalLength - 1) {
-                    currentStatement++;
+                arrayNum = RemoveNumber(arrayNum, currentStatement);
+                if (arrayNum == null)
+                {
+                    ChangeState(QuestionnaireStates.End);
+                }
+                else { 
+                    
                     ChangeState(QuestionnaireStates.ShowQuestion);
                 }
-                else if (currentStatement == totalLength - 1) {
-                    ChangeState(QuestionnaireStates.End);
-                        }
                 break;
 
             case QuestionnaireStates.End:
@@ -192,11 +175,12 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
                 break;
 
             case QuestionnaireStates.ShowQuestion:
+
                 break;
 
             case QuestionnaireStates.WaitingForAnswer:
                 screen.SetActive(false);
-                RecordResponse(cKey);
+                RecordResponse(responseLikert);
                 break;
 
             case QuestionnaireStates.Delay:
@@ -209,7 +193,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
     {
         return trialController.experimentController.outputDirectory + "\\" + "Responses Trial " + trialController.experimentController.trialCounter + ".csv";
     }
-    
+
     public StreamWriter OpenResultsFile()
     {
         Debug.Log("Document opened: " + GetResultsFilename().ToString());
@@ -217,9 +201,18 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
     }
 
 
-    public void DisplayText()   // (int qNumber)
+    public int[] CreateNumericArray() {
+        int[] arrayNum = new int[totalLength];
+        for (int n = 0; n <= totalLength - 1; n++)
+            arrayNum[n] = n;
+        Debug.Log("Numeric array created");
+        return arrayNum;
+    }
+
+    public void DisplayText()
     {
         text.text = statements[currentStatement].ToString();
+        HandleEvent(QuestionnaireEvents.QuestionDisplayed);
     }
 
     public void RecordResponse(KeyCode response) {
@@ -231,34 +224,35 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
 
 
 
-    //   public int GetRandomNumber(int[] arrayInt)
-    //   {
-    //       if (totalLength >= 1)
-    //       {
-    //           int ind_ = UnityEngine.Random.Range(1, totalLength);
-    //           selectedNumber = arrayInt[ind_];
-    //           Debug.Log("question number " + selectedNumber);
-    //           arrayInt = RemoveNumber(arrayInt, ind_);           
-    //       }
-    //       else {
-    //       }
-    //       totalLength--;
-    //       return selectedNumber;
-    //   }
+    public int GetRandomNumber(int[] arrayInt)
+    {
+        int ind_ = UnityEngine.Random.Range(0, arrayInt.Length - 1);
+        currentStatement = arrayInt[ind_];
+        return currentStatement;
+    }
 
-    //   public int[] RemoveNumber(int[] arrayToRemove, int ind_)
-    //   {
-    //       int length = arrayToRemove.Length;
-    //       int count = 0;
-    //       int[] arrayNumberLess = new int[length-1];
-    //       for (int n = 0; n <= length - 1; n++)
-    //       {
-    //           if (n != ind_)
-    //           {
-    //               arrayNumberLess[count]  = arrayToRemove[n];
-    //               count++;
-    //           }
-    //       }
-    //       return arrayNumberLess;
-    //   }
+
+    public int[] RemoveNumber(int[] arrayToRemove, int ind_)
+    {
+        int length = arrayToRemove.Length;
+        int count = 0;
+        int[] arrayLess = new int[length - 1];
+        if (arrayLess.Length == 0)
+        {
+            return null; 
+        }
+        else
+        {
+            for (int n = 0; n < length; n++)
+            {
+                if (arrayToRemove[n] != ind_)
+                {
+                    int aa = count;
+                    arrayLess[count] = arrayToRemove[n];
+                    count++;
+                }
+            }
+            return arrayLess;
+        }
+    } 
 }
