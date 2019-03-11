@@ -208,8 +208,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
 
             case TrialStates.DimLights:
                 handSwitcher.showRightHand = false;
-                testLights.SetActive(false);
-               
+                testLights.SetActive(false);    
                 break;
 
             case TrialStates.Questionnaire:

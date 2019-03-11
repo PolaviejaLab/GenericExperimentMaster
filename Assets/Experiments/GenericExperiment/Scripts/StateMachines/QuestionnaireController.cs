@@ -39,8 +39,9 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
     public int currentStatement = 0;
 
     public StreamWriter questionnaireResults;
-    public string responseInput;
-    public int likertValue;
+    public KeyCode cKey;
+
+
 
 
     //   public int number = -1;
@@ -87,13 +88,14 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
                 break;
 
             case QuestionnaireStates.WaitingForAnswer:
-
-
-                //    if (currentStatement < totalLength - 1)
-                //        HandleEvent(QuestionnaireEvents.QuestionAnswered);
-                //    if (currentStatement == totalLength - 1)
-                //        HandleEvent(QuestionnaireEvents.QuestionnaireDone);
-                //}
+                if (Input.anyKeyDown)
+                    foreach (KeyCode cKey in System.Enum.GetValues(typeof(KeyCode)))
+                        if (Input.GetKey(cKey))
+                        {
+                            Debug.Log("miaw key name : " + cKey);
+                            HandleEvent(QuestionnaireEvents.QuestionAnswered);
+                        }
+                    
                 break;
 
             case QuestionnaireStates.Delay:
@@ -150,22 +152,15 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
                 HandleEvent(QuestionnaireEvents.QuestionDisplayed);
                 break;
 
-            //           case QuestionnaireStates.ShowQuestion:
+
             //               if (q < totalLength)
             //               {
             //                   selectedQuestion = GetRandomNumber(arrayNum);
-
             //                   DisplayText(selectedQuestion);
             //                   screen.SetActive(true);
 
-            //               }
-            //               break;
 
             case QuestionnaireStates.WaitingForAnswer:
-                Console.Write("Enter a string - ");
-                responseInput = Console.ReadLine();
-                likertValue = Convert.ToInt32(responseInput);
-                HandleEvent(QuestionnaireEvents.QuestionAnswered);
                 break;
 
             case QuestionnaireStates.Delay:
@@ -197,13 +192,11 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
                 break;
 
             case QuestionnaireStates.ShowQuestion:
-                // record the variable that has been input from the keyboard
-                // with the number of question - which in this case is still the correct one
                 break;
 
             case QuestionnaireStates.WaitingForAnswer:
                 screen.SetActive(false);
-                RecordResponse();
+                RecordResponse(cKey);
                 break;
 
             case QuestionnaireStates.Delay:
@@ -227,16 +220,16 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
     public void DisplayText()   // (int qNumber)
     {
         text.text = statements[currentStatement].ToString();
-        //text.text = outputText;
-        //text.text = statements[qNumber].ToString();
     }
 
-    public void RecordResponse() {
-        questionnaireResults.Write(currentStatement.ToString());
+    public void RecordResponse(KeyCode response) {
+        questionnaireResults.Write((currentStatement + 1).ToString());
         questionnaireResults.Write(", ");
-        questionnaireResults.Write("a");
+        questionnaireResults.Write(response);
         questionnaireResults.WriteLine();
     }
+
+
 
     //   public int GetRandomNumber(int[] arrayInt)
     //   {

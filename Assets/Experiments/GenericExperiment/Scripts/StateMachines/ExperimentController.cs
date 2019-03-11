@@ -73,8 +73,6 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
     public getGender subjectCode;
     public getGender expInfo;
 
-    public TableLights tableLights;
-
     private ICTrialList trialList;
     public int randomProtocol;
     public string protocolFile;
