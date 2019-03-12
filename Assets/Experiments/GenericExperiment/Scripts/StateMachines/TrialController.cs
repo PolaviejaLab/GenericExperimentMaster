@@ -13,8 +13,7 @@ public enum TrialStates {
 public enum TrialEvents {
     Waved,
     SpecificTrialFinished,
-    LightsDimmed,
-    RoomBlacked,
+    RoomOff,
     QuestionsFinished,
 }
 
@@ -42,10 +41,8 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
 
     public Light[] roomLights;
     public MaterialChanger[] roomWalls;
-    private bool lightsDimmed = false;
     private bool lightsOff = false;
     private float intensity_initial;
-    
 
     // Parameters of the current trial
     public int hand;
@@ -74,7 +71,6 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     public Vector3 knifeOffset;
     public bool knifeOnReal;
 
-    
     // var to determine trial type
     public ExperimentType experimentType;
 
@@ -120,9 +116,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                 break;
 
             case TrialStates.DimLights:
-                if (ev == TrialEvents.LightsDimmed && lightsDimmed)
-                    TurnOffRoom();
-                if (ev == TrialEvents.RoomBlacked && lightsOff)
+                if (ev == TrialEvents.RoomOff)
                     ChangeState(TrialStates.Questionnaire);
                 break;
 
@@ -159,7 +153,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                 break;
 
             case TrialStates.DimLights:
-                if (GetTimeInState() > 1.0f && !lightsOff)
+                if (GetTimeInState() > 0.1f && !lightsOff)
                     DimLights();
                 break;
 
@@ -208,7 +202,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
 
             case TrialStates.DimLights:
                 handSwitcher.showRightHand = false;
-                testLights.SetActive(false);    
+                   
                 break;
 
             case TrialStates.Questionnaire:
@@ -253,10 +247,23 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     {
         foreach (Light l in roomLights)
             while (l.intensity > 0)
-                l.intensity = l.intensity - 0.000001f;
-        lightsDimmed = true;
-        HandleEvent(TrialEvents.LightsDimmed);
+                l.intensity = l.intensity - 0.0001f;
+        TurnOffRoom();
     }
+
+
+    private void TurnOffRoom()
+    {
+        foreach (MaterialChanger i in roomWalls)
+            i.activeMaterial = 1;
+        table.SetActive(false);
+        testLights.SetActive(false);
+        feedback.SetActive(false);
+        lightsOff = true;
+        HandleEvent(TrialEvents.RoomOff);
+    }
+
+
 
     private void resetRoomLight()
     {
@@ -266,19 +273,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
             l.intensity = intensity_initial;
         table.SetActive(true);
         feedback.SetActive(true);
-        lightsDimmed = false;
         lightsOff = false;
     }
-
-    private void TurnOffRoom()
-    {
-        foreach (MaterialChanger i in roomWalls)
-            i.activeMaterial = 1;
-        table.SetActive(false);
-        feedback.SetActive(false);
-        lightsOff = true;
-        HandleEvent(TrialEvents.RoomBlacked);
-    }
 }
-
 

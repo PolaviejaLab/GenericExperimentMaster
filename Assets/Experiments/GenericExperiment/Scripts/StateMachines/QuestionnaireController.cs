@@ -9,7 +9,6 @@ public enum QuestionnaireEvents {
     StartQuestionnaire,
     QuestionDisplayed,
     QuestionAnswered,
-    QuestionnaireDone,
     }
 
 
@@ -173,7 +172,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
 
             case QuestionnaireStates.End:
                 questionnaireResults.Close();
-                HandleEvent(QuestionnaireEvents.QuestionnaireDone);
+                trialController.HandleEvent(TrialEvents.QuestionsFinished);
                 break;
         }
 
