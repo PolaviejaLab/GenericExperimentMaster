@@ -31,10 +31,25 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
     public Text text;
 
     string[] statements = new string[] {
-        "This is the text I want to show in the screen",
-        "I love Lady",
-        "I need a third statement",
-        "And maybe a fourth"
+        "I felt as if I were looking at my hand, rather than a virtual hand",
+        "I felt as if the virtual hand was my hand",
+        "It seemed like the virtual hand belonged to me",
+        "It seemed that the virtual hand was part of my body",
+        "I felt as if I had more than one right hand",
+        "I felt like my real hand was turning virtual",
+        "I felt as if the virtual hand physically resembled my real hand in terms of shape, freckles and other features",
+        "I felt that I could control the virtual hand",
+        "I felt that the movements of the virtual hand were caused by me",
+        "I felt as if the virtual hand was obeying my will",
+        "I felt that I controlled the virtual hand as if it was part of my body",
+        "I felt as if the lights were obeying my will",
+        "I felt that the movement of my hand was turning off the lights on the table",
+        "I felt as if the virtual hand was controlling my hand",
+        "I had the feeling of forgetting my own hand, focusing only on the movement of the virtual hand",
+        "I felt as if the virtual hand caused the movement of my hand",
+        "I felt as if the lights changed at random",
+        "It seemed like my hand was in the location of the virtual hand",
+        "It seemed as if the movement of my hand was located where the virtual hand was moving"
     };
 
     public int totalLength;
