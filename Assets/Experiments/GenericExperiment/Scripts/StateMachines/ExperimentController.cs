@@ -39,10 +39,11 @@ public enum ExperimentEvents
 
 public enum ExperimentType
 {
-    ImplicitOwnershipTest,          // Trial to test GSR to a threat to the virtual hand
-    ImplicitAgencyTest,             // Trial to test sensorymotor adaptation
-    ElementsAgencyTrial,            // Experiment elements of agency
-    ThreatExperimentDiscontinuity,  // Repeat the experiment of discontinuity with the threat.
+    ImplicitOwnershipTest,             // Trial to test GSR to a threat to the virtual hand
+    ImplicitAgencyTest,                // Trial to test sensorymotor adaptation
+    Outcome1,                          // Experiment elements of agency
+    Outcome2,                          // Seconds part of the elements of agency
+    ThreatExperimentDiscontinuity,     // Repeat the experiment of discontinuity with the threat.
 }
 
 
@@ -438,8 +439,12 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
                 trialController.experimentType = ExperimentType.ImplicitOwnershipTest;
                 break;
 
-            case ExperimentType.ElementsAgencyTrial:
-                trialController.experimentType = ExperimentType.ElementsAgencyTrial;
+            case ExperimentType.Outcome1:
+                trialController.experimentType = ExperimentType.Outcome1;
+                break;
+
+            case ExperimentType.Outcome2:
+                trialController.experimentType = ExperimentType.Outcome2;
                 break;
         }
         

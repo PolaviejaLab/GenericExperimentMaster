@@ -63,9 +63,15 @@ public class getGender : MonoBehaviour {
             experimentController.experimentType = ExperimentType.ImplicitAgencyTest;
             experimentName = "Implicit Agency Test";
         }
-        else if (expNum == 3) {
-            experimentController.experimentType = ExperimentType.ElementsAgencyTrial;
-            experimentName = "Elements Agency Experiment";
+        else if (expNum == 3)
+        {
+            experimentController.experimentType = ExperimentType.Outcome1;
+            experimentName = "Visuomotor Information";
+        }
+        else if (expNum == 4)
+        {
+            experimentController.experimentType = ExperimentType.Outcome2;
+            experimentName = "Outcome Ownership";
         }
         Debug.Log(experimentName + " selected");
     }

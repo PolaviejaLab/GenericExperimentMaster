@@ -17,6 +17,14 @@ public enum TrialEvents {
     QuestionsFinished,
 }
 
+public enum Noise
+{
+    Control,                    // No Action Noise and No Outcome noise
+    ImpairedMovement,           // Action noise -- eg. experiment 1
+    ImpairedOutcome,            // Outcome noise -- 
+    BothImpaired,               // Both noise 
+}
+
 
 public class TrialController : ICStateMachine<TrialStates, TrialEvents>
 
@@ -27,7 +35,8 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     // Specific trials classes
     public ImplicitOwnershipTrial ownershipTrialController;
     public ImplicitAgencyTrial agencyTrialController;
-    public ElementsAgencyTrial specificTrialController;
+    public OutcomeOwnership outcomeTrialController;
+    public VisuomotorAgency visuomotorTrialController;
     public QuestionnaireController questionnaireController;
 
     // Scripts to manipulate the hand and offset according to condition
@@ -107,7 +116,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
 
             case TrialStates.SpecificTrial:
                 if (ev == TrialEvents.Waved)
-                    specificTrialController.ChangeState(ElementsAgencyStates.Interval);
+                    visuomotorTrialController.ChangeState(VisuomotorAgencyStates.Interval);
                 if (ev == TrialEvents.SpecificTrialFinished)
                     ChangeState(TrialStates.DimLights);
                 break;
@@ -190,9 +199,14 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                         WriteLog("Implicit Ownership Trial State Machine Started");
                         break;
 
-                    case ExperimentType.ElementsAgencyTrial:
-                        specificTrialController.StartMachine();
-                        WriteLog("Elements Agency Experiment State Machine started");
+                    case ExperimentType.Outcome1:
+                        visuomotorTrialController.StartMachine();
+                        WriteLog("Visuomotor information State Machine started");
+                        break;
+
+                    case ExperimentType.Outcome2:
+                       outcomeTrialController.StartMachine();
+                        WriteLog("Outcome Information State Machine started");
                         break;
                 }
                 break;

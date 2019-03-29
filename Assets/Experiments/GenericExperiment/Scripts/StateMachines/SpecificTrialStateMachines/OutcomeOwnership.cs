@@ -5,7 +5,7 @@ using System.Collections;
 /**
  * Events handles by the Trial statemachine
  */
-public enum ElementsAgencyEvents
+public enum OutcomeOwnershipEvents
 {
     WaveFinished,
     ThreatDone,
@@ -15,7 +15,7 @@ public enum ElementsAgencyEvents
 /**
  * States of the Trial statemachine
  */
-public enum ElementsAgencyStates
+public enum OutcomeOwnershipStates
 {
     Idle,                       // Get used to the environment
     ExperimentWave,             // One event of reaching-like task
@@ -25,34 +25,24 @@ public enum ElementsAgencyStates
 };
 
 
-public enum Noise
+public class OutcomeOwnership : ICStateMachine<OutcomeOwnershipStates, OutcomeOwnershipEvents>
 {
-    Control,                    
-    ImpairedMovement,
-    ImpairedOutcome,
-    BothImpaired,
-}
 
-public class ElementsAgencyTrial : ICStateMachine<ElementsAgencyStates, ElementsAgencyEvents>
-{
     // Reference to the experiment controller
     public TrialController trialController;
     public WaveController waveController;
     public Threat threatController;
-    
+
     // Scripts to manipulate the hand and offset according to condition
     public HandSwitcher handSwitcher;
     public Noise noiseType;
 
     private bool threatDone;
 
-    public void Start()
-    {
-    }
-
-    protected override void OnStart()
-    {
-        switch (trialController.noiseType) {
+    // Use this for initialization
+    protected override void OnStart() { 
+        switch (trialController.noiseType)
+        {
             case 0:
                 noiseType = Noise.Control;
                 trialController.delayWave = 0.0f;
@@ -75,10 +65,49 @@ public class ElementsAgencyTrial : ICStateMachine<ElementsAgencyStates, Elements
         }
         WriteLog("Noise type: " + noiseType);
         WriteLog("Delay collision active: " + trialController.delayWave);
+
     }
+	
+	// Update is called once per frame
+	void Update () {
+	        if (!IsStarted())
+            return;
+
+        switch (GetState())
+        {
+            case OutcomeOwnershipStates.Idle:
+                if (GetTimeInState() > 1.5f)
+                    ChangeState(OutcomeOwnershipStates.ExperimentWave);
+                break;
 
 
-    public void HandleEvent(ElementsAgencyEvents ev)
+            case OutcomeOwnershipStates.Interval:
+                if (trialController.currentWave <= trialController.wavesRequired)
+                    ChangeState(OutcomeOwnershipStates.ExperimentWave);
+                if (trialController.currentWave == trialController.wavesRequired)
+                    ChangeState(OutcomeOwnershipStates.Threat);
+                break;
+
+            case OutcomeOwnershipStates.ExperimentWave:
+                if (GetTimeInState() > 0.5f)
+                    waveController.StartMachine();
+                break;
+                 
+                case OutcomeOwnershipStates.Threat:
+                if (!threatDone) {
+                    threatController.Stopped += (sender, e) => { HandleEvent(OutcomeOwnershipEvents.ThreatDone); };
+                    threatDone = true;
+                }
+                
+                break;
+
+            case OutcomeOwnershipStates.End:
+                break;
+        }
+	}
+
+
+    public void HandleEvent(OutcomeOwnershipEvents ev)
     {
         Debug.Log("Event " + ev.ToString());
 
@@ -87,107 +116,68 @@ public class ElementsAgencyTrial : ICStateMachine<ElementsAgencyStates, Elements
 
         switch (GetState())
         {
-            case ElementsAgencyStates.Idle:
+            case OutcomeOwnershipStates.Idle:
                 break;
 
-            case ElementsAgencyStates.ExperimentWave:
-                if (ev == ElementsAgencyEvents.WaveFinished)
-                    ChangeState(ElementsAgencyStates.Interval);
+            case OutcomeOwnershipStates.ExperimentWave:
+                if (ev == OutcomeOwnershipEvents.WaveFinished)
+                    ChangeState(OutcomeOwnershipStates.Interval);
                 break;
 
-            case ElementsAgencyStates.Threat:
-                if (ev == ElementsAgencyEvents.ThreatDone)
-                    ChangeState(ElementsAgencyStates.End);
+            case OutcomeOwnershipStates.Threat:
+                if (ev == OutcomeOwnershipEvents.ThreatDone)
+                    ChangeState(OutcomeOwnershipStates.End);
                 break;
 
-            case ElementsAgencyStates.End:
-                break;
-        }
-    }
-
-
-    public void Update()
-    {
-        if (!IsStarted())
-            return;
-
-        switch (GetState())
-        {
-            case ElementsAgencyStates.Idle:
-                if (GetTimeInState() > 1.5f)
-                    ChangeState(ElementsAgencyStates.ExperimentWave);
-                break;
-
-
-            case ElementsAgencyStates.Interval:
-                if (trialController.currentWave <= trialController.wavesRequired)
-                    ChangeState(ElementsAgencyStates.ExperimentWave);
-                if (trialController.currentWave == trialController.wavesRequired)
-                    ChangeState(ElementsAgencyStates.Threat);
-                break;
-
-            case ElementsAgencyStates.ExperimentWave:
-                if (GetTimeInState() > 0.5f)
-                    waveController.StartMachine();
-                break;
-
-            case ElementsAgencyStates.Threat:
-                if (!threatDone) {
-                    threatController.Stopped += (sender, e) => { HandleEvent(ElementsAgencyEvents.ThreatDone); };
-                    threatDone = true;
-                }
-                
-                break;
-
-            case ElementsAgencyStates.End:
+            case OutcomeOwnershipStates.End:
                 break;
         }
     }
 
-
-    protected override void OnEnter(ElementsAgencyStates oldState)
+    protected override void OnEnter(OutcomeOwnershipStates oldState)
     {
 
         switch (GetState())
         {
-            case ElementsAgencyStates.Idle:
+            case OutcomeOwnershipStates.Idle:
                 handSwitcher.showRightHand = true;
                 break;
 
-            case ElementsAgencyStates.ExperimentWave:
+            case OutcomeOwnershipStates.ExperimentWave:
                 break;
 
-            case ElementsAgencyStates.Threat:
+            case OutcomeOwnershipStates.Threat:
                 threatController.StartMachine();
                 threatController.ChangeState(ThreatState.Falling);
                 break;
-                
-            case ElementsAgencyStates.End:
+
+            case OutcomeOwnershipStates.End:
                 trialController.HandleEvent(TrialEvents.SpecificTrialFinished);
                 this.StopMachine();
                 break;
         }
     }
 
-
-    protected override void OnExit(ElementsAgencyStates newState)
+    protected override void OnExit(OutcomeOwnershipStates oldState)
     {
         switch (GetState())
         {
-            case ElementsAgencyStates.Idle:
+            case OutcomeOwnershipStates.Idle:
                 handSwitcher.showLeftHand = false;
                 break;
 
-            case ElementsAgencyStates.ExperimentWave:
+            case OutcomeOwnershipStates.ExperimentWave:
                 waveController.StopMachine();
                 break;
 
-            case ElementsAgencyStates.Threat:
+            case OutcomeOwnershipStates.Threat:
                 threatController.threat.SetActive(false);
                 break;
 
-            case ElementsAgencyStates.End:
+            case OutcomeOwnershipStates.End:
                 break;
         }
     }
 }
+
+

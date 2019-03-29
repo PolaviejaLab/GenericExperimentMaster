@@ -1,0 +1,138 @@
+2019-03-12T16:15:17.6732464Z	Logger	Started logging
+2019-03-12T16:15:17.6842413Z	ExperimentController	Participant: test new hierarchy 2
+2019-03-12T16:15:17.6932506Z	ExperimentController	Hand model is female
+2019-03-12T16:15:17.7132490Z	ExperimentController	Protocol file Protocol/Elements Agency Experiment/Protocol01.txt
+2019-03-12T16:15:17.7232461Z	ExperimentController	Loaded 5 trials
+2019-03-12T16:15:17.7322434Z	ExperimentController	Event ProtocolLoaded
+2019-03-12T16:15:17.7422351Z	ExperimentController	Entering state Trial
+2019-03-12T16:15:17.7532369Z	ExperimentController	Starting trial
+2019-03-12T16:15:17.7662425Z	ExperimentController	Gap: Inactive
+2019-03-12T16:15:17.7772386Z	ExperimentController	HandOffset: 0
+2019-03-12T16:15:17.7932341Z	ExperimentController	Noise type 0
+2019-03-12T16:15:17.8052303Z	ExperimentController	NoiseLevel: 0
+2019-03-12T16:15:17.8162266Z	ExperimentController	Lambda: 0
+2019-03-12T16:15:17.8272230Z	ExperimentController	Collision probability: 1
+2019-03-12T16:15:17.8382196Z	ExperimentController	Knife PresentFalse
+2019-03-12T16:15:17.8522197Z	TrialController	Started
+2019-03-12T16:15:19.6471568Z	TrialController	Entering state SpecificTrial
+2019-03-12T16:15:19.6511607Z	ElementsAgencyTrial	Noise type: Control
+2019-03-12T16:15:19.6541550Z	ElementsAgencyTrial	Delay collision active: 0
+2019-03-12T16:15:19.6571536Z	ElementsAgencyTrial	Started
+2019-03-12T16:15:19.6601497Z	TrialController	Elements Agency Experiment State Machine started
+2019-03-12T16:15:21.1553245Z	ElementsAgencyTrial	Entering state ExperimentWave
+2019-03-12T16:15:21.6693885Z	WaveController	Started
+2019-03-12T16:15:21.9337433Z	WaveController	Entering state Initial
+2019-03-12T16:15:34.6089559Z	WaveController	Initial Target Waved
+2019-03-12T16:15:34.6119670Z	WaveController	Entering state Delay
+2019-03-12T16:15:35.1211684Z	WaveController	Entering state Target
+2019-03-12T16:15:35.1241795Z	WaveController	Light: 1
+2019-03-12T16:15:37.2116469Z	WaveController	Time in wave: 1 was 2.087475
+2019-03-12T16:15:37.2136463Z	WaveController	Entering state Feedback
+2019-03-12T16:15:37.7219004Z	WaveController	Waved incorrectly
+2019-03-12T16:15:38.7159089Z	WaveController	Entering state End
+2019-03-12T16:15:38.7189081Z	TrialController	Event Waved
+2019-03-12T16:15:38.7219070Z	ElementsAgencyTrial	Entering state Interval
+2019-03-12T16:15:38.7249061Z	ElementsAgencyTrial	Entering state ExperimentWave
+2019-03-12T16:15:39.2286248Z	WaveController	Started
+2019-03-12T16:15:39.4942188Z	WaveController	Entering state Initial
+2019-03-12T16:15:40.1260293Z	WaveController	Initial Target Waved
+2019-03-12T16:15:40.1290276Z	WaveController	Entering state Delay
+2019-03-12T16:15:40.6374908Z	WaveController	Entering state Target
+2019-03-12T16:15:40.6394902Z	WaveController	Light: 1
+2019-03-12T16:15:43.6526901Z	WaveController	Time in wave: 2 was 3.014992
+2019-03-12T16:15:43.6556893Z	WaveController	Entering state Feedback
+2019-03-12T16:15:44.1659898Z	WaveController	Waved Late
+2019-03-12T16:15:45.1602483Z	WaveController	Entering state End
+2019-03-12T16:15:45.1632395Z	TrialController	Event Waved
+2019-03-12T16:15:45.1662412Z	ElementsAgencyTrial	Entering state Interval
+2019-03-12T16:15:45.1682412Z	ElementsAgencyTrial	Entering state ExperimentWave
+2019-03-12T16:15:45.1712395Z	ElementsAgencyTrial	Entering state Threat
+2019-03-12T16:15:45.1742390Z	Threat	Started
+2019-03-12T16:15:45.1772376Z	Threat	Entering state Falling
+2019-03-12T16:15:45.7955358Z	Threat	Entering state Following
+2019-03-12T16:15:47.8038080Z	ElementsAgencyTrial	Entering state End
+2019-03-12T16:15:47.8088188Z	TrialController	Event SpecificTrialFinished
+2019-03-12T16:15:47.8208028Z	TrialController	Entering state DimLights
+2019-03-12T16:15:47.9198070Z	TrialController	Event RoomOff
+2019-03-12T16:15:47.9238054Z	TrialController	Entering state Questionnaire
+2019-03-12T16:15:47.9457984Z	QuestionnaireController	Started
+2019-03-12T16:15:47.9507970Z	QuestionnaireController	Entering state QuestionnaireStarted
+2019-03-12T16:15:48.9165313Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:15:48.9235286Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:15:50.6255128Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:15:50.6285117Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:15:50.6375090Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:15:53.1297350Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:15:53.1327336Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:15:53.1417315Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:15:55.5180623Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:15:55.5220611Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:15:55.5310581Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:15:56.7469034Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:15:56.7509024Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:15:56.7598991Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:15:57.7939165Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:15:57.7969157Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:15:57.8069125Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:15:59.0063687Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:15:59.0093679Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:15:59.0183649Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:16:00.1846107Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:16:00.1886097Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:16:00.1976067Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:16:01.1321280Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:16:01.1351269Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:16:01.1441239Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:16:02.2775147Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:16:02.2805139Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:16:02.2895111Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:16:03.5399569Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:16:03.5429558Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:16:03.5519540Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:16:04.6855336Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:16:04.6885322Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:16:04.6975289Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:16:05.9295071Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:16:05.9335058Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:16:05.9425031Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:16:07.2923544Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:16:07.2953533Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:16:07.3043506Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:16:08.4377670Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:16:08.4417606Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:16:08.4507576Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:16:09.9149666Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:16:09.9189650Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:16:09.9279623Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:16:11.1600398Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:16:11.1640379Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:16:11.1730446Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:16:12.1249617Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:16:12.1279603Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:16:12.1369573Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:16:13.2212455Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:16:13.2242447Z	QuestionnaireController	Entering state ShowQuestion
+2019-03-12T16:16:13.2332419Z	QuestionnaireController	Entering state WaitingForAnswer
+2019-03-12T16:16:14.1683911Z	QuestionnaireController	Entering state Delay
+2019-03-12T16:16:14.1723904Z	QuestionnaireController	Entering state End
+2019-03-12T16:16:14.1814036Z	TrialController	Event QuestionsFinished
+2019-03-12T16:16:14.1864024Z	TrialController	Entering state End
+2019-03-12T16:16:14.1923999Z	ExperimentController	Event TrialFinished
+2019-03-12T16:16:14.2103777Z	ExperimentController	Entering state Delay
+2019-03-12T16:16:15.6774812Z	ExperimentController	Event NextTrial
+2019-03-12T16:16:15.6804798Z	ExperimentController	Entering state Trial
+2019-03-12T16:16:15.6834787Z	ExperimentController	Starting trial
+2019-03-12T16:16:15.6874777Z	ExperimentController	Gap: Inactive
+2019-03-12T16:16:15.6914770Z	ExperimentController	HandOffset: 0
+2019-03-12T16:16:15.6954752Z	ExperimentController	Noise type 0
+2019-03-12T16:16:15.6994745Z	ExperimentController	NoiseLevel: 0
+2019-03-12T16:16:15.7034653Z	ExperimentController	Lambda: 0
+2019-03-12T16:16:15.7084681Z	ExperimentController	Collision probability: 1
+2019-03-12T16:16:15.7114675Z	ExperimentController	Knife PresentTrue
+2019-03-12T16:16:15.7164681Z	TrialController	Started
+2019-03-12T16:16:17.6919902Z	TrialController	Entering state SpecificTrial
+2019-03-12T16:16:17.6949894Z	ElementsAgencyTrial	Noise type: Control
+2019-03-12T16:16:17.6979914Z	ElementsAgencyTrial	Delay collision active: 0
+2019-03-12T16:16:17.7009900Z	ElementsAgencyTrial	Started
+2019-03-12T16:16:17.7039895Z	TrialController	Elements Agency Experiment State Machine started
+2019-03-12T16:16:19.1991888Z	ElementsAgencyTrial	Entering state ExperimentWave

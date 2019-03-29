@@ -1,0 +1,17 @@
+2019-03-20T17:17:42.3314439Z	Logger	Started logging
+2019-03-20T17:17:42.3434523Z	ExperimentController	Participant: test again changed name scripts
+2019-03-20T17:17:42.3574524Z	ExperimentController	Hand model is female
+2019-03-20T17:17:42.3774454Z	ExperimentController	Protocol file Protocol/Visuomotor information/Protocol01.txt
+2019-03-20T17:17:42.3884418Z	ExperimentController	Loaded 5 trials
+2019-03-20T17:17:42.3974342Z	ExperimentController	Event ProtocolLoaded
+2019-03-20T17:17:42.4074310Z	ExperimentController	Entering state Trial
+2019-03-20T17:17:42.4184276Z	ExperimentController	Starting trial
+2019-03-20T17:17:42.4314281Z	ExperimentController	Gap: Inactive
+2019-03-20T17:17:42.4434249Z	ExperimentController	HandOffset: 0
+2019-03-20T17:17:42.4544215Z	ExperimentController	Noise type 0
+2019-03-20T17:17:42.4654175Z	ExperimentController	NoiseLevel: 0
+2019-03-20T17:17:42.4774092Z	ExperimentController	Lambda: 0
+2019-03-20T17:17:42.4884055Z	ExperimentController	Collision probability: 1
+2019-03-20T17:17:42.4994024Z	ExperimentController	Knife PresentFalse
+2019-03-20T17:17:42.5113986Z	TrialController	Started
+2019-03-20T17:17:44.2928755Z	TrialController	Entering state SpecificTrial
