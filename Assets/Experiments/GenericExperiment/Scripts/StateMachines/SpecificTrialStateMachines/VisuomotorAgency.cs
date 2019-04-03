@@ -46,7 +46,7 @@ public class VisuomotorAgency : ICStateMachine<VisuomotorAgencyStates, Visuomoto
 
     protected override void OnStart()
     {
-        switch (trialController.noiseType) {
+          switch (trialController.noiseType) {
             case 0:
                 noiseType = Noise.Control;
                 trialController.delayWave = 0.0f;
@@ -114,15 +114,18 @@ public class VisuomotorAgency : ICStateMachine<VisuomotorAgencyStates, Visuomoto
 
 
             case VisuomotorAgencyStates.Interval:
-                if (trialController.currentWave <= trialController.wavesRequired)
-                    ChangeState(VisuomotorAgencyStates.ExperimentWave);
-                if (trialController.currentWave == trialController.wavesRequired)
+                if (GetTimeInState() > 0.5f)
                     ChangeState(VisuomotorAgencyStates.Threat);
                 break;
 
             case VisuomotorAgencyStates.ExperimentWave:
                 if (GetTimeInState() > 0.5f)
                     waveController.StartMachine();
+
+                if (waveController.taskStarted)              {
+                    waveController.Stopped += (sender, e) => { HandleEvent(VisuomotorAgencyEvents.WaveFinished); };
+                    waveController.taskStarted = false;
+                }
                 break;
                  
                 case VisuomotorAgencyStates.Threat:

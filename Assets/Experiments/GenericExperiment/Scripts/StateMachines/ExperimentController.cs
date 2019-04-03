@@ -38,12 +38,16 @@ public enum ExperimentEvents
 };
 
 public enum ExperimentType
-{
-    ImplicitOwnershipTest,             // Trial to test GSR to a threat to the virtual hand
-    ImplicitAgencyTest,                // Trial to test sensorymotor adaptation
-    Outcome1,                          // Experiment elements of agency
-    Outcome2,                          // Seconds part of the elements of agency
-    ThreatExperimentDiscontinuity,     // Repeat the experiment of discontinuity with the threat.
+{ 
+    // Ensure that the Folder containing the Protocol and Results folder have the same name (caption sensitive)
+    VisuomotorInformation,                  // Manipulate both action and outcome visual information
+    OutcomeOwnership,                       // Manipulate outcome information and visual information of the appearance of the hand
+
+    //    ImplicitOwnershipTest,             // Trial to test GSR to a threat to the virtual hand
+    //    ImplicitAgencyTest,                // Trial to test sensorymotor adaptation
+    //    Outcome1,                          // Experiment elements of agency
+    //    Outcome2,                          // Seconds part of the elements of agency
+    //    ThreatExperimentDiscontinuity,     // Repeat the experiment of discontinuity with the threat.
 }
 
 
@@ -71,8 +75,8 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
     public HandController handController;
     public HandSwitcher handSwitcher;
 
-    public getGender subjectCode;
-    public getGender expInfo;
+    public getInformation subjectCode;
+    public getInformation expInfo;
 
     private ICTrialList trialList;
     public int randomProtocol;
@@ -431,20 +435,20 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
 
         switch (experimentType)
         {
-            case ExperimentType.ImplicitAgencyTest:
-                trialController.experimentType = ExperimentType.ImplicitAgencyTest;
+            //case ExperimentType.ImplicitAgencyTest:
+            //    trialController.experimentType = ExperimentType.ImplicitAgencyTest;
+            //    break;
+
+            //case ExperimentType.ImplicitOwnershipTest:
+            //    trialController.experimentType = ExperimentType.ImplicitOwnershipTest;
+            //    break;
+
+            case ExperimentType.VisuomotorInformation:
+                trialController.experimentType = ExperimentType.VisuomotorInformation;
                 break;
 
-            case ExperimentType.ImplicitOwnershipTest:
-                trialController.experimentType = ExperimentType.ImplicitOwnershipTest;
-                break;
-
-            case ExperimentType.Outcome1:
-                trialController.experimentType = ExperimentType.Outcome1;
-                break;
-
-            case ExperimentType.Outcome2:
-                trialController.experimentType = ExperimentType.Outcome2;
+            case ExperimentType.OutcomeOwnership:
+                trialController.experimentType = ExperimentType.OutcomeOwnership;
                 break;
         }
         

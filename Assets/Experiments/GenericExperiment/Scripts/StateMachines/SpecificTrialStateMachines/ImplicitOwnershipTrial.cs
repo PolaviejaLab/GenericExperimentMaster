@@ -67,7 +67,7 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
     protected override void OnStart()
     {
         // set wave parameters
-        trialController.currentWave = 0;
+       // trialController.currentWave = 0;
         trialController.correctWaves = 0;
         trialController.lateWaves = 0;
         trialController.incorrectWaves = 0;
@@ -125,18 +125,18 @@ public class ImplicitOwnershipTrial : ICStateMachine<OwnershipTrialStates, Owner
             case OwnershipTrialStates.ExperimentWave:               
                 break;
 
-            case OwnershipTrialStates.Interval:
-                if (trialController.currentWave < trialController.wavesRequired)
-                    ChangeState(OwnershipTrialStates.ExperimentWave);
-                else if (trialController.currentWave == trialController.wavesRequired && randomizeThreatWave)
-                    HandleEvent(OwnershipTrialEvents.TaskFinished);
-                else if (trialController.currentWave == threatWave && !threatDone)
-                    ChangeState(OwnershipTrialStates.Threat);
-                else if (trialController.currentWave == threatWave && threatDone && randomizeThreatWave)
-                    ChangeState(OwnershipTrialStates.ExperimentWave);
-                else if (trialController.currentWave == threatWave && threatDone && !randomizeThreatWave)
-                    ChangeState(OwnershipTrialStates.ExperimentWave);
-                break;
+            //case OwnershipTrialStates.Interval:
+            //    if (trialController.currentWave < trialController.wavesRequired)
+            //        ChangeState(OwnershipTrialStates.ExperimentWave);
+            //    else if (trialController.currentWave == trialController.wavesRequired && randomizeThreatWave)
+            //        HandleEvent(OwnershipTrialEvents.TaskFinished);
+            //    else if (trialController.currentWave == threatWave && !threatDone)
+            //        ChangeState(OwnershipTrialStates.Threat);
+            //    else if (trialController.currentWave == threatWave && threatDone && randomizeThreatWave)
+            //        ChangeState(OwnershipTrialStates.ExperimentWave);
+            //    else if (trialController.currentWave == threatWave && threatDone && !randomizeThreatWave)
+            //        ChangeState(OwnershipTrialStates.ExperimentWave);
+                //break;
 
             case OwnershipTrialStates.Threat:
                 break;

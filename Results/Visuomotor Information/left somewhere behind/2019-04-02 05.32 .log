@@ -1,0 +1,36 @@
+2019-04-02T17:32:09.4284930Z	Logger	Started logging
+2019-04-02T17:32:09.4424779Z	ExperimentController	Participant: left somewhere behind
+2019-04-02T17:32:09.4554637Z	ExperimentController	Hand model is female
+2019-04-02T17:32:09.4834350Z	ExperimentController	Protocol file Protocol/Visuomotor Information/Protocol01.txt
+2019-04-02T17:32:09.4974213Z	ExperimentController	Loaded 5 trials
+2019-04-02T17:32:09.5114066Z	ExperimentController	Event ProtocolLoaded
+2019-04-02T17:32:09.5244158Z	ExperimentController	Entering state Trial
+2019-04-02T17:32:09.5403770Z	ExperimentController	Starting trial
+2019-04-02T17:32:09.5573781Z	ExperimentController	Gap: Inactive
+2019-04-02T17:32:09.5743427Z	ExperimentController	HandOffset: 0
+2019-04-02T17:32:09.5903386Z	ExperimentController	Noise type 0
+2019-04-02T17:32:09.6063196Z	ExperimentController	NoiseLevel: 0
+2019-04-02T17:32:09.6233045Z	ExperimentController	Lambda: 0
+2019-04-02T17:32:09.6392881Z	ExperimentController	Collision probability: 1
+2019-04-02T17:32:09.6552723Z	ExperimentController	Knife PresentFalse
+2019-04-02T17:32:09.6722518Z	TrialController	Started
+2019-04-02T17:32:11.3845799Z	TrialController	Entering state SpecificTrial
+2019-04-02T17:32:11.3885764Z	VisuomotorAgency	Noise type: Control
+2019-04-02T17:32:11.3935582Z	VisuomotorAgency	Delay collision active: 0
+2019-04-02T17:32:11.3975541Z	VisuomotorAgency	Started
+2019-04-02T17:32:11.4015517Z	TrialController	Visuomotor Information Trial started
+2019-04-02T17:32:12.8896717Z	VisuomotorAgency	Entering state ExperimentWave
+2019-04-02T17:32:13.4049519Z	WaveController	Started
+2019-04-02T17:32:13.6550091Z	WaveController	Entering state Initial
+2019-04-02T17:32:15.0723842Z	WaveController	Initial Target Waved
+2019-04-02T17:32:15.0763804Z	WaveController	Entering state Delay
+2019-04-02T17:32:15.5861617Z	WaveController	Entering state Target
+2019-04-02T17:32:15.5891586Z	WaveController	Light: 1
+2019-04-02T17:32:17.9198869Z	WaveController	Time in wave: 1 was 2.32921
+2019-04-02T17:32:17.9238959Z	WaveController	Entering state Feedback
+2019-04-02T17:32:18.4153794Z	WaveController	Waved incorrectly
+2019-04-02T17:32:19.4151022Z	WaveController	Entering state Interval
+2019-04-02T17:32:19.4190981Z	WaveController	Entering state Initial
+2019-04-02T17:32:19.4230940Z	WaveController	Entering state End
+2019-04-02T17:32:19.4310864Z	TrialController	Event WavedFinished
+2019-04-02T17:32:19.4510847Z	VisuomotorAgency	Entering state Interval

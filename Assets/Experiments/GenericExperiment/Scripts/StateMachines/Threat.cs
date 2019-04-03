@@ -70,8 +70,9 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
 	
     
     protected override void OnStart() {
-        if(hideOnStopped)
+       if(hideOnStopped)
             threat.SetActive(true);
+
     }
     
     
@@ -98,7 +99,11 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
         if (!IsStarted())
             return;
 
-        switch (GetState()) {        
+        switch (GetState()) {
+            case ThreatState.Initial:
+
+                break;
+                       
             case ThreatState.Falling:
                 if (!trialController.knifeOnReal) {
                     FallOnTarget();
@@ -168,6 +173,10 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
 	protected override void OnExit(ThreatState newState) {
         switch(GetState()) {
             // Reset initial position and rotation when following is complete
+            case ThreatState.Initial:
+   
+                break;
+
             case ThreatState.Following:
                 threat.transform.position = initialThreatPosition;
                 threat.transform.rotation = initialThreatRotation;

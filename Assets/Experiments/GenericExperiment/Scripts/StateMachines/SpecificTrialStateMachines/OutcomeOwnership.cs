@@ -19,7 +19,7 @@ public enum OutcomeOwnershipStates
 {
     Idle,                       // Get used to the environment
     ExperimentWave,             // One event of reaching-like task
-    Interval,                   // In between measures and task
+ //   Interval,                   // In between measures and task
     Threat,                     // Knife
     End,                        // End of the trial
 };
@@ -40,7 +40,7 @@ public class OutcomeOwnership : ICStateMachine<OutcomeOwnershipStates, OutcomeOw
     private bool threatDone;
 
     // Use this for initialization
-    protected override void OnStart() { 
+    protected override void OnStart() {
         switch (trialController.noiseType)
         {
             case 0:
@@ -81,16 +81,16 @@ public class OutcomeOwnership : ICStateMachine<OutcomeOwnershipStates, OutcomeOw
                 break;
 
 
-            case OutcomeOwnershipStates.Interval:
-                if (trialController.currentWave <= trialController.wavesRequired)
-                    ChangeState(OutcomeOwnershipStates.ExperimentWave);
-                if (trialController.currentWave == trialController.wavesRequired)
-                    ChangeState(OutcomeOwnershipStates.Threat);
-                break;
+ //           case OutcomeOwnershipStates.Interval:
+
+          //      break;
 
             case OutcomeOwnershipStates.ExperimentWave:
                 if (GetTimeInState() > 0.5f)
                     waveController.StartMachine();
+
+                if (waveController.taskStarted)
+                    waveController.Stopped += (sender, e) => { HandleEvent(OutcomeOwnershipEvents.WaveFinished); };
                 break;
                  
                 case OutcomeOwnershipStates.Threat:
@@ -121,7 +121,7 @@ public class OutcomeOwnership : ICStateMachine<OutcomeOwnershipStates, OutcomeOw
 
             case OutcomeOwnershipStates.ExperimentWave:
                 if (ev == OutcomeOwnershipEvents.WaveFinished)
-                    ChangeState(OutcomeOwnershipStates.Interval);
+                    ChangeState(OutcomeOwnershipStates.Threat);
                 break;
 
             case OutcomeOwnershipStates.Threat:

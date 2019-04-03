@@ -1,0 +1,17 @@
+2019-04-02T16:52:59.4454199Z	Logger	Started logging
+2019-04-02T16:52:59.4594055Z	ExperimentController	Participant: las ganaaas de cantar
+2019-04-02T16:52:59.4713930Z	ExperimentController	Hand model is female
+2019-04-02T16:52:59.4973675Z	ExperimentController	Protocol file Protocol/Outcome Ownership/Protocol01.txt
+2019-04-02T16:52:59.5113531Z	ExperimentController	Loaded 5 trials
+2019-04-02T16:52:59.5243398Z	ExperimentController	Event ProtocolLoaded
+2019-04-02T16:52:59.5383244Z	ExperimentController	Entering state Trial
+2019-04-02T16:52:59.5533099Z	ExperimentController	Starting trial
+2019-04-02T16:52:59.5692938Z	ExperimentController	Gap: Inactive
+2019-04-02T16:52:59.5852933Z	ExperimentController	HandOffset: 0.1
+2019-04-02T16:52:59.6022597Z	ExperimentController	Noise type 0
+2019-04-02T16:52:59.6182430Z	ExperimentController	NoiseLevel: 0
+2019-04-02T16:52:59.6342258Z	ExperimentController	Lambda: 0
+2019-04-02T16:52:59.6502094Z	ExperimentController	Collision probability: 1
+2019-04-02T16:52:59.6661933Z	ExperimentController	Knife PresentFalse
+2019-04-02T16:52:59.6821767Z	TrialController	Started
+2019-04-02T16:53:01.3919612Z	TrialController	Entering state SpecificTrial

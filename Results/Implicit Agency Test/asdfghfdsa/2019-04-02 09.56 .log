@@ -1,0 +1,23 @@
+2019-04-02T09:56:52.7799190Z	Logger	Started logging
+2019-04-02T09:56:52.7939038Z	ExperimentController	Participant: asdfghfdsa
+2019-04-02T09:56:52.8068911Z	ExperimentController	Hand model is female
+2019-04-02T09:56:52.8458497Z	ExperimentController	Protocol file Protocol/Implicit Agency Test/Protocol01.txt
+2019-04-02T09:56:52.8638316Z	ExperimentController	Loaded 6 trials
+2019-04-02T09:56:52.8778170Z	ExperimentController	Event ProtocolLoaded
+2019-04-02T09:56:52.8908037Z	ExperimentController	Entering state Trial
+2019-04-02T09:56:52.9067879Z	ExperimentController	Starting trial
+2019-04-02T09:56:52.9520324Z	ExperimentController	Gap: Inactive
+2019-04-02T09:56:52.9680288Z	ExperimentController	HandOffset: 0
+2019-04-02T09:56:52.9840124Z	ExperimentController	Noise type 0
+2019-04-02T09:56:52.9989854Z	ExperimentController	NoiseLevel: 0
+2019-04-02T09:56:53.0149690Z	ExperimentController	Lambda: 0
+2019-04-02T09:56:53.0309515Z	ExperimentController	Collision probability: 1
+2019-04-02T09:56:53.0459492Z	ExperimentController	Knife PresentFalse
+2019-04-02T09:56:53.0629188Z	TrialController	Started
+2019-04-02T09:56:54.7425838Z	TrialController	Entering state SpecificTrial
+2019-04-02T09:56:54.7465914Z	ImplicitAgencyTrial	Started
+2019-04-02T09:56:54.7495886Z	TrialController	Implicit Agency Trial State Machine Started
+2019-04-02T09:56:56.2494376Z	ImplicitAgencyTrial	Entering state PreMeasure
+2019-04-02T09:56:57.2645184Z	ImplicitMeasure	Started
+2019-04-02T09:56:57.2675156Z	ImplicitMeasure	Implicit Measure Started
+2019-04-02T09:56:57.7768535Z	ImplicitMeasure	Entering state WaitingToStart

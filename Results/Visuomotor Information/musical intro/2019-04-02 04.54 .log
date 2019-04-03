@@ -1,0 +1,31 @@
+2019-04-02T16:54:01.9574023Z	Logger	Started logging
+2019-04-02T16:54:01.9713871Z	ExperimentController	Participant: musical intro
+2019-04-02T16:54:01.9843738Z	ExperimentController	Hand model is female
+2019-04-02T16:54:02.0183401Z	ExperimentController	Protocol file Protocol/Visuomotor Information/Protocol01.txt
+2019-04-02T16:54:02.0323258Z	ExperimentController	Loaded 5 trials
+2019-04-02T16:54:02.0463118Z	ExperimentController	Event ProtocolLoaded
+2019-04-02T16:54:02.0602963Z	ExperimentController	Entering state Trial
+2019-04-02T16:54:02.0752812Z	ExperimentController	Starting trial
+2019-04-02T16:54:02.0932625Z	ExperimentController	Gap: Inactive
+2019-04-02T16:54:02.1102573Z	ExperimentController	HandOffset: 0
+2019-04-02T16:54:02.1262290Z	ExperimentController	Noise type 0
+2019-04-02T16:54:02.1422126Z	ExperimentController	NoiseLevel: 0
+2019-04-02T16:54:02.1581962Z	ExperimentController	Lambda: 0
+2019-04-02T16:54:02.1741921Z	ExperimentController	Collision probability: 1
+2019-04-02T16:54:02.1901757Z	ExperimentController	Knife PresentFalse
+2019-04-02T16:54:02.2061596Z	TrialController	Started
+2019-04-02T16:54:03.9085783Z	TrialController	Entering state SpecificTrial
+2019-04-02T16:54:03.9145718Z	VisuomotorAgency	Noise type: Control
+2019-04-02T16:54:03.9185797Z	VisuomotorAgency	Delay collision active: 0
+2019-04-02T16:54:03.9225753Z	VisuomotorAgency	Started
+2019-04-02T16:54:03.9275588Z	TrialController	Visuomotor Information Trial started
+2019-04-02T16:54:05.4157483Z	VisuomotorAgency	Entering state ExperimentWave
+2019-04-02T16:54:05.9153041Z	WaveController	Started
+2019-04-02T16:54:06.1656396Z	WaveController	Entering state Initial
+2019-04-02T16:54:07.0494262Z	WaveController	Initial Target Waved
+2019-04-02T16:54:07.0534224Z	WaveController	Entering state Delay
+2019-04-02T16:54:07.5469064Z	WaveController	Entering state Target
+2019-04-02T16:54:07.5509021Z	WaveController	Light: 1
+2019-04-02T16:54:08.1847110Z	WaveController	Time in wave: 2 was 0.632556
+2019-04-02T16:54:08.1877104Z	WaveController	Entering state Feedback
+2019-04-02T16:54:08.6944629Z	WaveController	Waved incorrectly

@@ -1,0 +1,52 @@
+2019-04-03T15:40:50.3310660Z	Logger	Started logging
+2019-04-03T15:40:50.3450508Z	ExperimentController	Participant: test specific trial controller VM
+2019-04-03T15:40:50.3570383Z	ExperimentController	Hand model is female
+2019-04-03T15:40:50.3830117Z	ExperimentController	Protocol file Protocol/Visuomotor Information/Protocol01.txt
+2019-04-03T15:40:50.3969968Z	ExperimentController	Loaded 5 trials
+2019-04-03T15:40:50.4099834Z	ExperimentController	Event ProtocolLoaded
+2019-04-03T15:40:50.4239697Z	ExperimentController	Entering state Trial
+2019-04-03T15:40:50.4399536Z	ExperimentController	Starting trial
+2019-04-03T15:40:50.4559494Z	ExperimentController	Gap: Inactive
+2019-04-03T15:40:50.4729320Z	ExperimentController	HandOffset: 0
+2019-04-03T15:40:50.4879158Z	ExperimentController	Noise type 0
+2019-04-03T15:40:50.5038869Z	ExperimentController	NoiseLevel: 0
+2019-04-03T15:40:50.5198703Z	ExperimentController	Lambda: 0
+2019-04-03T15:40:50.5358667Z	ExperimentController	Collision probability: 1
+2019-04-03T15:40:50.5518506Z	ExperimentController	Knife PresentFalse
+2019-04-03T15:40:50.5688409Z	TrialController	Started
+2019-04-03T15:40:52.2804936Z	TrialController	Entering state SpecificTrial
+2019-04-03T15:40:52.2845021Z	VisuomotorAgency	Noise type: Control
+2019-04-03T15:40:52.2894967Z	VisuomotorAgency	Delay collision active: 0
+2019-04-03T15:40:52.2934806Z	VisuomotorAgency	Started
+2019-04-03T15:40:52.2974771Z	TrialController	Visuomotor Information Trial started
+2019-04-03T15:40:53.7835966Z	VisuomotorAgency	Entering state ExperimentWave
+2019-04-03T15:40:54.2934137Z	WaveController	Started
+2019-04-03T15:40:54.5456262Z	WaveController	Entering state Initial
+2019-04-03T15:40:55.5781003Z	WaveController	Initial Target Waved
+2019-04-03T15:40:55.5810970Z	WaveController	Entering state Delay
+2019-04-03T15:40:56.0861754Z	WaveController	Entering state Target
+2019-04-03T15:40:56.0921704Z	WaveController	Light: 0
+2019-04-03T15:40:56.7748284Z	WaveController	Probability for Wave 0: 0
+2019-04-03T15:40:56.7798232Z	WaveController	Time in wave: 0 was 0.685133
+2019-04-03T15:40:56.7838206Z	WaveController	Entering state Feedback
+2019-04-03T15:40:57.2728761Z	WaveController	Waved correctly
+2019-04-03T15:40:58.2738429Z	WaveController	Entering state Interval
+2019-04-03T15:40:58.2778508Z	WaveController	Entering state Initial
+2019-04-03T15:40:58.9864460Z	WaveController	Initial Target Waved
+2019-04-03T15:40:58.9894429Z	WaveController	Entering state Delay
+2019-04-03T15:40:59.4919940Z	WaveController	Entering state Target
+2019-04-03T15:40:59.4949909Z	WaveController	Light: 0
+2019-04-03T15:41:00.2602486Z	WaveController	Probability for Wave 1: 0
+2019-04-03T15:41:00.2642436Z	WaveController	Time in wave: 1 was 0.7652702
+2019-04-03T15:41:00.2682395Z	WaveController	Entering state Feedback
+2019-04-03T15:41:00.7608840Z	WaveController	Waved correctly
+2019-04-03T15:41:01.7716601Z	WaveController	Entering state Interval
+2019-04-03T15:41:01.7766550Z	WaveController	Entering state End
+2019-04-03T15:41:01.7816410Z	TrialController	Event WavedFinished
+2019-04-03T15:41:01.7976341Z	VisuomotorAgency	Entering state Interval
+2019-04-03T15:41:02.2873257Z	VisuomotorAgency	Entering state Threat
+2019-04-03T15:41:02.2933227Z	Threat	Started
+2019-04-03T15:41:02.7917341Z	Threat	Entering state Falling
+2019-04-03T15:41:03.4207920Z	Threat	Entering state Following
+2019-04-03T15:41:06.4388026Z	VisuomotorAgency	Entering state End
+2019-04-03T15:41:06.4447965Z	TrialController	Event SpecificTrialFinished

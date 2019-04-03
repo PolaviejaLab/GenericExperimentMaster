@@ -1,0 +1,40 @@
+2019-04-02T16:53:25.5757268Z	Logger	Started logging
+2019-04-02T16:53:25.5897076Z	ExperimentController	Participant: mirraaaaa
+2019-04-02T16:53:25.6026943Z	ExperimentController	Hand model is female
+2019-04-02T16:53:25.6286685Z	ExperimentController	Protocol file Protocol/Outcome Ownership/Protocol01.txt
+2019-04-02T16:53:25.6426545Z	ExperimentController	Loaded 5 trials
+2019-04-02T16:53:25.6566581Z	ExperimentController	Event ProtocolLoaded
+2019-04-02T16:53:25.6706361Z	ExperimentController	Entering state Trial
+2019-04-02T16:53:25.6866214Z	ExperimentController	Starting trial
+2019-04-02T16:53:25.7036043Z	ExperimentController	Gap: Inactive
+2019-04-02T16:53:25.7195879Z	ExperimentController	HandOffset: 0.1
+2019-04-02T16:53:25.7355761Z	ExperimentController	Noise type 0
+2019-04-02T16:53:25.7515594Z	ExperimentController	NoiseLevel: 0
+2019-04-02T16:53:25.7675382Z	ExperimentController	Lambda: 0
+2019-04-02T16:53:25.7835218Z	ExperimentController	Collision probability: 1
+2019-04-02T16:53:25.7995057Z	ExperimentController	Knife PresentFalse
+2019-04-02T16:53:25.8154899Z	TrialController	Started
+2019-04-02T16:53:27.5393154Z	TrialController	Entering state SpecificTrial
+2019-04-02T16:53:27.5393154Z	OutcomeOwnership	Noise type: Control
+2019-04-02T16:53:27.5393154Z	OutcomeOwnership	Delay collision active: 0
+2019-04-02T16:53:27.5393154Z	OutcomeOwnership	Started
+2019-04-02T16:53:27.5443105Z	TrialController	Outcome Ownership Trial started
+2019-04-02T16:53:29.0514737Z	OutcomeOwnership	Entering state ExperimentWave
+2019-04-02T16:53:29.5556695Z	WaveController	Started
+2019-04-02T16:53:29.8212285Z	WaveController	Entering state Initial
+2019-04-02T16:53:30.6398568Z	WaveController	Initial Target Waved
+2019-04-02T16:53:30.6428540Z	WaveController	Entering state Delay
+2019-04-02T16:53:31.1376967Z	WaveController	Entering state Target
+2019-04-02T16:53:31.1436909Z	WaveController	Light: 0
+2019-04-02T16:53:31.8063824Z	WaveController	Probability for Wave 2: 0
+2019-04-02T16:53:31.8103906Z	WaveController	Time in wave: 2 was 0.6657209
+2019-04-02T16:53:31.8143922Z	WaveController	Entering state Feedback
+2019-04-02T16:53:32.3040664Z	WaveController	Waved correctly
+2019-04-02T16:53:33.3188669Z	WaveController	Entering state End
+2019-04-02T16:53:33.3238493Z	TrialController	Event WavedFinished
+2019-04-02T16:53:33.3298429Z	OutcomeOwnership	Entering state Interval
+2019-04-02T16:53:34.6664324Z	OutcomeOwnership	Entering state ExperimentWave
+2019-04-02T16:53:34.6664324Z	OutcomeOwnership	Entering state Threat
+2019-04-02T16:53:34.6709420Z	Threat	Started
+2019-04-02T16:53:34.6749504Z	Threat	Entering state Falling
+2019-04-02T16:53:35.3036498Z	Threat	Entering state Following

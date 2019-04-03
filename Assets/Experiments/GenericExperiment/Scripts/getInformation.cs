@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class getGender : MonoBehaviour {
+public class getInformation : MonoBehaviour {
 
     public HandSwitcher handSwitcher;
     public ExperimentController experimentController;
@@ -55,22 +55,22 @@ public class getGender : MonoBehaviour {
     public void getExperimentNumber(int expNum) {
         if (expNum == 1)
         {
-            experimentController.experimentType = ExperimentType.ImplicitOwnershipTest;
-            experimentName = "Implicit Ownership Test";
+            //experimentController.experimentType = ExperimentType.ImplicitOwnershipTest;
+            //experimentName = "Implicit Ownership Test";
         }
         else if (expNum == 2)
         {
-            experimentController.experimentType = ExperimentType.ImplicitAgencyTest;
-            experimentName = "Implicit Agency Test";
+            //experimentController.experimentType = ExperimentType.ImplicitAgencyTest;
+            //experimentName = "Implicit Agency Test";
         }
         else if (expNum == 3)
         {
-            experimentController.experimentType = ExperimentType.Outcome1;
+            experimentController.experimentType = ExperimentType.VisuomotorInformation;
             experimentName = "Visuomotor Information";
         }
         else if (expNum == 4)
         {
-            experimentController.experimentType = ExperimentType.Outcome2;
+            experimentController.experimentType = ExperimentType.OutcomeOwnership;
             experimentName = "Outcome Ownership";
         }
         Debug.Log(experimentName + " selected");

@@ -11,7 +11,7 @@ public enum TrialStates {
 }
 
 public enum TrialEvents {
-    Waved,
+    WavedFinished,
     SpecificTrialFinished,
     RoomOff,
     QuestionsFinished,
@@ -33,10 +33,13 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     public ExperimentController experimentController;
 
     // Specific trials classes
-    public ImplicitOwnershipTrial ownershipTrialController;
-    public ImplicitAgencyTrial agencyTrialController;
-    public OutcomeOwnership outcomeTrialController;
-    public VisuomotorAgency visuomotorTrialController;
+    //public ImplicitOwnershipTrial ownershipTrialController;
+    //public ImplicitAgencyTrial agencyTrialController;
+    public VisuomotorAgency visuomotorTrialController ;
+    public OutcomeOwnership outcomeOwnershipTrialController;
+
+
+    // Reference to child classes
     public QuestionnaireController questionnaireController;
 
     // Scripts to manipulate the hand and offset according to condition
@@ -67,7 +70,6 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     // wave recording variables
     public int wavesRequired;
     public int totWaves;
-    public int currentWave;
     public int correctWaves;
     public int incorrectWaves;
     public int lateWaves;
@@ -115,10 +117,8 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                 break;
 
             case TrialStates.SpecificTrial:
-                if (ev == TrialEvents.Waved)
-                    visuomotorTrialController.ChangeState(VisuomotorAgencyStates.Interval);
                 if (ev == TrialEvents.SpecificTrialFinished)
-                    ChangeState(TrialStates.DimLights);
+                    ChangeState(TrialStates.Interval);
                 break;
 
             case TrialStates.Interval:
@@ -156,7 +156,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                 break;
 
             case TrialStates.Interval:
-                if (GetTimeInState() > 2.0f) {
+                if (GetTimeInState() > 1.50f) {
                     ChangeState(TrialStates.DimLights);
                 }
                 break;
@@ -189,24 +189,24 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
             case TrialStates.SpecificTrial:
                 switch (experimentType)
                 {
-                    case ExperimentType.ImplicitAgencyTest:
-                        agencyTrialController.StartMachine();
-                        WriteLog("Implicit Agency Trial State Machine Started");
-                        break;
+                    //case ExperimentType.ImplicitAgencyTest:
+                    //    agencyTrialController.StartMachine();
+                    //    WriteLog("Implicit Agency Trial State Machine Started");
+                    //    break;
 
-                    case ExperimentType.ImplicitOwnershipTest:
-                        ownershipTrialController.StartMachine();
-                        WriteLog("Implicit Ownership Trial State Machine Started");
-                        break;
+                    //case ExperimentType.ImplicitOwnershipTest:
+                    //    ownershipTrialController.StartMachine();
+                    //    WriteLog("Implicit Ownership Trial State Machine Started");
+                    //    break;
 
-                    case ExperimentType.Outcome1:
+                    case ExperimentType.VisuomotorInformation:
                         visuomotorTrialController.StartMachine();
-                        WriteLog("Visuomotor information State Machine started");
+                        WriteLog("Visuomotor Information Trial started");
                         break;
 
-                    case ExperimentType.Outcome2:
-                       outcomeTrialController.StartMachine();
-                        WriteLog("Outcome Information State Machine started");
+                    case ExperimentType.OutcomeOwnership:
+                        outcomeOwnershipTrialController.StartMachine();
+                        WriteLog("Outcome Ownership Trial started");
                         break;
                 }
                 break;

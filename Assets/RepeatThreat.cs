@@ -87,12 +87,12 @@ public class RepeatThreat : ICStateMachine<RepeatThreatStates, RepeatThreatEvent
 
 
             case RepeatThreatStates.Interval:
-                if (GetTimeInState() > 2.0f)
-                    testLights.SetActive(true);
-                if (trialController.currentWave < trialController.wavesRequired)
-                    ChangeState(RepeatThreatStates.ExperimentWave);
-                if (trialController.currentWave == trialController.wavesRequired)
-                    ChangeState(RepeatThreatStates.Threat);
+                //if (GetTimeInState() > 2.0f)
+                //    testLights.SetActive(true);
+                //if (trialController.currentWave < trialController.wavesRequired)
+                //    ChangeState(RepeatThreatStates.ExperimentWave);
+                //if (trialController.currentWave == trialController.wavesRequired)
+                //    ChangeState(RepeatThreatStates.Threat);
                 break;
 
             case RepeatThreatStates.ExperimentWave:
@@ -146,9 +146,9 @@ public class RepeatThreat : ICStateMachine<RepeatThreatStates, RepeatThreatEvent
                 break;
 
             case RepeatThreatStates.ExperimentWave:
-                waveController.StopMachine();
-                if (trialController.wavesRequired == trialController.currentWave)
-                    testLights.SetActive(false);
+                //waveController.StopMachine();
+                //if (trialController.wavesRequired == trialController.currentWave)
+                //    testLights.SetActive(false);
                 break;
 
             case RepeatThreatStates.Threat:
