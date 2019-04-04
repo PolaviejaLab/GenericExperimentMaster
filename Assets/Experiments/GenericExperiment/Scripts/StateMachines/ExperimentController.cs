@@ -34,7 +34,6 @@ public enum ExperimentEvents
     ProtocolLoaded,
     TrialFinished,
     NextTrial,
-    ExperimentFinished,
 };
 
 public enum ExperimentType

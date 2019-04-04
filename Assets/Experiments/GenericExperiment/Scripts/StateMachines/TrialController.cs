@@ -4,16 +4,13 @@ using System.Collections;
 public enum TrialStates {
     Idle,
     SpecificTrial,
-    // DimLights,
     Questionnaire,
-    Interval,
     End,
 }
 
 public enum TrialEvents {
     TaskFinished,
     SpTrialFinished,
-    // RoomOff,
     QuestionsFinished,
 }
 
@@ -38,7 +35,6 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     public VisuomotorAgency visuomotorTrialController ;
     public OutcomeOwnership outcomeOwnershipTrialController;
 
-
     // Reference to child classes
     public QuestionnaireController questionnaireController;
 
@@ -50,8 +46,6 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     public GameObject room;
     public GameObject table;
     public GameObject feedback;
-
-
 
     // Parameters of the current trial
     public int hand;
@@ -116,9 +110,6 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                     ChangeState(TrialStates.Questionnaire);
                 break;
 
-            case TrialStates.Interval:
-                break;
-
             case TrialStates.Questionnaire:
                 if (ev == TrialEvents.QuestionsFinished) {
                     questionnaireController.StopMachine();
@@ -145,9 +136,6 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                 break;
 
             case TrialStates.SpecificTrial:
-                break;
-
-            case TrialStates.Interval:
                 break;
 
             case TrialStates.Questionnaire:
@@ -195,11 +183,6 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                 }
                 break;
 
-            case TrialStates.Interval:
-                break;
-
-
-
             case TrialStates.Questionnaire:
                 handSwitcher.showRightHand = false;
                 questionnaireController.StartMachine();
@@ -221,9 +204,6 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
                 break;
 
             case TrialStates.SpecificTrial:
-                break;
-
-            case TrialStates.Interval:
                 break;
 
             case TrialStates.Questionnaire:
