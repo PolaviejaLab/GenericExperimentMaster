@@ -130,7 +130,7 @@ public class RepeatThreat : ICStateMachine<RepeatThreatStates, RepeatThreatEvent
                 break;
 
             case RepeatThreatStates.End:
-                trialController.HandleEvent(TrialEvents.SpecificTrialFinished);
+                trialController.HandleEvent(TrialEvents.SpTrialFinished);
                 this.StopMachine();
                 break;
         }

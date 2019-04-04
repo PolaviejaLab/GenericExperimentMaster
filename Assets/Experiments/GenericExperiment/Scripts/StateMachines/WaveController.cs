@@ -215,7 +215,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 break;
 
             case WaveStates.End:
-                trialController.HandleEvent(TrialEvents.WavedFinished);
+                trialController.HandleEvent(TrialEvents.TaskFinished);
                 this.StopMachine();
                 taskStarted = false;
                 break;

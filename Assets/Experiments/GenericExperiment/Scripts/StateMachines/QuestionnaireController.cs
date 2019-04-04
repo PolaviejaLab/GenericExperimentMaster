@@ -6,6 +6,7 @@ using System;
 
 
 public enum QuestionnaireEvents {
+    RoomOff,
     StartQuestionnaire,
     QuestionDisplayed,
     QuestionAnswered,
@@ -14,7 +15,7 @@ public enum QuestionnaireEvents {
 
 public enum QuestionnaireStates {
     Idle,
-    QuestionnaireStarted,
+    Questionnaire,
     ShowQuestion,
     WaitingForAnswer,
     Delay, 
@@ -59,6 +60,12 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
     public KeyCode cKey;
     public KeyCode responseLikert;
 
+    
+    public Light[] roomLights;
+    public MaterialChanger[] roomWalls;
+    private float intensity_initial;
+    private bool lightsOff;
+
 
     public void Start()
     {
@@ -70,6 +77,8 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
         totalLength = statements.Length;
         Debug.Log("Total questions: " + totalLength.ToString());
         arrayNum = CreateNumericArray();
+
+        intensity_initial = roomLights[0].intensity;
     }
 
     void Update()
@@ -82,7 +91,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
             case QuestionnaireStates.Idle:
                 break;
 
-            case QuestionnaireStates.QuestionnaireStarted:
+            case QuestionnaireStates.Questionnaire:
                 if (GetTimeInState() > 1.0f)
                     ChangeState(QuestionnaireStates.ShowQuestion);
                 break;
@@ -113,8 +122,8 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
         switch (GetState())
         {
             case QuestionnaireStates.Idle:
-                if (ev == QuestionnaireEvents.StartQuestionnaire)
-                    ChangeState(QuestionnaireStates.QuestionnaireStarted);
+                if (ev == QuestionnaireEvents.RoomOff)
+                    ChangeState(QuestionnaireStates.Questionnaire);
                 break;
 
             case QuestionnaireStates.ShowQuestion:
@@ -132,7 +141,6 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
 
             case QuestionnaireStates.End:
                 trialController.HandleEvent(TrialEvents.QuestionsFinished);
-                this.StopMachine();
                 break;
         }
     }
@@ -144,7 +152,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
             case QuestionnaireStates.Idle:
                 break;
 
-            case QuestionnaireStates.QuestionnaireStarted:
+            case QuestionnaireStates.Questionnaire:
                 break;
 
             case QuestionnaireStates.ShowQuestion:
@@ -161,17 +169,14 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
             case QuestionnaireStates.Delay:
                 arrayNum = RemoveNumber(arrayNum, currentStatement);
                 if (arrayNum == null)
-                {
                     ChangeState(QuestionnaireStates.End);
-                }
-                else { 
-                    
+                else 
                     ChangeState(QuestionnaireStates.ShowQuestion);
-                }
                 break;
 
             case QuestionnaireStates.End:
                 questionnaireResults.Close();
+                resetRoomLight();
                 trialController.HandleEvent(TrialEvents.QuestionsFinished);
                 break;
         }
@@ -185,7 +190,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
             case QuestionnaireStates.Idle:
                 break;
 
-            case QuestionnaireStates.QuestionnaireStarted:
+            case QuestionnaireStates.Questionnaire:
                 break;
 
             case QuestionnaireStates.ShowQuestion:
@@ -198,6 +203,9 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
                 break;
 
             case QuestionnaireStates.Delay:
+                break;
+
+            case QuestionnaireStates.End:
                 break;
         }
 
@@ -253,7 +261,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
         int[] arrayLess = new int[length - 1];
         if (arrayLess.Length == 0)
         {
-            return null; 
+            return null;
         }
         else
         {
@@ -268,5 +276,40 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
             }
             return arrayLess;
         }
-    } 
-}
+    }
+
+
+
+    public void DimLights()
+    {
+        foreach (Light l in roomLights)
+            while (l.intensity > 0)
+                l.intensity = l.intensity - 0.0001f;
+        TurnOffRoom();
+    }
+
+
+    private void TurnOffRoom()
+    {
+        foreach (MaterialChanger i in roomWalls)
+            i.activeMaterial = 1;
+        trialController.table.SetActive(false);
+        trialController.testLights.SetActive(false);
+        trialController.feedback.SetActive(false);
+        lightsOff = true;
+        HandleEvent(QuestionnaireEvents.RoomOff);
+    }
+
+
+    private void resetRoomLight()
+    {
+        foreach (MaterialChanger i in roomWalls)
+            i.activeMaterial = 0;
+        foreach (Light l in roomLights)
+            l.intensity = intensity_initial;
+        trialController.table.SetActive(true);
+        trialController.feedback.SetActive(true);
+        lightsOff = false;
+    }
+
+} 

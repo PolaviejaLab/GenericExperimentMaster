@@ -156,11 +156,11 @@ public class VisuomotorAgency : ICStateMachine<VisuomotorAgencyStates, Visuomoto
 
             case VisuomotorAgencyStates.Threat:
                 threatController.StartMachine();
-                threatController.ChangeState(ThreatState.Falling);
+                threatController.HandleEvent(ThreatEvent.ReleaseThreat);
                 break;
                 
             case VisuomotorAgencyStates.End:
-                trialController.HandleEvent(TrialEvents.SpecificTrialFinished);
+                trialController.HandleEvent(TrialEvents.SpTrialFinished);
                 this.StopMachine();
                 break;
         }

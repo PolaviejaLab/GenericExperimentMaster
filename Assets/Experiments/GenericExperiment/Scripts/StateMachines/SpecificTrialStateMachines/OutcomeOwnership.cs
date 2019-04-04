@@ -19,7 +19,7 @@ public enum OutcomeOwnershipStates
 {
     Idle,                       // Get used to the environment
     ExperimentWave,             // One event of reaching-like task
- //   Interval,                   // In between measures and task
+    Interval,                   // In between measures and task
     Threat,                     // Knife
     End,                        // End of the trial
 };
@@ -81,16 +81,22 @@ public class OutcomeOwnership : ICStateMachine<OutcomeOwnershipStates, OutcomeOw
                 break;
 
 
- //           case OutcomeOwnershipStates.Interval:
+            case OutcomeOwnershipStates.Interval:
+                if (GetTimeInState() > 0.5f)
+                    ChangeState(OutcomeOwnershipStates.Threat);
 
-          //      break;
+                break;
 
             case OutcomeOwnershipStates.ExperimentWave:
                 if (GetTimeInState() > 0.5f)
                     waveController.StartMachine();
 
                 if (waveController.taskStarted)
+                {
                     waveController.Stopped += (sender, e) => { HandleEvent(OutcomeOwnershipEvents.WaveFinished); };
+                    waveController.taskStarted = false;
+                }
+
                 break;
                  
                 case OutcomeOwnershipStates.Threat:
@@ -121,7 +127,7 @@ public class OutcomeOwnership : ICStateMachine<OutcomeOwnershipStates, OutcomeOw
 
             case OutcomeOwnershipStates.ExperimentWave:
                 if (ev == OutcomeOwnershipEvents.WaveFinished)
-                    ChangeState(OutcomeOwnershipStates.Threat);
+                    ChangeState(OutcomeOwnershipStates.Interval);
                 break;
 
             case OutcomeOwnershipStates.Threat:
@@ -148,11 +154,11 @@ public class OutcomeOwnership : ICStateMachine<OutcomeOwnershipStates, OutcomeOw
 
             case OutcomeOwnershipStates.Threat:
                 threatController.StartMachine();
-                threatController.ChangeState(ThreatState.Falling);
+                threatController.HandleEvent(ThreatEvent.ReleaseThreat);
                 break;
 
             case OutcomeOwnershipStates.End:
-                trialController.HandleEvent(TrialEvents.SpecificTrialFinished);
+                trialController.HandleEvent(TrialEvents.SpTrialFinished);
                 this.StopMachine();
                 break;
         }

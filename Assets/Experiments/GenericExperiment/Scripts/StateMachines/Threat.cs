@@ -15,7 +15,8 @@ using Leap.Unity;
 public enum ThreatState {
 	Initial,        // Idle state
 	Falling,        // Falling on / towards target
-	Following       // Stick to target
+	Following,       // Stick to target
+    End,
 };
 
 
@@ -125,7 +126,7 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
                 }
 
                 if (GetTimeInState() > followingTimeout) {
-                    StopMachine();
+                    ChangeState(ThreatState.End);
                 }
                 break;            
         }
@@ -165,6 +166,10 @@ public class Threat: ICStateMachine<ThreatState, ThreatEvent>
 
             case ThreatState.Following:
                 savedRotation = targetTransform.rotation;
+                break;
+
+            case ThreatState.End:
+                this.StopMachine();
                 break;
         }
 	}    
