@@ -24,8 +24,8 @@ public enum ExperimentStates
 {
     Idle,
     Start,
+    Interval,
     Trial,
-    Delay,   
     End,
 };
 
@@ -69,8 +69,7 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
     // Reference to child classes
     public TrialController trialController;
     public WaveController waveController;
-    public Threat threatController;
-
+    
     public HandController handController;
     public HandSwitcher handSwitcher;
 
@@ -116,7 +115,7 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
 
             case ExperimentStates.Start:
                 if (ev == ExperimentEvents.ProtocolLoaded)
-                    ChangeState(ExperimentStates.Trial);
+                    ChangeState(ExperimentStates.Interval);
                 break;
 
 
@@ -124,11 +123,11 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
                 if (ev == ExperimentEvents.TrialFinished)
                 {
                     SaveTrialResult();
-                    ChangeState(ExperimentStates.Delay);
+                    ChangeState(ExperimentStates.Interval);
                 }
                 break;
 
-            case ExperimentStates.Delay:
+            case ExperimentStates.Interval:
                 if (ev == ExperimentEvents.NextTrial) {
                     ChangeState(ExperimentStates.Trial);
                 }
@@ -142,31 +141,26 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
         if (!IsStarted())
             return;
 
-        // Change the gender of the hand
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            handSwitcher.useMale = false;
-            WriteLog("Gender changed to female");
-        }
-        else if (Input.GetKeyDown(KeyCode.M))
-        {
-            handSwitcher.useMale = true;
-            WriteLog("Gender changed to male");
-        }
-
         switch (GetState())
         {
             case ExperimentStates.Idle:
-                if (Input.GetKeyDown(KeyCode.Tab))
-                    ChangeState(ExperimentStates.Start);
-                else if (Input.GetKeyDown(KeyCode.Escape))
-                    ChangeState(ExperimentStates.End);
+                // Change the gender of the hand
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    handSwitcher.useMale = false;
+                    WriteLog("Gender changed to female");
+                }
+                else if (Input.GetKeyDown(KeyCode.M))
+                {
+                    handSwitcher.useMale = true;
+                    WriteLog("Gender changed to male");
+                }
                 break;
 
             case ExperimentStates.Trial:
                 break;
 
-            case ExperimentStates.Delay:
+            case ExperimentStates.Interval:
                 if (GetTimeInState() > nextTrialTimeOut)
                     HandleEvent(ExperimentEvents.NextTrial);
                 break;
@@ -230,17 +224,15 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
                 break;
 
             case ExperimentStates.Trial:
-                if (trialList.HasMore())
-                {
-                    trialCounter++;
-                    StartTrial();
-                }
-                else {
-                    ChangeState(ExperimentStates.Idle);
-                }
+                StartTrial();
                 break;
 
-            case ExperimentStates.Delay:
+            case ExperimentStates.Interval:
+                if (trialList.HasMore())
+                    trialCounter++;
+
+                else
+                    ChangeState(ExperimentStates.End);
                 break;
 
             case ExperimentStates.End:

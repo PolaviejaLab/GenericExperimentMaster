@@ -15,7 +15,7 @@ public enum QuestionnaireEvents {
 
 public enum QuestionnaireStates {
     Idle,
-    Questionnaire,
+    Start,
     ShowQuestion,
     WaitingForAnswer,
     Delay, 
@@ -91,7 +91,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
             case QuestionnaireStates.Idle:
                 break;
 
-            case QuestionnaireStates.Questionnaire:
+            case QuestionnaireStates.Start:
                 if (GetTimeInState() > 1.0f)
                     ChangeState(QuestionnaireStates.ShowQuestion);
                 break;
@@ -111,8 +111,6 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
                 break;
 
             case QuestionnaireStates.Delay:
-                if (GetTimeInState() > 0.5f)
-                    ChangeState(QuestionnaireStates.ShowQuestion);
                 break;
         }
     }
@@ -123,7 +121,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
         {
             case QuestionnaireStates.Idle:
                 if (ev == QuestionnaireEvents.RoomOff)
-                    ChangeState(QuestionnaireStates.Questionnaire);
+                    ChangeState(QuestionnaireStates.Start);
                 break;
 
             case QuestionnaireStates.ShowQuestion:
@@ -152,7 +150,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
             case QuestionnaireStates.Idle:
                 break;
 
-            case QuestionnaireStates.Questionnaire:
+            case QuestionnaireStates.Start:
                 break;
 
             case QuestionnaireStates.ShowQuestion:
@@ -190,7 +188,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
             case QuestionnaireStates.Idle:
                 break;
 
-            case QuestionnaireStates.Questionnaire:
+            case QuestionnaireStates.Start:
                 break;
 
             case QuestionnaireStates.ShowQuestion:

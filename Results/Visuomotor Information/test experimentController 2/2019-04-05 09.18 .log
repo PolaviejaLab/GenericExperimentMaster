@@ -1,0 +1,8 @@
+2019-04-05T09:18:09.8940039Z	Logger	Started logging
+2019-04-05T09:18:09.9090053Z	ExperimentController	Participant: test experimentController 2
+2019-04-05T09:18:09.9209925Z	ExperimentController	Hand model is female
+2019-04-05T09:18:09.9479581Z	ExperimentController	Protocol file Protocol/Visuomotor Information/Protocol01.txt
+2019-04-05T09:18:09.9619429Z	ExperimentController	Loaded 5 trials
+2019-04-05T09:18:09.9759184Z	ExperimentController	Event ProtocolLoaded
+2019-04-05T09:18:09.9889051Z	ExperimentController	Entering state Interval
+2019-04-05T09:18:10.0038900Z	ExperimentController	Entering state Trial
