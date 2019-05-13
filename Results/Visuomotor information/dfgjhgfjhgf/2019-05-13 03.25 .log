@@ -1,0 +1,145 @@
+2019-05-13T15:25:43.1833977Z	Logger	Started logging
+2019-05-13T15:25:43.1933942Z	ExperimentController	Participant: dfgjhgfjhgf
+2019-05-13T15:25:43.2033910Z	ExperimentController	Hand model is female
+2019-05-13T15:25:43.2223848Z	ExperimentController	Protocol file Protocol/Visuomotor Information/Protocol01.txt
+2019-05-13T15:25:43.2323813Z	ExperimentController	Loaded 4 trials
+2019-05-13T15:25:43.2423781Z	ExperimentController	Event ProtocolLoaded
+2019-05-13T15:25:43.2523752Z	ExperimentController	Entering state Interval
+2019-05-13T15:25:44.6451303Z	ExperimentController	Event NextTrial
+2019-05-13T15:25:44.6501283Z	ExperimentController	Entering state Trial
+2019-05-13T15:25:44.6541273Z	ExperimentController	Starting trial
+2019-05-13T15:25:44.6591261Z	ExperimentController	Gap: Inactive
+2019-05-13T15:25:44.6631240Z	ExperimentController	HandOffset: 10
+2019-05-13T15:25:44.6671227Z	ExperimentController	Noise type 0
+2019-05-13T15:25:44.6711208Z	ExperimentController	NoiseLevel: 0
+2019-05-13T15:25:44.6751204Z	ExperimentController	Lambda: 0
+2019-05-13T15:25:44.6801187Z	ExperimentController	Collision probability: 1
+2019-05-13T15:25:44.6841174Z	ExperimentController	Knife PresentTrue
+2019-05-13T15:25:44.6891159Z	TrialController	Started
+2019-05-13T15:25:46.6466919Z	TrialController	Entering state SpecificTrial
+2019-05-13T15:25:46.6507026Z	VisuomotorAgency	Noise type: Control
+2019-05-13T15:25:46.6537017Z	VisuomotorAgency	Delay collision active: 0
+2019-05-13T15:25:46.6567006Z	VisuomotorAgency	Started
+2019-05-13T15:25:46.6597001Z	TrialController	Visuomotor Information Trial started
+2019-05-13T15:25:48.1549126Z	VisuomotorAgency	Entering state ExperimentWave
+2019-05-13T15:25:48.6611161Z	WaveController	Started
+2019-05-13T15:25:48.9142545Z	WaveController	Entering state Initial
+2019-05-13T15:25:49.7166991Z	WaveController	Initial Target Waved
+2019-05-13T15:25:49.7197065Z	WaveController	Entering state Delay
+2019-05-13T15:25:50.2071713Z	WaveController	Entering state Target
+2019-05-13T15:25:50.2101651Z	WaveController	Light: 1
+2019-05-13T15:25:50.8499564Z	WaveController	Probability for Wave 0: 0.2846532
+2019-05-13T15:25:50.8529564Z	WaveController	Time in wave: 0 was 0.6349926
+2019-05-13T15:25:50.8559642Z	WaveController	Entering state Feedback
+2019-05-13T15:25:51.3571045Z	WaveController	Waved correctly
+2019-05-13T15:25:52.3566997Z	WaveController	Entering state Interval
+2019-05-13T15:25:52.3596867Z	WaveController	Entering state Initial
+2019-05-13T15:25:52.6901430Z	WaveController	Initial Target Waved
+2019-05-13T15:25:52.6931368Z	WaveController	Entering state Delay
+2019-05-13T15:25:53.1952090Z	WaveController	Entering state Target
+2019-05-13T15:25:53.1972066Z	WaveController	Light: 0
+2019-05-13T15:25:53.9306152Z	WaveController	Time in wave: 1 was 0.7279072
+2019-05-13T15:25:53.9336038Z	WaveController	Entering state Feedback
+2019-05-13T15:25:54.4344034Z	WaveController	Waved incorrectly
+2019-05-13T15:25:55.4355494Z	WaveController	Entering state Interval
+2019-05-13T15:25:55.4379063Z	WaveController	Entering state Initial
+2019-05-13T15:25:55.7175817Z	WaveController	Initial Target Waved
+2019-05-13T15:25:55.7205922Z	WaveController	Entering state Delay
+2019-05-13T15:25:56.2076560Z	WaveController	Entering state Target
+2019-05-13T15:25:56.2096525Z	WaveController	Light: 0
+2019-05-13T15:25:56.8366091Z	WaveController	Probability for Wave 2: 0.989666
+2019-05-13T15:25:56.8396069Z	WaveController	Time in wave: 2 was 0.6149883
+2019-05-13T15:25:56.8426064Z	WaveController	Entering state Feedback
+2019-05-13T15:25:57.3279117Z	WaveController	Waved correctly
+2019-05-13T15:25:58.3286299Z	WaveController	Entering state Interval
+2019-05-13T15:25:58.3316177Z	WaveController	Entering state Initial
+2019-05-13T15:25:59.3577442Z	WaveController	Initial Target Waved
+2019-05-13T15:25:59.3597353Z	WaveController	Entering state Delay
+2019-05-13T15:25:59.8488394Z	WaveController	Entering state Target
+2019-05-13T15:25:59.8508393Z	WaveController	Light: 0
+2019-05-13T15:26:00.7172859Z	WaveController	Probability for Wave 3: 0.4302006
+2019-05-13T15:26:00.7202850Z	WaveController	Time in wave: 3 was 0.8543243
+2019-05-13T15:26:00.7232854Z	WaveController	Entering state Feedback
+2019-05-13T15:26:01.2089058Z	WaveController	Waved correctly
+2019-05-13T15:26:02.2088831Z	WaveController	Entering state Interval
+2019-05-13T15:26:02.2108825Z	WaveController	Entering state Initial
+2019-05-13T15:26:02.4769446Z	WaveController	Initial Target Waved
+2019-05-13T15:26:02.4799520Z	WaveController	Entering state Delay
+2019-05-13T15:26:02.9679192Z	WaveController	Entering state Target
+2019-05-13T15:26:02.9709132Z	WaveController	Light: 1
+2019-05-13T15:26:03.5565355Z	WaveController	Probability for Wave 4: 0.8837116
+2019-05-13T15:26:03.5605482Z	WaveController	Time in wave: 4 was 0.5745621
+2019-05-13T15:26:03.5625339Z	WaveController	Entering state Feedback
+2019-05-13T15:26:04.0501526Z	WaveController	Waved correctly
+2019-05-13T15:26:05.0512645Z	WaveController	Entering state Interval
+2019-05-13T15:26:05.0542631Z	WaveController	Entering state Initial
+2019-05-13T15:26:05.5327722Z	WaveController	Initial Target Waved
+2019-05-13T15:26:05.5357717Z	WaveController	Entering state Delay
+2019-05-13T15:26:06.0356727Z	WaveController	Entering state Target
+2019-05-13T15:26:06.0376740Z	WaveController	Light: 0
+2019-05-13T15:26:06.8771769Z	WaveController	Probability for Wave 5: 0.1005552
+2019-05-13T15:26:06.8801758Z	WaveController	Time in wave: 5 was 0.8272362
+2019-05-13T15:26:06.8831750Z	WaveController	Entering state Feedback
+2019-05-13T15:26:07.3690432Z	WaveController	Waved correctly
+2019-05-13T15:26:08.3688813Z	WaveController	Entering state Interval
+2019-05-13T15:26:08.3718896Z	WaveController	Entering state Initial
+2019-05-13T15:26:08.6370706Z	WaveController	Initial Target Waved
+2019-05-13T15:26:08.6400695Z	WaveController	Entering state Delay
+2019-05-13T15:26:09.1294608Z	WaveController	Entering state Target
+2019-05-13T15:26:09.1314605Z	WaveController	Light: 1
+2019-05-13T15:26:09.6376272Z	WaveController	Probability for Wave 6: 0.1355752
+2019-05-13T15:26:09.6406352Z	WaveController	Time in wave: 6 was 0.4935265
+2019-05-13T15:26:09.6436409Z	WaveController	Entering state Feedback
+2019-05-13T15:26:10.1309672Z	WaveController	Waved correctly
+2019-05-13T15:26:11.1297265Z	WaveController	Entering state Interval
+2019-05-13T15:26:11.1327188Z	WaveController	Entering state Initial
+2019-05-13T15:26:11.3984553Z	WaveController	Initial Target Waved
+2019-05-13T15:26:11.4004658Z	WaveController	Entering state Delay
+2019-05-13T15:26:11.8896591Z	WaveController	Entering state Target
+2019-05-13T15:26:11.8916494Z	WaveController	Light: 0
+2019-05-13T15:26:12.5179848Z	WaveController	Probability for Wave 7: 0.946758
+2019-05-13T15:26:12.5209837Z	WaveController	Time in wave: 7 was 0.6133842
+2019-05-13T15:26:12.5239820Z	WaveController	Entering state Feedback
+2019-05-13T15:26:13.0089722Z	WaveController	Waved correctly
+2019-05-13T15:26:14.0099999Z	WaveController	Entering state Interval
+2019-05-13T15:26:14.0130016Z	WaveController	Entering state Initial
+2019-05-13T15:26:14.2912488Z	WaveController	Initial Target Waved
+2019-05-13T15:26:14.2942394Z	WaveController	Entering state Delay
+2019-05-13T15:26:14.7836200Z	WaveController	Entering state Target
+2019-05-13T15:26:14.7856196Z	WaveController	Light: 1
+2019-05-13T15:26:15.4115918Z	WaveController	Probability for Wave 8: 0.641114
+2019-05-13T15:26:15.4146032Z	WaveController	Time in wave: 8 was 0.6196442
+2019-05-13T15:26:15.4176021Z	WaveController	Entering state Feedback
+2019-05-13T15:26:15.9051918Z	WaveController	Waved correctly
+2019-05-13T15:26:16.9057661Z	WaveController	Entering state Interval
+2019-05-13T15:26:16.9077646Z	WaveController	Entering state Initial
+2019-05-13T15:26:18.0279295Z	WaveController	Initial Target Waved
+2019-05-13T15:26:18.0299127Z	WaveController	Entering state Delay
+2019-05-13T15:26:18.5295440Z	WaveController	Entering state Target
+2019-05-13T15:26:18.5325429Z	WaveController	Light: 0
+2019-05-13T15:26:19.1719508Z	WaveController	Probability for Wave 9: 0.05475271
+2019-05-13T15:26:19.1749500Z	WaveController	Time in wave: 9 was 0.6327858
+2019-05-13T15:26:19.1779495Z	WaveController	Entering state Feedback
+2019-05-13T15:26:19.6634107Z	WaveController	Waved correctly
+2019-05-13T15:26:20.6631902Z	WaveController	Entering state Interval
+2019-05-13T15:26:20.6662062Z	WaveController	Entering state Initial
+2019-05-13T15:26:20.9324936Z	WaveController	Initial Target Waved
+2019-05-13T15:26:20.9354956Z	WaveController	Entering state Delay
+2019-05-13T15:26:21.4239685Z	WaveController	Entering state Target
+2019-05-13T15:26:21.4269672Z	WaveController	Light: 1
+2019-05-13T15:26:22.3505805Z	WaveController	Probability for Wave 10: 0.6425253
+2019-05-13T15:26:22.3545914Z	WaveController	Time in wave: 10 was 0.9191589
+2019-05-13T15:26:22.3565885Z	WaveController	Entering state Feedback
+2019-05-13T15:26:22.8516528Z	WaveController	Waved correctly
+2019-05-13T15:26:23.8531169Z	WaveController	Entering state Interval
+2019-05-13T15:26:23.8561251Z	WaveController	Entering state Initial
+2019-05-13T15:26:25.6924032Z	WaveController	Initial Target Waved
+2019-05-13T15:26:25.6953939Z	WaveController	Entering state Delay
+2019-05-13T15:26:26.1838031Z	WaveController	Entering state Target
+2019-05-13T15:26:26.1868139Z	WaveController	Light: 1
+2019-05-13T15:26:26.6928148Z	WaveController	Probability for Wave 11: 0.5505206
+2019-05-13T15:26:26.6968215Z	WaveController	Time in wave: 11 was 0.498951
+2019-05-13T15:26:26.6998127Z	WaveController	Entering state Feedback
+2019-05-13T15:26:27.1859637Z	WaveController	Waved correctly
+2019-05-13T15:26:28.1842144Z	WaveController	Entering state Interval
+2019-05-13T15:26:28.1872138Z	WaveController	Entering state Initial

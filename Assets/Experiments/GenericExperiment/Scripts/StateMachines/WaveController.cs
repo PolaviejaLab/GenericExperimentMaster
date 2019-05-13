@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using System.IO;
 using System.Collections;
 using System;
 
@@ -67,7 +69,6 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
     public float randomProbability;
     public bool targetColliderOn;
 
-    // Questionnaire
     private bool feedbackOn;
 
     // Define Time Outs
@@ -75,19 +76,22 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
     public float collisionDelay;
     public float timeInState;
 
-    public void Start()
-    {
-        collisionLights = GameObject.Find("CubeLight");
-        collisionInitial = GameObject.Find("CubeInitial");
-    }
-
+    public GameObject counters; 
+    public Text incorrectCounter;
+    public Text correctCounter;
 
     protected override void OnStart()
     {
+        collisionLights = GameObject.Find("CubeLight");
+        collisionInitial = GameObject.Find("CubeInitial");
+
         collisionProbability = trialController.collisionProbability;
         collisionDelay = trialController.delayWave;
         taskStarted = true;
         currentWave = 0;
+
+        counters.SetActive(true);
+
     }
 
 
@@ -175,7 +179,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 break;
 
             case WaveStates.Feedback:
-                if (GetTimeInState() > 0.5f && !feedbackOn)
+                if (GetTimeInState() > 0.25f && !feedbackOn)
                     GiveFeedback();
                 if (GetTimeInState() > 1.5f && feedbackOn)
                     ChangeState(WaveStates.Interval);
@@ -208,14 +212,15 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 break;
 
             case WaveStates.Interval:
-                if (currentWave < trialController.wavesRequired)
+                if (currentWave < (trialController.wavesRequired+1))
                     ChangeState(WaveStates.Initial);
-                if (currentWave == trialController.wavesRequired)
+                if (currentWave == (trialController.wavesRequired+1))
                     ChangeState(WaveStates.End);
                 break;
 
             case WaveStates.End:
                 trialController.HandleEvent(TrialEvents.TaskFinished);
+                counters.SetActive(false);
                 this.StopMachine();
                 taskStarted = false;
                 break;
@@ -238,9 +243,11 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 break;
 
             case WaveStates.Feedback:
-                currentWave++;
                 feedbackScreen.activeMaterial = 0;
                 feedbackOn = false;
+                currentWave++;
+                correctCounter.text = trialController.correctWaves.ToString();
+                incorrectCounter.text = trialController.incorrectWaves.ToString();               
                 break;
 
             case WaveStates.End:

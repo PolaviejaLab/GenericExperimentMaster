@@ -31,10 +31,6 @@ public class IntroductionController : ICStateMachine<IntroductionStates, Introdu
     public GameObject informationScreen;
     public GameObject display;
 
-	public void Start () {
-	
-	}
-
 
     protected override void OnStart() {
         informationScreen.SetActive(true);

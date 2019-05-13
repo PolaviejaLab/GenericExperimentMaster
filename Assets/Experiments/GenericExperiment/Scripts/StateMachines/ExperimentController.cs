@@ -69,7 +69,8 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
     // Reference to child classes
     public TrialController trialController;
     public WaveController waveController;
-    
+    public IntroductionController introductionController;
+
     public HandController handController;
     public HandSwitcher handSwitcher;
 
@@ -81,7 +82,7 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
     public string protocolFile;
 
     public string outputDirectory;
-    private string participantName;
+    public string participantName;
 
     public int trialCounter;
     private float nextTrialTimeOut = 1.5f;
@@ -90,8 +91,7 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
 
     public int noiseType;
 
-    public void Start()
-    {
+    protected override void OnStart() {
         // When the trial controller is stopped, invoke an event
         trialController.Stopped +=
             (sender, e) =>

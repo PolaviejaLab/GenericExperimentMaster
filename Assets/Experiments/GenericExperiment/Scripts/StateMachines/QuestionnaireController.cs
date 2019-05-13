@@ -69,10 +69,6 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
     private bool lightsOff;
 
 
-    public void Start()
-    {
-    }
-
     protected override void OnStart()
     {
         questionnaireResults = OpenResultsFile();
@@ -158,7 +154,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
             case QuestionnaireStates.ShowQuestion:
                 display.SetActive(true);
                 currentStatement = GetRandomNumber(arrayNum);
-                Debug.Log("Question number: " + currentStatement + 1 );
+                Debug.Log("Question number: " + currentStatement+1 );
                 DisplayText();
                 break;
 
@@ -269,7 +265,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
             {
                 if (arrayToRemove[n] != ind_)
                 {
-                    int aa = count;
+                    // int aa = count;
                     arrayLess[count] = arrayToRemove[n];
                     count++;
                 }

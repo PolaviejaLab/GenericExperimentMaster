@@ -47,10 +47,6 @@ public class ImplicitAgencyTrial : ICStateMachine<AgencyTrialStates, AgencyTrial
     public int lateWaves;
 
 
-    public void Start()
-    {
-    }
-
     protected override void OnStart()
     {
 }

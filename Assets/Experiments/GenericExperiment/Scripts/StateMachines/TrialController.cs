@@ -47,6 +47,7 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     public GameObject table;
     public GameObject feedback;
 
+
     // Parameters of the current trial
     public int hand;
     public float offset;
@@ -76,10 +77,6 @@ public class TrialController : ICStateMachine<TrialStates, TrialEvents>
     // var to determine trial type
     public ExperimentType experimentType;
 
-
-    public void Start()
-    {
-    }
 
     protected override void OnStart()
     {
