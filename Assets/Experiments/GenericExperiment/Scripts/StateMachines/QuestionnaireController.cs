@@ -27,7 +27,8 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
 {
     public TrialController trialController;
 
-    public GameObject screen;
+    public GameObject informationScreen;
+    public GameObject display;
     public Text text;
 
     string[] statements = new string[] {
@@ -42,12 +43,13 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
         "I felt that the movements of the virtual hand were caused by me",
         "I felt as if the virtual hand was obeying my will",
         "I felt that I controlled the virtual hand as if it was part of my body",
-        "I felt as if the lights were obeying my will",
+        "I felt that the lights were obeying my will",
         "I felt that the movement of my hand was turning off the lights on the table",
         "I felt as if the virtual hand was controlling my hand",
         "I had the feeling of forgetting my own hand, focusing only on the movement of the virtual hand",
         "I felt as if the virtual hand caused the movement of my hand",
-        "I felt as if the lights changed at random",
+        "I felt as if the lights turned off randomly",
+        "I felt as if I had no control over the target ligths",
         "It seemed like my hand was in the location of the virtual hand",
         "It seemed as if the movement of my hand was located where the virtual hand was moving"
     };
@@ -154,9 +156,9 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
                 break;
 
             case QuestionnaireStates.ShowQuestion:
-                screen.SetActive(true);
+                display.SetActive(true);
                 currentStatement = GetRandomNumber(arrayNum);
-                Debug.Log("Question number: " + currentStatement);
+                Debug.Log("Question number: " + currentStatement + 1 );
                 DisplayText();
                 break;
 
@@ -196,7 +198,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
                 break;
 
             case QuestionnaireStates.WaitingForAnswer:
-                screen.SetActive(false);
+                display.SetActive(false);
                 RecordResponse(responseLikert);
                 break;
 
@@ -283,12 +285,14 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
         foreach (Light l in roomLights)
             while (l.intensity > 0)
                 l.intensity = l.intensity - 0.0001f;
+        
         TurnOffRoom();
     }
 
 
     private void TurnOffRoom()
     {
+        informationScreen.SetActive(true);
         foreach (MaterialChanger i in roomWalls)
             i.activeMaterial = 1;
         trialController.table.SetActive(false);
