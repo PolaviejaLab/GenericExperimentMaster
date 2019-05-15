@@ -80,16 +80,20 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
     public Text incorrectCounter;
     public Text correctCounter;
 
-    protected override void OnStart()
-    {
+    public void Start() {
         collisionLights = GameObject.Find("CubeLight");
         collisionInitial = GameObject.Find("CubeInitial");
+    }
 
+    protected override void OnStart()
+    {
         collisionProbability = trialController.collisionProbability;
         collisionDelay = trialController.delayWave;
         taskStarted = true;
         currentWave = 0;
 
+        incorrectCounter.text = 0.ToString();
+        correctCounter.text = 0.ToString();
         counters.SetActive(true);
 
     }
@@ -268,7 +272,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
     }
 
     public void TurnOnTarget() {
-        // collisionLights.SetActive(true);
+        collisionLights.SetActive(true);
         lights[currentLight].activeMaterial = 1;
         targetLightOn = true;
     }
