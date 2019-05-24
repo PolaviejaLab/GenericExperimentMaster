@@ -89,13 +89,16 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
     {
         collisionProbability = trialController.collisionProbability;
         collisionDelay = trialController.delayWave;
-        taskStarted = true;
+        
         currentWave = 0;
+        trialController.incorrectWaves = 0;
+        trialController.correctWaves = 0;
+        trialController.lateWaves = 0;
 
-        incorrectCounter.text = 0.ToString();
-        correctCounter.text = 0.ToString();
+        taskStarted = true;
         counters.SetActive(true);
-
+        correctCounter.text = trialController.correctWaves.ToString();
+        incorrectCounter.text = trialController.incorrectWaves.ToString();
     }
 
 
@@ -223,10 +226,8 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 break;
 
             case WaveStates.End:
-                trialController.HandleEvent(TrialEvents.TaskFinished);
                 counters.SetActive(false);
                 this.StopMachine();
-                taskStarted = false;
                 break;
         }
     }

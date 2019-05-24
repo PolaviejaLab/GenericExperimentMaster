@@ -1,0 +1,24 @@
+2019-05-24T10:39:18.9121120Z	Logger	Started logging
+2019-05-24T10:39:18.9241107Z	ExperimentController	Participant: test how the counters work
+2019-05-24T10:39:18.9321107Z	ExperimentController	Hand model is female
+2019-05-24T10:39:18.9481101Z	ExperimentController	Protocol file Protocol/Visuomotor Information/Protocol01.txt
+2019-05-24T10:39:18.9601103Z	ExperimentController	Loaded 4 trials
+2019-05-24T10:39:18.9681102Z	ExperimentController	Event ProtocolLoaded
+2019-05-24T10:39:18.9801101Z	ExperimentController	Entering state Interval
+2019-05-24T10:39:20.3740171Z	ExperimentController	Event NextTrial
+2019-05-24T10:39:20.3819864Z	ExperimentController	Entering state Trial
+2019-05-24T10:39:20.3859669Z	ExperimentController	Starting trial
+2019-05-24T10:39:20.3899668Z	ExperimentController	Gap: Inactive
+2019-05-24T10:39:20.3939689Z	ExperimentController	HandOffset: 10
+2019-05-24T10:39:20.3979679Z	ExperimentController	Noise type 0
+2019-05-24T10:39:20.4019672Z	ExperimentController	NoiseLevel: 0
+2019-05-24T10:39:20.4059670Z	ExperimentController	Lambda: 0
+2019-05-24T10:39:20.4099672Z	ExperimentController	Collision probability: 1
+2019-05-24T10:39:20.4139673Z	ExperimentController	Knife PresentTrue
+2019-05-24T10:39:20.4189866Z	TrialController	Started
+2019-05-24T10:39:22.3821946Z	TrialController	Entering state SpecificTrial
+2019-05-24T10:39:22.3861956Z	VisuomotorAgency	Noise type: Control
+2019-05-24T10:39:22.3901952Z	VisuomotorAgency	Delay collision active: 0
+2019-05-24T10:39:22.3901952Z	VisuomotorAgency	Started
+2019-05-24T10:39:22.3941953Z	TrialController	Visuomotor Information Trial started
+2019-05-24T10:39:23.8893955Z	VisuomotorAgency	Entering state ExperimentWave

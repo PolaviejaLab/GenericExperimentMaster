@@ -119,8 +119,10 @@ public class VisuomotorAgency : ICStateMachine<VisuomotorAgencyStates, Visuomoto
                 break;
 
             case VisuomotorAgencyStates.ExperimentWave:
-                if (GetTimeInState() > 0.5f)
+                if (GetTimeInState() > 0.5f && !waveController.taskStarted) {
                     waveController.StartMachine();
+                }
+
 
                 if (waveController.taskStarted)              {
                     waveController.Stopped += (sender, e) => { HandleEvent(VisuomotorAgencyEvents.WaveFinished); };
