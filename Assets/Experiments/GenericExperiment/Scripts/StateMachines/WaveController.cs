@@ -252,7 +252,7 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 feedbackOn = false;
                 currentWave++;
                 correctCounter.text = trialController.correctWaves.ToString();
-                incorrectCounter.text = trialController.incorrectWaves.ToString();               
+                incorrectCounter.text = (trialController.incorrectWaves + trialController.lateWaves).ToString();               
                 break;
 
             case WaveStates.End:

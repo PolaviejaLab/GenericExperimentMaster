@@ -48,8 +48,8 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
         "I felt as if the virtual hand was controlling my hand",
         "I had the feeling of forgetting my own hand, focusing only on the movement of the virtual hand",
         "I felt as if the virtual hand caused the movement of my hand",
-        "I felt as if the lights turned off randomly",
-        "I felt as if I had no control over the target ligths",
+        "I felt as if the target lights turned off randomly",
+        "I felt as if I had no control over the target lights",
         "It seemed like my hand was in the location of the virtual hand",
         "It seemed as if the movement of my hand was located where the virtual hand was moving"
     };
@@ -154,7 +154,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
             case QuestionnaireStates.ShowQuestion:
                 display.SetActive(true);
                 currentStatement = GetRandomNumber(arrayNum);
-                Debug.Log("Question number: " + currentStatement+1 );
+                Debug.Log("Question number: " + (currentStatement + 1).ToString());
                 DisplayText();
                 break;
 
@@ -306,6 +306,7 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
         foreach (Light l in roomLights)
             l.intensity = intensity_initial;
         trialController.table.SetActive(true);
+        informationScreen.SetActive(false);
         trialController.feedback.SetActive(true);
         lightsOff = false;
     }
