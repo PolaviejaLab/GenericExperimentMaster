@@ -1,5 +1,6 @@
 TrialNumber, WavesRequired, IgnoreUpdate, GapStatus, HandOffset, NoiseType, NoiseLevel, NoiseLambda, CollisionProbability, KnifePresent
-2, 30, False, Inactive, 10, 0, 0, 0, 1.0, True
-3, 30, False, Active, 0, 10, 0, 0, 1.0, True
-4, 30, False, Inactive, 10, 2, 0, 1.0, 0.013, True
-5, 30, False, Active, 10, 2, 0, 1.0, 0.013, True
+1, 30, False, Inactive, 10, 0, 0, 0, 1.0, False
+2, 30, False, Active, 0, 10, 0, 0, 1.0, False 
+3, 30, False, Inactive, 10, 2, 0, 1.0, 0.013, False
+4, 30, False, Active, 10, 2, 0, 1.0, 0.013, False
+

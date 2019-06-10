@@ -1,0 +1,6 @@
+2019-05-29T12:07:17.9242004Z	Logger	Started logging
+2019-05-29T12:07:17.9361972Z	ExperimentController	Participant: pilot_num8
+2019-05-29T12:07:17.9471972Z	ExperimentController	Hand model is female
+2019-05-29T12:07:17.9661870Z	ExperimentController	Protocol file Protocol/Visuomotor Information/Protocol14.txt
+2019-05-29T12:07:17.9771834Z	ExperimentController	Loaded 8 trials
+2019-05-29T12:07:17.9871802Z	ExperimentController	Event ProtocolLoaded

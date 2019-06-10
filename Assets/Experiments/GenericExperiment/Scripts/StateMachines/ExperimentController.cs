@@ -501,7 +501,7 @@ public class ExperimentController : ICStateMachine<ExperimentStates, ExperimentE
         if (trialController.hand == 0)
             writer.Write("Continuous Limb, ");
         else if (trialController.hand == 1)
-            writer.Write("Discontinous Limb, ");
+            writer.Write("Discontinuous Limb, ");
         else
             writer.Write("Gap unknown, ");
 
