@@ -32,27 +32,52 @@ public class QuestionnaireController : ICStateMachine<QuestionnaireStates, Quest
     public Text text;
 
     string[] statements = new string[] {
-        "I felt as if I were looking at my hand, rather than a virtual hand",
-        "I felt as if the virtual hand was my hand",
-        "It seemed like the virtual hand belonged to me",
-        "It seemed that the virtual hand was part of my body",
-        "I felt as if I had more than one right hand",
-        "I felt like my real hand was turning virtual",
-        "I felt as if the virtual hand physically resembled my real hand in terms of shape, freckles and other features",
-        "I felt that I could control the virtual hand",
-        "I felt that the movements of the virtual hand were caused by me",
-        "I felt as if the virtual hand was obeying my will",
-        "I felt that I controlled the virtual hand as if it was part of my body",
-        "I felt that the lights were obeying my will",
-        "I felt that the movement of my hand was turning off the lights on the table",
-        "I felt as if the virtual hand was controlling my hand",
-        "I had the feeling of forgetting my own hand, focusing only on the movement of the virtual hand",
-        "I felt as if the virtual hand caused the movement of my hand",
-        "I felt as if the target lights turned off randomly",
-        "I felt as if I had no control over the target lights",
-        "It seemed like my hand was in the location of the virtual hand",
-        "It seemed as if the movement of my hand was located where the virtual hand was moving"
+       "Eu senti como se estivesse a olhar para a minha mão, ao invés de uma mão virtual",
+       "Eu senti como se a mão virtual fosse minha mão",
+       "Parecia que a mão virtual pertencia a mim",
+       "Parecia que a mão virtual fazia parte do meu corpo",
+       "Senti como se tivesse mais do que uma mão direita",
+       "Eu senti que a minha mão estava a tornar virtual",
+       "Senti como se a mão virtual se assemelhasse fisicamente à minha mão real em termos de forma, sardas e outras características",
+       "Senti que podia controlar a mão virtual",
+       "Senti que os movimentos da mão virtual foram causados por mim",
+       "Eu senti como se a mão virtual estivesse a obedecer a minha vontade",
+       "Senti que contralava a mão virtual como se fosse parte do meu corpo",
+       "Senti que as luzes amarelas estavam a obedecer a minha vontade",
+       "Senti que o movimento da minha mão estava a apagar as luzes amarelas",
+       "Eu senti como se a mão virtual estivesses a controlar a minha mão",
+       "Eu tive a sensção de esquecer a minha própia mão, e que estava a focar apenas no movimento da mão virtual",
+       "Eu senti como se a mão virtual causasse o movimento da minha mão",
+       "Eu senti como se as luzes alvo estivessem a desligar aleatoriamente",
+       "Senti como se não tivesse controlo sobre as luzes alvo",
+       "Parecia que minha mão estava no local da mão virtual",
+       "Parecia que o movimento da minha mão estava localizado onde a mão virtual estava a mover"
     };
+
+//string[] statements = new string[] {
+//    "I felt as if I were looking at my hand, rather than a virtual hand",
+//    "I felt as if the virtual hand was my hand",
+//    "It seemed like the virtual hand belonged to me",
+//    "It seemed that the virtual hand was part of my body",
+//    "I felt as if I had more than one right hand",
+//    "I felt like my real hand was turning virtual",
+//    "I felt as if the virtual hand physically resembled my real hand in terms of shape, freckles and other features",
+//    "I felt that I could control the virtual hand",
+//    "I felt that the movements of the virtual hand were caused by me",
+//    "I felt as if the virtual hand was obeying my will",
+//    "I felt that I controlled the virtual hand as if it was part of my body",
+//    "I felt that the lights were obeying my will",
+//    "I felt that the movement of my hand was turning off the lights on the table",
+//    "I felt as if the virtual hand was controlling my hand",
+//    "I had the feeling of forgetting my own hand, focusing only on the movement of the virtual hand",
+//    "I felt as if the virtual hand caused the movement of my hand",
+//    "I felt as if the target lights turned off randomly",
+//    "I felt as if I had no control over the target lights",
+//    "It seemed like my hand was in the location of the virtual hand",
+//    "It seemed as if the movement of my hand was located where the virtual hand was moving"
+//};
+
+
 
     public int totalLength;
     public int currentStatement = 0;
