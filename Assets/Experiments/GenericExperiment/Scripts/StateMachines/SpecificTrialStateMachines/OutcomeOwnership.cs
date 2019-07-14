@@ -82,8 +82,12 @@ public class OutcomeOwnership : ICStateMachine<OutcomeOwnershipStates, OutcomeOw
 
 
             case OutcomeOwnershipStates.Interval:
-                if (GetTimeInState() > 0.5f)
-                    ChangeState(OutcomeOwnershipStates.Threat);
+                if (GetTimeInState() > 0.5f) {
+                    if (trialController.knifePresent)
+                        ChangeState(OutcomeOwnershipStates.Threat);
+                    else if (!trialController.knifePresent)
+                        ChangeState(OutcomeOwnershipStates.End);
+                }
 
                 break;
 

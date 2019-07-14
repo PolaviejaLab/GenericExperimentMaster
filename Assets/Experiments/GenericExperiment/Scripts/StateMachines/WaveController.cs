@@ -219,9 +219,9 @@ public class WaveController : ICStateMachine<WaveStates, WaveEvents>
                 break;
 
             case WaveStates.Interval:
-                if (currentWave < (trialController.wavesRequired+1))
+                if (currentWave < (trialController.wavesRequired))
                     ChangeState(WaveStates.Initial);
-                if (currentWave == (trialController.wavesRequired+1))
+                if (currentWave == (trialController.wavesRequired))
                     ChangeState(WaveStates.End);
                 break;
 

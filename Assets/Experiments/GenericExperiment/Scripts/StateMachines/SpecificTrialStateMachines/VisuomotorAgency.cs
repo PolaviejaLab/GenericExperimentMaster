@@ -115,7 +115,12 @@ public class VisuomotorAgency : ICStateMachine<VisuomotorAgencyStates, Visuomoto
 
             case VisuomotorAgencyStates.Interval:
                 if (GetTimeInState() > 0.5f)
-                    ChangeState(VisuomotorAgencyStates.Threat);
+                {
+                    if (trialController.knifePresent)
+                        ChangeState(VisuomotorAgencyStates.Threat);
+                    else if (!trialController.knifePresent)
+                        ChangeState(VisuomotorAgencyStates.End);
+                }
                 break;
 
             case VisuomotorAgencyStates.ExperimentWave:
